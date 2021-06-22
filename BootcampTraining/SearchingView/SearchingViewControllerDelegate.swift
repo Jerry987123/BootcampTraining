@@ -26,9 +26,9 @@ extension SearchingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            return viewModel.movieDatas.value.count
         case 1:
-            return 2
+            return viewModel.musicDatas.value.count
         default:
             return 0
         }
@@ -38,9 +38,11 @@ extension SearchingViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
+            cell.setCell(model: viewModel.movieDatas.value[indexPath.row])
             return cell
         case 1:
             let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
+            cell.setCell(model: viewModel.musicDatas.value[indexPath.row])
             return cell
         default:
             return UITableViewCell()

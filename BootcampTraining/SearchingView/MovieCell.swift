@@ -8,7 +8,13 @@
 import UIKit
 
 class MovieCell:UITableViewCell {
+    
+    @IBOutlet weak var trackNameLabel: UILabel!
+    
     override class func awakeFromNib() {
         super.awakeFromNib()
+    }
+    func setCell(model: MovieModel){
+        trackNameLabel.text = model.trackName
     }
 }

@@ -91,6 +91,9 @@
                     <constraint firstItem="VVI-HT-KFz" firstAttribute="top" secondItem="Et2-og-Z9m" secondAttribute="bottom" constant="8" id="ueg-yI-3wc"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="trackNameLabel" destination="qbJ-OH-v1V" id="bU5-OA-lkE"/>
+            </connections>
             <point key="canvasLocation" x="35.507246376811594" y="122.20982142857142"/>
         </tableViewCell>
     </objects>
