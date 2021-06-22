@@ -22,6 +22,8 @@
 		A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C3D26818AA70043FCBA /* SearchingViewControllerExt.swift */; };
 		A1DF1C40268191740043FCBA /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DF1C3F268191740043FCBA /* MovieCell.xib */; };
 		A1DF1C422681941A0043FCBA /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C412681941A0043FCBA /* MovieCell.swift */; };
+		A1DF1C442681A6DF0043FCBA /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C432681A6DF0043FCBA /* MusicCell.swift */; };
+		A1DF1C462681A6F50043FCBA /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DF1C452681A6F50043FCBA /* MusicCell.xib */; };
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
 		E366F082B93758FEF403DBD1 /* Pods_BootcampTraining_BootcampTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688DE31FE5BB1B4E1D183477 /* Pods_BootcampTraining_BootcampTrainingUITests.framework */; };
@@ -71,6 +73,8 @@
 		A1DF1C3D26818AA70043FCBA /* SearchingViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchingViewControllerExt.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewControllerExt.swift; sourceTree = "<group>"; };
 		A1DF1C3F268191740043FCBA /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MovieCell.xib; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/MovieCell.xib; sourceTree = "<group>"; };
 		A1DF1C412681941A0043FCBA /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieCell.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/MovieCell.swift; sourceTree = "<group>"; };
+		A1DF1C432681A6DF0043FCBA /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MusicCell.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/MusicCell.swift; sourceTree = "<group>"; };
+		A1DF1C452681A6F50043FCBA /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MusicCell.xib; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/MusicCell.xib; sourceTree = "<group>"; };
 		A1EEDB36268088610024272C /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalViewController.swift; sourceTree = "<group>"; };
 		A1EEDB382680888C0024272C /* PersonalView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PersonalView.storyboard; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalView.storyboard; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +211,8 @@
 				A1DF1C3B268189B40043FCBA /* SearchingViewControllerDelegate.swift */,
 				A1DF1C412681941A0043FCBA /* MovieCell.swift */,
 				A1DF1C3F268191740043FCBA /* MovieCell.xib */,
+				A1DF1C432681A6DF0043FCBA /* MusicCell.swift */,
+				A1DF1C452681A6F50043FCBA /* MusicCell.xib */,
 				A126107726807D7F008BF566 /* SearchingView.storyboard */,
 			);
 			path = SearchingView;
@@ -334,6 +340,7 @@
 				A126107B26807D89008BF566 /* Assets.xcassets in Resources */,
 				A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */,
 				A1DF1C40268191740043FCBA /* MovieCell.xib in Resources */,
+				A1DF1C462681A6F50043FCBA /* MusicCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +470,7 @@
 			files = (
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,
+				A1DF1C442681A6DF0043FCBA /* MusicCell.swift in Sources */,
 				A1DF1C422681941A0043FCBA /* MovieCell.swift in Sources */,
 				A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */,
 				A126107226807D7F008BF566 /* AppDelegate.swift in Sources */,

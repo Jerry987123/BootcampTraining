@@ -24,15 +24,28 @@ extension SearchingViewController: UITableViewDataSource {
         return result
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 2
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
+            return cell
+        case 1:
+            let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
+            return cell
+        default:
+            return UITableViewCell()
+        }
     }
-    
-    
 }
 extension SearchingViewController: UITableViewDelegate {
     
