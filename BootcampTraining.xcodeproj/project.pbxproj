@@ -18,6 +18,8 @@
 		A126108926807D8A008BF566 /* BootcampTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126108826807D8A008BF566 /* BootcampTrainingTests.swift */; };
 		A126109426807D8A008BF566 /* BootcampTrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */; };
 		A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */; };
+		A1DF1C3C268189B40043FCBA /* SearchingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C3B268189B40043FCBA /* SearchingViewControllerDelegate.swift */; };
+		A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C3D26818AA70043FCBA /* SearchingViewControllerExt.swift */; };
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
 		E366F082B93758FEF403DBD1 /* Pods_BootcampTraining_BootcampTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688DE31FE5BB1B4E1D183477 /* Pods_BootcampTraining_BootcampTrainingUITests.framework */; };
@@ -63,6 +65,8 @@
 		A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootcampTrainingUITests.swift; sourceTree = "<group>"; };
 		A126109526807D8A008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/MainTabBar/MainTabBarViewController.swift; sourceTree = "<group>"; };
+		A1DF1C3B268189B40043FCBA /* SearchingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchingViewControllerDelegate.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewControllerDelegate.swift; sourceTree = "<group>"; };
+		A1DF1C3D26818AA70043FCBA /* SearchingViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchingViewControllerExt.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewControllerExt.swift; sourceTree = "<group>"; };
 		A1EEDB36268088610024272C /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalViewController.swift; sourceTree = "<group>"; };
 		A1EEDB382680888C0024272C /* PersonalView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PersonalView.storyboard; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalView.storyboard; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				A126107526807D7F008BF566 /* SearchingViewController.swift */,
+				A1DF1C3D26818AA70043FCBA /* SearchingViewControllerExt.swift */,
+				A1DF1C3B268189B40043FCBA /* SearchingViewControllerDelegate.swift */,
 				A126107726807D7F008BF566 /* SearchingView.storyboard */,
 			);
 			path = SearchingView;
@@ -450,8 +456,10 @@
 			files = (
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,
+				A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */,
 				A126107226807D7F008BF566 /* AppDelegate.swift in Sources */,
 				A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */,
+				A1DF1C3C268189B40043FCBA /* SearchingViewControllerDelegate.swift in Sources */,
 				A126107426807D7F008BF566 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

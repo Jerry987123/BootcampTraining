@@ -9,9 +9,13 @@ import UIKit
 
 class SearchingViewController: UIViewController {
 
+    var _tableView:UITableView?
+    var _searchController:UISearchController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewcontroller")
+        setTableView()
+        setSearchController()
     }
 
 
