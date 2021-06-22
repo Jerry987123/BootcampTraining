@@ -27,6 +27,7 @@
 		A1DF1C482681BDF60043FCBA /* SearchingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C472681BDF60043FCBA /* SearchingViewModel.swift */; };
 		A1DF1C4A2681BE250043FCBA /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C492681BE250043FCBA /* MovieModel.swift */; };
 		A1DF1C4C2681BE6E0043FCBA /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C4B2681BE6E0043FCBA /* MusicModel.swift */; };
+		A1DF1C502681D5620043FCBA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C4F2681D5620043FCBA /* Tools.swift */; };
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
 		E366F082B93758FEF403DBD1 /* Pods_BootcampTraining_BootcampTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688DE31FE5BB1B4E1D183477 /* Pods_BootcampTraining_BootcampTrainingUITests.framework */; };
@@ -81,6 +82,7 @@
 		A1DF1C472681BDF60043FCBA /* SearchingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewModel.swift; sourceTree = "<group>"; };
 		A1DF1C492681BE250043FCBA /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		A1DF1C4B2681BE6E0043FCBA /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		A1DF1C4F2681D5620043FCBA /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tools.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/Tools/Tools.swift; sourceTree = "<group>"; };
 		A1EEDB36268088610024272C /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalViewController.swift; sourceTree = "<group>"; };
 		A1EEDB382680888C0024272C /* PersonalView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PersonalView.storyboard; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalView.storyboard; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				A1DF1C38268178AD0043FCBA /* MainTabBar */,
 				A1EEDB34268087FE0024272C /* SearchingView */,
 				A1EEDB35268088470024272C /* PersonalView */,
+				A1DF1C4E2681D54F0043FCBA /* Tools */,
 				A126107A26807D89008BF566 /* Assets.xcassets */,
 				A126107C26807D89008BF566 /* LaunchScreen.storyboard */,
 				A126107F26807D89008BF566 /* Info.plist */,
@@ -208,6 +211,14 @@
 				A1DF1C4B2681BE6E0043FCBA /* MusicModel.swift */,
 			);
 			path = SearchingViewModel;
+			sourceTree = "<group>";
+		};
+		A1DF1C4E2681D54F0043FCBA /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				A1DF1C4F2681D5620043FCBA /* Tools.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		A1EEDB33268087E60024272C /* AppDelegate */ = {
@@ -485,6 +496,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1DF1C502681D5620043FCBA /* Tools.swift in Sources */,
 				A1DF1C4A2681BE250043FCBA /* MovieModel.swift in Sources */,
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,

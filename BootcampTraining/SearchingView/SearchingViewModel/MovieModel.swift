@@ -7,4 +7,8 @@
 
 struct MovieModel {
     var trackName:String?
+    var artistName:String?
+    var collectionName:String?
+    var trackTimeMillis:Int?
+    var longDescription:String?
 }

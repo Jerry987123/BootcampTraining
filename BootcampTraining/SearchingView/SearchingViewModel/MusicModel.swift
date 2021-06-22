@@ -7,4 +7,7 @@
 
 struct MusicModel {
     var trackName:String?
+    var artistName:String?
+    var collectionName:String?
+    var trackTimeMillis:Int?
 }

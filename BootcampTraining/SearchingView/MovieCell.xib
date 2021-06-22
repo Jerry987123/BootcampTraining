@@ -92,6 +92,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="artiestNameLabel" destination="uLe-Rw-eZy" id="e8m-W8-z7B"/>
+                <outlet property="collectionNameLabel" destination="rz4-ch-NcK" id="gTX-3U-Gto"/>
+                <outlet property="longDescriptionLabel" destination="VVI-HT-KFz" id="vAj-W6-86n"/>
+                <outlet property="movieTimeLabel" destination="Et2-og-Z9m" id="59L-rl-lcV"/>
                 <outlet property="trackNameLabel" destination="qbJ-OH-v1V" id="bU5-OA-lkE"/>
             </connections>
             <point key="canvasLocation" x="35.507246376811594" y="122.20982142857142"/>

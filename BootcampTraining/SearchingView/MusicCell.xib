@@ -41,7 +41,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="影片長度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7V-YU-WNd">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌曲長度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7V-YU-WNd">
                         <rect key="frame" x="110" y="104" width="70" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -76,6 +76,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="artiestNameLabel" destination="SpK-He-ojx" id="ECY-XW-ZOW"/>
+                <outlet property="collectionNameLabel" destination="sKk-N0-t38" id="0OK-Kg-0xj"/>
+                <outlet property="musicTimeLabel" destination="G7V-YU-WNd" id="kWG-LC-6kD"/>
                 <outlet property="trackNameLabel" destination="3cq-BM-8yj" id="E1h-Dl-jLh"/>
             </connections>
             <point key="canvasLocation" x="36.231884057971016" y="92.745535714285708"/>
