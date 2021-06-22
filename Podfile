@@ -9,7 +9,8 @@ target 'BootcampTraining' do
   pod 'AFNetworking', '~> 4.0'
   pod 'JSONModel'
   pod 'SDWebImage', '~> 5.0'
-
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
   target 'BootcampTrainingTests' do
     inherit! :search_paths
     # Pods for testing

@@ -15,6 +15,12 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - JSONModel (1.8.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -22,19 +28,27 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 4.0)
   - JSONModel
+  - RxCocoa (= 6.2.0)
+  - RxSwift (= 6.2.0)
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - JSONModel
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   JSONModel: 02ab723958366a3fd27da57ea2af2113658762e9
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: b0fa1c022e826f9445cdf3c7ca751ffb7914967a
+PODFILE CHECKSUM: dc6d536d3a218432bb8631cbcd79445eec043767
 
 COCOAPODS: 1.10.1
