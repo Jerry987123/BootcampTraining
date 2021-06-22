@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,12 +11,15 @@
 		414F49EB62F4FD6118C099A4 /* Pods_BootcampTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */; };
 		A126107226807D7F008BF566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107126807D7F008BF566 /* AppDelegate.swift */; };
 		A126107426807D7F008BF566 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107326807D7F008BF566 /* SceneDelegate.swift */; };
-		A126107626807D7F008BF566 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107526807D7F008BF566 /* ViewController.swift */; };
-		A126107926807D7F008BF566 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107726807D7F008BF566 /* Main.storyboard */; };
+		A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107526807D7F008BF566 /* SearchingViewController.swift */; };
+		A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107726807D7F008BF566 /* SearchingView.storyboard */; };
 		A126107B26807D89008BF566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A126107A26807D89008BF566 /* Assets.xcassets */; };
 		A126107E26807D89008BF566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107C26807D89008BF566 /* LaunchScreen.storyboard */; };
 		A126108926807D8A008BF566 /* BootcampTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126108826807D8A008BF566 /* BootcampTrainingTests.swift */; };
 		A126109426807D8A008BF566 /* BootcampTrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */; };
+		A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */; };
+		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
+		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
 		E366F082B93758FEF403DBD1 /* Pods_BootcampTraining_BootcampTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688DE31FE5BB1B4E1D183477 /* Pods_BootcampTraining_BootcampTrainingUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +51,8 @@
 		A126106E26807D7F008BF566 /* BootcampTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BootcampTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A126107126807D7F008BF566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A126107326807D7F008BF566 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A126107526807D7F008BF566 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A126107826807D7F008BF566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A126107526807D7F008BF566 /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
+		A126107826807D7F008BF566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchingView.storyboard; sourceTree = "<group>"; };
 		A126107A26807D89008BF566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A126107D26807D89008BF566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A126107F26807D89008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +62,9 @@
 		A126108F26807D8A008BF566 /* BootcampTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootcampTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootcampTrainingUITests.swift; sourceTree = "<group>"; };
 		A126109526807D8A008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/MainTabBar/MainTabBarViewController.swift; sourceTree = "<group>"; };
+		A1EEDB36268088610024272C /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersonalViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalViewController.swift; sourceTree = "<group>"; };
+		A1EEDB382680888C0024272C /* PersonalView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PersonalView.storyboard; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/PersonalView/PersonalView.storyboard; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BBED79CF8B72125D0847F1 /* Pods-BootcampTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTraining.debug.xcconfig"; path = "Target Support Files/Pods-BootcampTraining/Pods-BootcampTraining.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,7 +117,6 @@
 				69FBB3922900DF3EFB951E54 /* Pods-BootcampTrainingTests.debug.xcconfig */,
 				40ABB5A9ECCF5B63F4A5EE49 /* Pods-BootcampTrainingTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,10 +145,10 @@
 		A126107026807D7F008BF566 /* BootcampTraining */ = {
 			isa = PBXGroup;
 			children = (
-				A126107126807D7F008BF566 /* AppDelegate.swift */,
-				A126107326807D7F008BF566 /* SceneDelegate.swift */,
-				A126107526807D7F008BF566 /* ViewController.swift */,
-				A126107726807D7F008BF566 /* Main.storyboard */,
+				A1EEDB33268087E60024272C /* AppDelegate */,
+				A1DF1C38268178AD0043FCBA /* MainTabBar */,
+				A1EEDB34268087FE0024272C /* SearchingView */,
+				A1EEDB35268088470024272C /* PersonalView */,
 				A126107A26807D89008BF566 /* Assets.xcassets */,
 				A126107C26807D89008BF566 /* LaunchScreen.storyboard */,
 				A126107F26807D89008BF566 /* Info.plist */,
@@ -167,6 +172,41 @@
 				A126109526807D8A008BF566 /* Info.plist */,
 			);
 			path = BootcampTrainingUITests;
+			sourceTree = "<group>";
+		};
+		A1DF1C38268178AD0043FCBA /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		A1EEDB33268087E60024272C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				A126107126807D7F008BF566 /* AppDelegate.swift */,
+				A126107326807D7F008BF566 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		A1EEDB34268087FE0024272C /* SearchingView */ = {
+			isa = PBXGroup;
+			children = (
+				A126107526807D7F008BF566 /* SearchingViewController.swift */,
+				A126107726807D7F008BF566 /* SearchingView.storyboard */,
+			);
+			path = SearchingView;
+			sourceTree = "<group>";
+		};
+		A1EEDB35268088470024272C /* PersonalView */ = {
+			isa = PBXGroup;
+			children = (
+				A1EEDB36268088610024272C /* PersonalViewController.swift */,
+				A1EEDB382680888C0024272C /* PersonalView.storyboard */,
+			);
+			path = PersonalView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,8 +318,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A126107E26807D89008BF566 /* LaunchScreen.storyboard in Resources */,
+				A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */,
 				A126107B26807D89008BF566 /* Assets.xcassets in Resources */,
-				A126107926807D7F008BF566 /* Main.storyboard in Resources */,
+				A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,8 +448,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A126107626807D7F008BF566 /* ViewController.swift in Sources */,
+				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
+				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,
 				A126107226807D7F008BF566 /* AppDelegate.swift in Sources */,
+				A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */,
 				A126107426807D7F008BF566 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,12 +488,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A126107726807D7F008BF566 /* Main.storyboard */ = {
+		A126107726807D7F008BF566 /* SearchingView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A126107826807D7F008BF566 /* Base */,
 			);
-			name = Main.storyboard;
+			name = SearchingView.storyboard;
 			sourceTree = "<group>";
 		};
 		A126107C26807D89008BF566 /* LaunchScreen.storyboard */ = {
