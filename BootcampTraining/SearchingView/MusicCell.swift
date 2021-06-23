@@ -16,11 +16,11 @@ class MusicCell:UITableViewCell {
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
-    func setCell(model: MusicModel){
+    func setCell(model: iTunesSearchAPIResponseResult){
         trackNameLabel.text = model.trackName
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
-        musicTimeLabel.text = timeFromMillisToHMMSS(time: model.trackTimeMillis ?? 0)
+        musicTimeLabel.text = timeFromMillisToHMMSS(time: model.trackTimeMillis)
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
         let min = time/1000/60

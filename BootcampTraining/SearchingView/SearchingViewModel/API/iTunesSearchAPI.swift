@@ -7,6 +7,11 @@
 
 //import AFNetworking
 //
+
+enum SearchingMediaType: String {
+    case movie = "movie"
+    case music = "music"
+}
 class iTunesSearchAPI {
 //    func callAPI(){
 //        let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
@@ -21,9 +26,10 @@ class iTunesSearchAPI {
 //        }
 //
 //    }
-    func callAPI(handle:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->()){
+    func callAPI(term:String, mediaType:SearchingMediaType, handle:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->()){
         let api = iTunesSearchAPIObj()
-        let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
+        let url = "https://itunes.apple.com/search?term=\(term)&media=\(mediaType.rawValue)"
+        print("url=\(url)")
         api.callITunesAPI(url) { results in
             if let datas = results as? [iTunesSearchAPIResponseResult] {
                 handle(datas)

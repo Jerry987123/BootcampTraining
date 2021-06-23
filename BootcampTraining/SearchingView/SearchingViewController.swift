@@ -26,7 +26,8 @@ class SearchingViewController: UIViewController {
         viewModel.movieDatas.asObservable().subscribe { _ in
             self._tableView?.reloadData()
         }.disposed(by: disposeBag)
-        viewModel.updatedByAPI()
+        viewModel.updatedByAPI(term: "iron+man", mediaType: .movie)
+        viewModel.updatedByAPI(term: "maroon+5", mediaType: .music)
     }
 }
 
