@@ -18,11 +18,11 @@ class MovieCell:UITableViewCell {
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
-    func setCell(model: MovieModel){
+    func setCell(model: iTunesSearchAPIResponseResult){
         trackNameLabel.text = model.trackName
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
-        movieTimeLabel.text = timeFromMillisToHMMSS(time: model.trackTimeMillis ?? 0)
+        movieTimeLabel.text = timeFromMillisToHMMSS(time: model.trackTimeMillis)
         longDescriptionLabel.text = model.longDescription
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {

@@ -23,9 +23,10 @@ class SearchingViewController: UIViewController {
         viewModel.musicDatas.asObservable().subscribe { _ in
             self._tableView?.reloadData()
         }.disposed(by: disposeBag)
+        viewModel.movieDatas.asObservable().subscribe { _ in
+            self._tableView?.reloadData()
+        }.disposed(by: disposeBag)
         viewModel.updatedByAPI()
     }
-
-
 }
 

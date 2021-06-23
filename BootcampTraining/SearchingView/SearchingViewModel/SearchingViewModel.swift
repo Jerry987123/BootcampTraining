@@ -8,14 +8,17 @@
 import RxCocoa
 
 class SearchingViewModel {
-    var movieDatas = BehaviorRelay(value: [MovieModel()])
+    var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult()])
     var musicDatas = BehaviorRelay(value: [MusicModel()])
     
     func updatedByAPI(){
+        iTunesSearchAPI().callAPI { datas in
+            if let datas = datas {
+                self.movieDatas.accept(datas)
+            }
+        }
         // TODO 測試用資料
-        let tempoMovieDatas = [MovieModel()]
         let tempoMusicDatas = [MusicModel()]
-        movieDatas.accept(tempoMovieDatas)
         musicDatas.accept(tempoMusicDatas)
     }
 }

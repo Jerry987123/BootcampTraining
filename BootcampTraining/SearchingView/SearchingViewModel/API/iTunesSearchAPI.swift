@@ -21,9 +21,15 @@ class iTunesSearchAPI {
 //        }
 //
 //    }
-    func callAPI(){
+    func callAPI(handle:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->()){
         let api = iTunesSearchAPIObj()
         let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
-        api.callITunesAPI(url)
+        api.callITunesAPI(url) { results in
+            if let datas = results as? [iTunesSearchAPIResponseResult] {
+                handle(datas)
+            } else {
+                handle(nil)
+            }
+        }
     }
 }

@@ -10,6 +10,10 @@
 
 @interface iTunesSearchAPIObj : NSObject
 
-- (void) callITunesAPI: (NSString*) url;
+{
+    void (^_completionHandler)(NSMutableArray<iTunesSearchAPIResponseResult*> *someParameter);
+}
+
+- (void) callITunesAPI: (NSString*) url:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*))handler;
 
 @end
