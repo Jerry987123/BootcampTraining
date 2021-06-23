@@ -52,13 +52,12 @@ extension SearchingViewController: UITableViewDataSource {
 extension SearchingViewController: UITableViewDelegate {
     
 }
-extension SearchingViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        if let searchText = searchController.searchBar.text {
+extension SearchingViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text,
+           searchText.trimmingCharacters(in: .whitespaces).count > 0 {
             print("執行搜尋關鍵字=\(searchText)")
+            viewModel.updatedByAPI(term: searchText)
         }
     }
-}
-extension SearchingViewController: UISearchBarDelegate {
-
 }

@@ -20,7 +20,9 @@
         int i;
         for (i=0; i<[[responseObject objectForKey:@"results"] count];i++) {
             iTunesSearchAPIResponseResult *jsonResponseResult = [[iTunesSearchAPIResponseResult alloc] initWithDictionary: [responseObject objectForKey:@"results"][i] error:nil];
-            [results addObject:jsonResponseResult];
+            if (jsonResponseResult != nil) {
+                [results addObject:jsonResponseResult];
+            }
         }
         // NOTE: copying is very important if you'll call the callback asynchronously,
         // even with garbage collection!

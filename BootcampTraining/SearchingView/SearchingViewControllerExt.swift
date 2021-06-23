@@ -30,7 +30,6 @@ extension SearchingViewController {
             guard let searchController = _searchController else {
                 return print("searchController failed to init")
             }
-            searchController.searchResultsUpdater = self
             searchController.searchBar.delegate = self
             searchController.searchBar.placeholder = "搜尋"
             if let tableView = _tableView {

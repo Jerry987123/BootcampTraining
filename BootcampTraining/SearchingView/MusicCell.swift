@@ -20,7 +20,7 @@ class MusicCell:UITableViewCell {
         trackNameLabel.text = model.trackName
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
-        musicTimeLabel.text = timeFromMillisToHMMSS(time: model.trackTimeMillis)
+        musicTimeLabel.text = timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
         let min = time/1000/60

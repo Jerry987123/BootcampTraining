@@ -11,7 +11,7 @@
 @property (nonatomic) NSString *trackName;
 @property (nonatomic) NSString *artistName;
 @property (nonatomic) NSString <Optional> *collectionName;
-@property (nonatomic) NSInteger trackTimeMillis;
+@property (nonatomic) NSNumber <Optional> *trackTimeMillis;
 @property (nonatomic) NSString <Optional> *longDescription;
 @end
 

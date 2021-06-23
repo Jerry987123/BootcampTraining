@@ -22,7 +22,7 @@ class MovieCell:UITableViewCell {
         trackNameLabel.text = model.trackName
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
-        movieTimeLabel.text = timeFromMillisToHMMSS(time: model.trackTimeMillis)
+        movieTimeLabel.text = timeFromMillisToHMMSS(time: Int(model.trackTimeMillis ?? 0))
         longDescriptionLabel.text = model.longDescription
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {

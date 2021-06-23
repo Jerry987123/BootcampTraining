@@ -11,7 +11,11 @@ class SearchingViewModel {
     var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult()])
     var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult()])
     
-    func updatedByAPI(term:String, mediaType:SearchingMediaType){
+    func updatedByAPI(term:String){
+        updatedByAPI(term: term, mediaType: .movie)
+        updatedByAPI(term: term, mediaType: .music)
+    }
+    private func updatedByAPI(term:String, mediaType:SearchingMediaType){
         iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { datas in
             if let datas = datas {
                 switch mediaType {
