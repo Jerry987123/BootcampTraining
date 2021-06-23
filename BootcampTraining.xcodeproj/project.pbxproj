@@ -18,6 +18,8 @@
 		A126108926807D8A008BF566 /* BootcampTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126108826807D8A008BF566 /* BootcampTrainingTests.swift */; };
 		A126109426807D8A008BF566 /* BootcampTrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */; };
 		A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */; };
+		A1D1325B268307D5004D34E5 /* iTunesSearchAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1325A268307D5004D34E5 /* iTunesSearchAPI.m */; };
+		A1D1325F268312A5004D34E5 /* iTunesSearchAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1325E268312A5004D34E5 /* iTunesSearchAPIResponse.m */; };
 		A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */; };
 		A1DF1C3C268189B40043FCBA /* SearchingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C3B268189B40043FCBA /* SearchingViewControllerDelegate.swift */; };
 		A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C3D26818AA70043FCBA /* SearchingViewControllerExt.swift */; };
@@ -71,7 +73,12 @@
 		A126108F26807D8A008BF566 /* BootcampTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootcampTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootcampTrainingUITests.swift; sourceTree = "<group>"; };
 		A126109526807D8A008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = iTunesSearchAPI.swift; path = ../../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewModel/iTunesSearchAPI.swift; sourceTree = "<group>"; };
+		A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
+		A1D13255268305F1004D34E5 /* BootcampTraining-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BootcampTraining-Bridging-Header.h"; sourceTree = "<group>"; };
+		A1D132592683079F004D34E5 /* iTunesSearchAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iTunesSearchAPI.h; path = ../../../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewModel/API/iTunesSearchAPI.h; sourceTree = "<group>"; };
+		A1D1325A268307D5004D34E5 /* iTunesSearchAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = iTunesSearchAPI.m; path = ../../../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewModel/API/iTunesSearchAPI.m; sourceTree = "<group>"; };
+		A1D1325C26830F2E004D34E5 /* iTunesSearchAPIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = iTunesSearchAPIResponse.h; path = ../../../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewModel/API/iTunesSearchAPIResponse.h; sourceTree = "<group>"; };
+		A1D1325E268312A5004D34E5 /* iTunesSearchAPIResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = iTunesSearchAPIResponse.m; path = ../../../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewModel/API/iTunesSearchAPIResponse.m; sourceTree = "<group>"; };
 		A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainTabBarViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/MainTabBar/MainTabBarViewController.swift; sourceTree = "<group>"; };
 		A1DF1C3B268189B40043FCBA /* SearchingViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchingViewControllerDelegate.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewControllerDelegate.swift; sourceTree = "<group>"; };
 		A1DF1C3D26818AA70043FCBA /* SearchingViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchingViewControllerExt.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/SearchingView/SearchingViewControllerExt.swift; sourceTree = "<group>"; };
@@ -177,6 +184,7 @@
 				A126107A26807D89008BF566 /* Assets.xcassets */,
 				A126107C26807D89008BF566 /* LaunchScreen.storyboard */,
 				A126107F26807D89008BF566 /* Info.plist */,
+				A1D13255268305F1004D34E5 /* BootcampTraining-Bridging-Header.h */,
 			);
 			path = BootcampTraining;
 			sourceTree = "<group>";
@@ -199,6 +207,18 @@
 			path = BootcampTrainingUITests;
 			sourceTree = "<group>";
 		};
+		A1D13254268305A8004D34E5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */,
+				A1D132592683079F004D34E5 /* iTunesSearchAPI.h */,
+				A1D1325A268307D5004D34E5 /* iTunesSearchAPI.m */,
+				A1D1325C26830F2E004D34E5 /* iTunesSearchAPIResponse.h */,
+				A1D1325E268312A5004D34E5 /* iTunesSearchAPIResponse.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		A1DF1C38268178AD0043FCBA /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,7 +233,7 @@
 				A1DF1C472681BDF60043FCBA /* SearchingViewModel.swift */,
 				A1DF1C492681BE250043FCBA /* MovieModel.swift */,
 				A1DF1C4B2681BE6E0043FCBA /* MusicModel.swift */,
-				A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */,
+				A1D13254268305A8004D34E5 /* API */,
 			);
 			path = SearchingViewModel;
 			sourceTree = "<group>";
@@ -331,6 +351,7 @@
 				TargetAttributes = {
 					A126106D26807D7F008BF566 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					A126108326807D8A008BF566 = {
 						CreatedOnToolsVersion = 12.5;
@@ -500,12 +521,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D1325B268307D5004D34E5 /* iTunesSearchAPI.m in Sources */,
 				A1DF1C502681D5620043FCBA /* Tools.swift in Sources */,
 				A1DF1C4A2681BE250043FCBA /* MovieModel.swift in Sources */,
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,
 				A1DF1C442681A6DF0043FCBA /* MusicCell.swift in Sources */,
 				A1DF1C422681941A0043FCBA /* MovieCell.swift in Sources */,
+				A1D1325F268312A5004D34E5 /* iTunesSearchAPIResponse.m in Sources */,
 				A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */,
 				A1DF1C4C2681BE6E0043FCBA /* MusicModel.swift in Sources */,
 				A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */,
@@ -689,6 +712,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTraining/Info.plist;
@@ -699,6 +723,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.testesunbank.BootcampTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/BootcampTraining/BootcampTraining-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -710,6 +736,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTraining/Info.plist;
@@ -720,6 +747,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.testesunbank.BootcampTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/BootcampTraining/BootcampTraining-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
