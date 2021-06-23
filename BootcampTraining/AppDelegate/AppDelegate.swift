@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // TODO 測試用
-        SearchAPI().callAPI()
+        iTunesSearchAPI().callAPI()
         return true
     }
 }

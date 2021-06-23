@@ -1,5 +1,5 @@
 //
-//  SearchAPI.swift
+//  iTunesSearchAPI.swift
 //  BootcampTraining
 //
 //  Created by ESB21852 on 2021/6/23.
@@ -7,7 +7,7 @@
 
 //import AFNetworking
 //
-//class iTunesSearchAPI {
+class iTunesSearchAPI {
 //    func callAPI(){
 //        let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
 //        
@@ -21,8 +21,6 @@
 //        }
 //
 //    }
-//}
-class SearchAPI {
     func callAPI(){
         let api = iTunesSearchAPIObj()
         let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
