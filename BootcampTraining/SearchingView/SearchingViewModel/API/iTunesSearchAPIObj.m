@@ -5,9 +5,9 @@
 //  Created by ESB21852 on 2021/6/23.
 //
 
-#import "iTunesSearchAPI.h"
+#import "iTunesSearchAPIObj.h"
 
-@implementation iTunesSearchAPI
+@implementation iTunesSearchAPIObj
 
 - (void) callITunesAPI: (NSString*) url {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];

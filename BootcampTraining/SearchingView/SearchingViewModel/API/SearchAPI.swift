@@ -1,5 +1,5 @@
 //
-//  iTunesSearchAPI.swift
+//  SearchAPI.swift
 //  BootcampTraining
 //
 //  Created by ESB21852 on 2021/6/23.
@@ -22,4 +22,10 @@
 //
 //    }
 //}
-
+class SearchAPI {
+    func callAPI(){
+        let api = iTunesSearchAPIObj()
+        let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
+        api.callITunesAPI(url)
+    }
+}

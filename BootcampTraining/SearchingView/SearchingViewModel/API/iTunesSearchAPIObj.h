@@ -8,7 +8,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "iTunesSearchAPIResponseResult.h"
 
-@interface iTunesSearchAPI : NSObject
+@interface iTunesSearchAPIObj : NSObject
 
 - (void) callITunesAPI: (NSString*) url;
 

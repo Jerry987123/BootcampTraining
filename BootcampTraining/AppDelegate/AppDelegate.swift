@@ -19,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         // TODO 測試用
-        let api = iTunesSearchAPI()
-        let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
-        api.callITunesAPI(url)
+        SearchAPI().callAPI()
         return true
     }
 }
