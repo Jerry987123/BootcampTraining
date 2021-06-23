@@ -16,9 +16,18 @@
          headers:nil
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSError *error;
-            iTunesSearchAPIResponse *jsonResponse = [[iTunesSearchAPIResponse alloc] initWithDictionary: responseObject error:&error];
-            NSLog(@"%@", jsonResponse);
+        int i;
+        for (i=0; i<[[responseObject objectForKey:@"results"] count];i++) {
+            iTunesSearchAPIResponseResult *jsonResponseResult = [[iTunesSearchAPIResponseResult alloc] initWithDictionary: [responseObject objectForKey:@"results"][i] error:nil];
+            NSLog(@"%@", jsonResponseResult.trackName);
+            NSLog(@"%@", jsonResponseResult.artistName);
+            NSLog(@"%@", jsonResponseResult.collectionName);
+            NSLog(@"%ld", (long)jsonResponseResult.trackTimeMillis);
+//            NSLog(@"%@", jsonResponseResult.longDescription);
+            
+            NSLog(@"---------------");
+        }
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
     }];

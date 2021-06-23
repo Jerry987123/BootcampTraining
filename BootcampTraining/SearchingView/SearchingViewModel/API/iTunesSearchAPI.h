@@ -6,7 +6,7 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
-#import "iTunesSearchAPIResponse.h"
+#import "iTunesSearchAPIResponseResult.h"
 
 @interface iTunesSearchAPI : NSObject
 
