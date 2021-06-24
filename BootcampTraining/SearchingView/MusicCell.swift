@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MusicCell:UITableViewCell {
+    
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var artiestNameLabel: UILabel!
     @IBOutlet weak var collectionNameLabel: UILabel!
@@ -22,6 +25,9 @@ class MusicCell:UITableViewCell {
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
         musicTimeLabel.text = timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
+        if let artworkUrl100 = model.artworkUrl100, let url = URL(string: artworkUrl100) {
+            photoImageView.sd_setImage(with: url)
+        }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
         let min = time/1000/60

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieCell:UITableViewCell {
     
+    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var trackNameLabel: UILabel!
     @IBOutlet weak var artiestNameLabel: UILabel!
     @IBOutlet weak var collectionNameLabel: UILabel!
@@ -39,6 +41,9 @@ class MovieCell:UITableViewCell {
         collectionNameLabel.text = model.collectionName
         movieTimeLabel.text = timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
         longDescriptionLabel.text = model.longDescription
+        if let artworkUrl100 = model.artworkUrl100, let url = URL(string: artworkUrl100) {
+            photoImageView.sd_setImage(with: url)
+        }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
         let hour = time/1000/3600

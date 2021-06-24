@@ -13,5 +13,6 @@
 @property (nonatomic) NSString <Optional> *collectionName;
 @property (nonatomic) NSNumber <Optional> *trackTimeMillis;
 @property (nonatomic) NSString <Optional> *longDescription;
+@property (nonatomic) NSString <Optional> *artworkUrl100;
 @end
 
