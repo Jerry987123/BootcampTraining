@@ -50,6 +50,20 @@ extension SearchingViewController: UITableViewDataSource {
     }
 }
 extension SearchingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var trackViewUrl = ""
+        switch indexPath.section {
+        case 0:
+            trackViewUrl = viewModel.movieDatas.value[indexPath.row].trackViewUrl
+        case 1:
+            trackViewUrl = viewModel.musicDatas.value[indexPath.row].trackViewUrl
+        default:
+            return
+        }
+        if let url = URL(string: trackViewUrl), UIApplication.shared.canOpenURL(url){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
     
 }
 extension SearchingViewController: UISearchBarDelegate {
