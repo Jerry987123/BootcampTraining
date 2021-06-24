@@ -10,6 +10,10 @@
 		414F49EB62F4FD6118C099A4 /* Pods_BootcampTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */; };
 		4B5DF1DEABE0E468B27231C8 /* Pods_BootcampTrainingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F04A6E6A6D652A32F34D5E /* Pods_BootcampTrainingTests.framework */; };
 		5A295C158054B2E78F65D32F /* Pods_BootcampTraining_BootcampTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8C58A076953EBDAEC8D853 /* Pods_BootcampTraining_BootcampTrainingUITests.framework */; };
+		A10909EB2684565300D826A3 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10909EA2684565300D826A3 /* TopicViewController.swift */; };
+		A10909ED268456A200D826A3 /* TopicView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10909EC268456A200D826A3 /* TopicView.storyboard */; };
+		A10909EF2684574F00D826A3 /* TopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10909EE2684574F00D826A3 /* TopicCell.xib */; };
+		A10909F1268457B000D826A3 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10909F0268457B000D826A3 /* TopicCell.swift */; };
 		A126107226807D7F008BF566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107126807D7F008BF566 /* AppDelegate.swift */; };
 		A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107526807D7F008BF566 /* SearchingViewController.swift */; };
 		A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107726807D7F008BF566 /* SearchingView.storyboard */; };
@@ -61,6 +65,10 @@
 		5730E6AA9A5891F97BA36FCF /* Pods-BootcampTrainingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTrainingUITests.debug.xcconfig"; path = "Target Support Files/Pods-BootcampTrainingUITests/Pods-BootcampTrainingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		69FBB3922900DF3EFB951E54 /* Pods-BootcampTrainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTrainingTests.debug.xcconfig"; path = "Target Support Files/Pods-BootcampTrainingTests/Pods-BootcampTrainingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B8C58A076953EBDAEC8D853 /* Pods_BootcampTraining_BootcampTrainingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining_BootcampTrainingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10909EA2684565300D826A3 /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicViewController.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicViewController.swift; sourceTree = "<group>"; };
+		A10909EC268456A200D826A3 /* TopicView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TopicView.storyboard; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicView.storyboard; sourceTree = "<group>"; };
+		A10909EE2684574F00D826A3 /* TopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TopicCell.xib; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicCell.xib; sourceTree = "<group>"; };
+		A10909F0268457B000D826A3 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicCell.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicCell.swift; sourceTree = "<group>"; };
 		A126106E26807D7F008BF566 /* BootcampTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BootcampTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A126107126807D7F008BF566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A126107526807D7F008BF566 /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +162,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A10909E92684563A00D826A3 /* TopicView */ = {
+			isa = PBXGroup;
+			children = (
+				A10909EA2684565300D826A3 /* TopicViewController.swift */,
+				A10909F0268457B000D826A3 /* TopicCell.swift */,
+				A10909EE2684574F00D826A3 /* TopicCell.xib */,
+				A10909EC268456A200D826A3 /* TopicView.storyboard */,
+			);
+			path = TopicView;
+			sourceTree = "<group>";
+		};
 		A126106526807D7F008BF566 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +202,7 @@
 				A1DF1C38268178AD0043FCBA /* MainTabBar */,
 				A1EEDB34268087FE0024272C /* SearchingView */,
 				A1EEDB35268088470024272C /* PersonalView */,
+				A10909E92684563A00D826A3 /* TopicView */,
 				A1DF1C4E2681D54F0043FCBA /* Tools */,
 				A126107A26807D89008BF566 /* Assets.xcassets */,
 				A126107C26807D89008BF566 /* LaunchScreen.storyboard */,
@@ -397,6 +417,8 @@
 				A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */,
 				A126107B26807D89008BF566 /* Assets.xcassets in Resources */,
 				A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */,
+				A10909ED268456A200D826A3 /* TopicView.storyboard in Resources */,
+				A10909EF2684574F00D826A3 /* TopicCell.xib in Resources */,
 				A1DF1C40268191740043FCBA /* MovieCell.xib in Resources */,
 				A1DF1C462681A6F50043FCBA /* MusicCell.xib in Resources */,
 			);
@@ -533,12 +555,14 @@
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,
 				A1DF1C442681A6DF0043FCBA /* MusicCell.swift in Sources */,
+				A10909F1268457B000D826A3 /* TopicCell.swift in Sources */,
 				A1DF1C422681941A0043FCBA /* MovieCell.swift in Sources */,
 				A1D1325F268312A5004D34E5 /* iTunesSearchAPIResponse.m in Sources */,
 				A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */,
 				A1DF1C4C2681BE6E0043FCBA /* MusicModel.swift in Sources */,
 				A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */,
 				A126107226807D7F008BF566 /* AppDelegate.swift in Sources */,
+				A10909EB2684565300D826A3 /* TopicViewController.swift in Sources */,
 				A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */,
 				A1DF1C3C268189B40043FCBA /* SearchingViewControllerDelegate.swift in Sources */,
 				A1DF1C482681BDF60043FCBA /* SearchingViewModel.swift in Sources */,
@@ -722,7 +746,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTraining/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -746,7 +770,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTraining/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -768,7 +792,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTrainingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -791,7 +815,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTrainingTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -813,7 +837,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTrainingUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -835,7 +859,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K645724F98;
 				INFOPLIST_FILE = BootcampTrainingUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

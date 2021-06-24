@@ -14,18 +14,11 @@ class MainTabBarViewController: UITabBarController {
     }
     private func setUI(){
         let searchingView = UIStoryboard(name: "SearchingView", bundle: nil).instantiateViewController(withIdentifier: "SearchingViewController")
-        if #available(iOS 13.0, *) {
-            searchingView.tabBarItem.image = UIImage.init(systemName: "magnifyingglass")
-        } else {
-            // Fallback on earlier versions
-        }
+        searchingView.tabBarItem.image = UIImage.init(systemName: "magnifyingglass")
+
         let personalView = UIStoryboard(name: "PersonalView", bundle: nil).instantiateViewController(withIdentifier: "PersonalViewController")
-        if #available(iOS 13.0, *) {
-            personalView.tabBarItem.image = UIImage.init(systemName: "person")
-        } else {
-            // Fallback on earlier versions
-        }
-        viewControllers = [searchingView, personalView]
+        personalView.tabBarItem.image = UIImage.init(systemName: "person")
+        viewControllers = [searchingView, UINavigationController(rootViewController: personalView)]
         
         tabBar.backgroundColor = .gray
         let singleTabWidth: CGFloat = tabBar.frame.size.width / 2
