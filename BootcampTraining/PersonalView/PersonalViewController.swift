@@ -9,6 +9,8 @@ import UIKit
 
 class PersonalViewController:UIViewController {
     
+    @IBOutlet weak var topicLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -21,9 +23,19 @@ class PersonalViewController:UIViewController {
     
     private func setUI(){
         navigationController?.navigationBar.topItem?.title = "個人資料"
-        navigationController?.navigationBar.backgroundColor = .gray
+        navigationController?.navigationBar.backIndicatorImage = UIImage()
+        navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = .black
+        
+        let viewModel = TopicViewModel()
+        let topicType = viewModel.getSelectedTopic()
+        switch topicType {
+        case .deepColor:
+            topicLabel.text = viewModel.datas[0]
+        case .lightColor:
+            topicLabel.text = viewModel.datas[1]
+        }
         
     }
 }

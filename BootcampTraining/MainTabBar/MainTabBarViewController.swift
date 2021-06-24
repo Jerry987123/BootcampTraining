@@ -12,6 +12,10 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         setUI()
     }
+    func switchTopic(){
+        viewControllers?.removeAll()
+        setUI()
+    }
     private func setUI(){
         let searchingView = UIStoryboard(name: "SearchingView", bundle: nil).instantiateViewController(withIdentifier: "SearchingViewController")
         searchingView.tabBarItem.image = UIImage.init(systemName: "magnifyingglass")
@@ -20,7 +24,8 @@ class MainTabBarViewController: UITabBarController {
         personalView.tabBarItem.image = UIImage.init(systemName: "person")
         viewControllers = [searchingView, UINavigationController(rootViewController: personalView)]
         
-        tabBar.backgroundColor = .gray
+        tabBar.backgroundColor = TopicInteractor.topicColor.tabbar
+        
         let singleTabWidth: CGFloat = tabBar.frame.size.width / 2
         let singleTabSize = CGSize(width:singleTabWidth , height: tabBar.frame.size.height)
         let selectedTabBackgroundImage = imageWithColor(color: .white, size: singleTabSize)

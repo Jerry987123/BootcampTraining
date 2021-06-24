@@ -62,5 +62,9 @@ extension TopicViewController:UITableViewDelegate {
             break
         }
         tableView.reloadData()
+        if let tabBar = tabBarController as? MainTabBarViewController {
+            TopicInteractor.readTopicListFile()
+            tabBar.switchTopic()
+        }
     }
 }
