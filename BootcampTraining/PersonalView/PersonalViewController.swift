@@ -23,7 +23,7 @@ class PersonalViewController:UIViewController {
     
     private func setUI(){
         navigationController?.navigationBar.topItem?.title = "個人資料"
-        navigationController?.navigationBar.backIndicatorImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = .black

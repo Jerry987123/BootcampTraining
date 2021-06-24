@@ -19,12 +19,15 @@ class MainTabBarViewController: UITabBarController {
     private func setUI(){
         let searchingView = UIStoryboard(name: "SearchingView", bundle: nil).instantiateViewController(withIdentifier: "SearchingViewController")
         searchingView.tabBarItem.image = UIImage.init(systemName: "magnifyingglass")
+        searchingView.tabBarItem.selectedImage = UIImage.init(systemName: "magnifyingglass")
 
         let personalView = UIStoryboard(name: "PersonalView", bundle: nil).instantiateViewController(withIdentifier: "PersonalViewController")
         personalView.tabBarItem.image = UIImage.init(systemName: "person")
         viewControllers = [searchingView, UINavigationController(rootViewController: personalView)]
         
         tabBar.backgroundColor = TopicInteractor.topicColor.tabbar
+        tabBar.backgroundImage = UIImage()
+        tabBar.unselectedItemTintColor = .white
         
         let singleTabWidth: CGFloat = tabBar.frame.size.width / 2
         let singleTabSize = CGSize(width:singleTabWidth , height: tabBar.frame.size.height)
