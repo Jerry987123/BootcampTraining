@@ -24,6 +24,8 @@ class PersonalViewController:UIViewController {
     @IBAction func collectionButtonAction(_ sender: UIButton) {
     }
     @IBAction func aboutItunesButtonAction(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "AboutiTunes", bundle: nil).instantiateViewController(withIdentifier: "AboutiTunesViewController")
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setUI(){
