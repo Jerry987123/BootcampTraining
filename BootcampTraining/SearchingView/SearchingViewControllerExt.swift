@@ -43,6 +43,7 @@ extension SearchingViewController {
             }
             searchController.searchBar.delegate = self
             searchController.searchBar.placeholder = "搜尋"
+            searchController.obscuresBackgroundDuringPresentation = false
             if let tableView = _tableView {
                 tableView.tableHeaderView = searchController.searchBar
             }
