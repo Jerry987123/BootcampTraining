@@ -44,6 +44,8 @@
 		A1DF1C502681D5620043FCBA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C4F2681D5620043FCBA /* Tools.swift */; };
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
+		E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58DEBB42684D681002C1CEE /* CollectionViewController.swift */; };
+		E58DEBB72684D6AF002C1CEE /* CollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		A1EEDB382680888C0024272C /* PersonalView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalView.storyboard; sourceTree = "<group>"; };
 		A31ABA1D93027518FC3740DF /* Pods-BootcampTrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTrainingUITests.release.xcconfig"; path = "Target Support Files/Pods-BootcampTrainingUITests/Pods-BootcampTrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E58DEBB42684D681002C1CEE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectionView.storyboard; sourceTree = "<group>"; };
 		E9BBED79CF8B72125D0847F1 /* Pods-BootcampTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTraining.debug.xcconfig"; path = "Target Support Files/Pods-BootcampTraining/Pods-BootcampTraining.debug.xcconfig"; sourceTree = "<group>"; };
 		F6F04A6E6A6D652A32F34D5E /* Pods_BootcampTrainingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTrainingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -235,8 +239,9 @@
 				A1DF1C38268178AD0043FCBA /* MainTabBar */,
 				A1EEDB34268087FE0024272C /* SearchingView */,
 				A1EEDB35268088470024272C /* PersonalView */,
-				A10909FD268480EC00D826A3 /* AboutiTunes */,
 				A10909E92684563A00D826A3 /* TopicView */,
+				E58DEBB32684D639002C1CEE /* CollectionView */,
+				A10909FD268480EC00D826A3 /* AboutiTunes */,
 				A1DF1C4E2681D54F0043FCBA /* Tools */,
 				A126107A26807D89008BF566 /* Assets.xcassets */,
 				A126107C26807D89008BF566 /* LaunchScreen.storyboard */,
@@ -336,6 +341,15 @@
 				A1EEDB382680888C0024272C /* PersonalView.storyboard */,
 			);
 			path = PersonalView;
+			sourceTree = "<group>";
+		};
+		E58DEBB32684D639002C1CEE /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E58DEBB42684D681002C1CEE /* CollectionViewController.swift */,
+				E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,6 +464,7 @@
 				A10909FC268465F700D826A3 /* TopicList.json in Resources */,
 				A126107E26807D89008BF566 /* LaunchScreen.storyboard in Resources */,
 				A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */,
+				E58DEBB72684D6AF002C1CEE /* CollectionView.storyboard in Resources */,
 				A126107B26807D89008BF566 /* Assets.xcassets in Resources */,
 				A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */,
 				A10909ED268456A200D826A3 /* TopicView.storyboard in Resources */,
@@ -584,6 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */,
 				A1D1326226831C47004D34E5 /* iTunesSearchAPIResponseResult.m in Sources */,
 				A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */,
 				A10909F82684650700D826A3 /* TopicInteractor.swift in Sources */,
