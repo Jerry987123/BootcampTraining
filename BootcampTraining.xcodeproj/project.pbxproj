@@ -14,6 +14,7 @@
 		A10909ED268456A200D826A3 /* TopicView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10909EC268456A200D826A3 /* TopicView.storyboard */; };
 		A10909EF2684574F00D826A3 /* TopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10909EE2684574F00D826A3 /* TopicCell.xib */; };
 		A10909F1268457B000D826A3 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10909F0268457B000D826A3 /* TopicCell.swift */; };
+		A10909F326845B4700D826A3 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10909F226845B4700D826A3 /* TopicViewModel.swift */; };
 		A126107226807D7F008BF566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107126807D7F008BF566 /* AppDelegate.swift */; };
 		A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126107526807D7F008BF566 /* SearchingViewController.swift */; };
 		A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107726807D7F008BF566 /* SearchingView.storyboard */; };
@@ -69,6 +70,7 @@
 		A10909EC268456A200D826A3 /* TopicView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TopicView.storyboard; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicView.storyboard; sourceTree = "<group>"; };
 		A10909EE2684574F00D826A3 /* TopicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TopicCell.xib; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicCell.xib; sourceTree = "<group>"; };
 		A10909F0268457B000D826A3 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicCell.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicCell.swift; sourceTree = "<group>"; };
+		A10909F226845B4700D826A3 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicViewModel.swift; path = ../../../../../../esb21852/Documents/07Sourcetree/BootcampTraining/BootcampTraining/TopicView/TopicViewModel.swift; sourceTree = "<group>"; };
 		A126106E26807D7F008BF566 /* BootcampTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BootcampTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A126107126807D7F008BF566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A126107526807D7F008BF566 /* SearchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				A10909EA2684565300D826A3 /* TopicViewController.swift */,
+				A10909F226845B4700D826A3 /* TopicViewModel.swift */,
 				A10909F0268457B000D826A3 /* TopicCell.swift */,
 				A10909EE2684574F00D826A3 /* TopicCell.xib */,
 				A10909EC268456A200D826A3 /* TopicView.storyboard */,
@@ -561,6 +564,7 @@
 				A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */,
 				A1DF1C4C2681BE6E0043FCBA /* MusicModel.swift in Sources */,
 				A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */,
+				A10909F326845B4700D826A3 /* TopicViewModel.swift in Sources */,
 				A126107226807D7F008BF566 /* AppDelegate.swift in Sources */,
 				A10909EB2684565300D826A3 /* TopicViewController.swift in Sources */,
 				A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */,

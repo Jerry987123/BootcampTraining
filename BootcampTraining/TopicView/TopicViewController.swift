@@ -10,7 +10,8 @@ import UIKit
 class TopicViewController: UIViewController {
     
     var _tableView:UITableView?
-    var datas = ["深色主題", "淺色主題"]
+    
+    let viewModel = TopicViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +44,23 @@ extension TopicViewController:UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("TopicCell", owner: self, options: nil)?.first as! TopicCell
-        cell.titleLabel.text = datas[indexPath.row]
+        cell.titleLabel.text = viewModel.datas[indexPath.row]
+        if viewModel.getSelectedTopic().rawValue == indexPath.row {
+            cell.accessoryType = .checkmark
+        }
         return cell
     }
 }
 extension TopicViewController:UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            viewModel.setSelectedTopic(topicType: .deepColor)
+        case 1:
+            viewModel.setSelectedTopic(topicType: .lightColor)
+        default:
+            break
+        }
+        tableView.reloadData()
+    }
 }
