@@ -15,6 +15,7 @@ class MainTabBarViewController: UITabBarController {
     func switchTopic(){
         viewControllers?.removeAll()
         setUI()
+        selectedIndex = 1
     }
     private func setUI(){
         let searchingView = UIStoryboard(name: "SearchingView", bundle: nil).instantiateViewController(withIdentifier: "SearchingViewController")
