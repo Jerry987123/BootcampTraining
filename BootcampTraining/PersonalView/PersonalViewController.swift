@@ -10,6 +10,7 @@ import UIKit
 class PersonalViewController:UIViewController {
     
     @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var collectionNumberLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class PersonalViewController:UIViewController {
     @IBAction func topicButtonAction(_ sender: UIButton) {
         let vc = UIStoryboard(name: "TopicView", bundle: nil).instantiateViewController(withIdentifier: "TopicViewController")
         navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func collectionButtonAction(_ sender: UIButton) {
+    }
+    @IBAction func aboutItunesButtonAction(_ sender: UIButton) {
     }
     
     private func setUI(){
