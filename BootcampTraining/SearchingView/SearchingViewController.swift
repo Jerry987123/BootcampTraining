@@ -12,6 +12,7 @@ class SearchingViewController: UIViewController {
 
     var _tableView:UITableView?
     var _searchController:UISearchController?
+    var _loadingIndicator:UIActivityIndicatorView?
 
     let viewModel = SearchingViewModel()
     let disposeBag = DisposeBag()
@@ -20,6 +21,7 @@ class SearchingViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
         setSearchController()
+        setLoadingIndicator()
         viewModel.musicDatas.asObservable().subscribe { _ in
             self._tableView?.reloadData()
         }.disposed(by: disposeBag)

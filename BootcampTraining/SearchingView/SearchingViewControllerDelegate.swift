@@ -71,7 +71,12 @@ extension SearchingViewController: UISearchBarDelegate {
         if let searchText = searchBar.text,
            searchText.trimmingCharacters(in: .whitespaces).count > 0 {
             print("執行搜尋關鍵字=\(searchText)")
-            viewModel.updatedByAPI(term: searchText)
+            _loadingIndicator?.startAnimating()
+            viewModel.updatedByAPI(term: searchText) { state in
+                if state {
+                    self._loadingIndicator?.stopAnimating()
+                }
+            }
         }
     }
 }

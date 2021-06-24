@@ -8,6 +8,17 @@
 import UIKit
 
 extension SearchingViewController {
+    func setLoadingIndicator(){
+        if _loadingIndicator == nil {
+            _loadingIndicator = UIActivityIndicatorView()
+            guard let loadingIndicator = _loadingIndicator else {
+                return print("loadingIndicator failed to init")
+            }
+            loadingIndicator.color = .gray
+            loadingIndicator.center = view.center
+            view.addSubview(loadingIndicator)
+        }
+    }
     func setTableView(){
         if _tableView == nil {
             _tableView = UITableView()
