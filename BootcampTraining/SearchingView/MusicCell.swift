@@ -13,8 +13,9 @@ class MusicCell:UITableViewCell {
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var musicTimeLabel: UILabel!
     
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
     func setCell(model: iTunesSearchAPIResponseResult){
         trackNameLabel.text = model.trackName

@@ -15,8 +15,23 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var movieTimeLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
     
-    override class func awakeFromNib() {
+    weak var _tableView:UITableView?
+    
+    override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
+    }
+    
+    @IBAction func readMoreButtonAction(_ sender: UIButton) {
+        _tableView?.beginUpdates()
+        if longDescriptionLabel.numberOfLines == 2 {
+            longDescriptionLabel.numberOfLines = 0
+            sender.setTitle("...read less", for: .normal)
+        } else {
+            longDescriptionLabel.numberOfLines = 2
+            sender.setTitle("...read more", for: .normal)
+        }
+        _tableView?.endUpdates()
     }
     func setCell(model: iTunesSearchAPIResponseResult){
         trackNameLabel.text = model.trackName

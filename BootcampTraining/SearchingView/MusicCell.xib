@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,25 +24,25 @@
                             <constraint firstAttribute="width" constant="90" id="hTp-ic-JYJ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-BM-8yj">
-                        <rect key="frame" x="110" y="10" width="123" height="29"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Track Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cq-BM-8yj">
+                        <rect key="frame" x="110" y="10" width="422" height="29"/>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artiestName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpK-He-ojx">
-                        <rect key="frame" x="110" y="49" width="94" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artiestName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SpK-He-ojx">
+                        <rect key="frame" x="110" y="49" width="343" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKk-N0-t38">
-                        <rect key="frame" x="110" y="75" width="126" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKk-N0-t38">
+                        <rect key="frame" x="110" y="74.5" width="343" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌曲長度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7V-YU-WNd">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="歌曲長度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7V-YU-WNd">
                         <rect key="frame" x="110" y="104" width="70" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -60,6 +61,7 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Exu-73-st3" firstAttribute="top" secondItem="3cq-BM-8yj" secondAttribute="bottom" constant="9" id="2lL-Ij-WIB"/>
                     <constraint firstItem="SpK-He-ojx" firstAttribute="top" secondItem="3cq-BM-8yj" secondAttribute="bottom" constant="10" id="7oJ-bX-Nng"/>
                     <constraint firstItem="2De-je-Du4" firstAttribute="top" secondItem="hes-ju-Dmn" secondAttribute="top" constant="10" id="D4G-bf-5Lc"/>
                     <constraint firstItem="SpK-He-ojx" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="DWG-nQ-VAJ"/>
@@ -67,12 +69,14 @@
                     <constraint firstItem="3cq-BM-8yj" firstAttribute="leading" secondItem="2De-je-Du4" secondAttribute="trailing" constant="10" id="Jc7-hH-Ywq"/>
                     <constraint firstAttribute="trailing" secondItem="Exu-73-st3" secondAttribute="trailing" constant="30" id="MZC-Qx-DFF"/>
                     <constraint firstItem="G7V-YU-WNd" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="Oxl-Qi-vn8"/>
-                    <constraint firstItem="Exu-73-st3" firstAttribute="top" secondItem="hes-ju-Dmn" secondAttribute="top" constant="48" id="b1w-rI-vfm"/>
+                    <constraint firstAttribute="trailing" secondItem="3cq-BM-8yj" secondAttribute="trailing" constant="30" id="RLJ-4I-P2m"/>
+                    <constraint firstItem="Exu-73-st3" firstAttribute="leading" secondItem="SpK-He-ojx" secondAttribute="trailing" constant="10" id="czX-Lu-AM8"/>
                     <constraint firstItem="2De-je-Du4" firstAttribute="leading" secondItem="hes-ju-Dmn" secondAttribute="leading" constant="10" id="dtV-hk-Zya"/>
                     <constraint firstAttribute="bottom" secondItem="G7V-YU-WNd" secondAttribute="bottom" constant="16" id="jHQ-P0-WiA"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="top" secondItem="SpK-He-ojx" secondAttribute="bottom" constant="5" id="pTd-OZ-6Qi"/>
                     <constraint firstItem="G7V-YU-WNd" firstAttribute="top" secondItem="sKk-N0-t38" secondAttribute="bottom" constant="8" id="pdG-dp-zda"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="reD-bi-mOE"/>
+                    <constraint firstItem="Exu-73-st3" firstAttribute="leading" secondItem="sKk-N0-t38" secondAttribute="trailing" constant="10" id="x6l-SP-dkk"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
