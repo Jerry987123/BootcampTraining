@@ -8,8 +8,8 @@
 import RxCocoa
 
 class SearchingViewModel {
-    var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult()])
-    var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult()])
+    var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
+    var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     
     func updatedByAPI(term:String){
         updatedByAPI(term: term, mediaType: .movie)
