@@ -28,6 +28,7 @@ class CollectionViewController: UIViewController {
         default:
             break
         }
+        _tableView?.reloadData()
     }
     private func setUI(){
         title = "收藏項目"
@@ -43,7 +44,7 @@ class CollectionViewController: UIViewController {
         tableView.dataSource = self
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: switchButtonView.bottomAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
