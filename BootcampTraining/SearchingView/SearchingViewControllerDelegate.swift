@@ -64,7 +64,6 @@ extension SearchingViewController: UITableViewDelegate {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-    
 }
 extension SearchingViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
