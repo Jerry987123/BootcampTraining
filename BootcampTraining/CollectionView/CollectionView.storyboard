@@ -16,9 +16,31 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vuf-Nl-wal">
+                                <rect key="frame" x="107" y="54" width="200" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="N0w-tj-sJc"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="電影"/>
+                                    <segment title="音樂"/>
+                                </segments>
+                                <connections>
+                                    <action selector="switchButtonAction:" destination="Y6W-OH-hqX" eventType="valueChanged" id="BJw-SF-qw0"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vuf-Nl-wal" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="dOW-1b-Gjh"/>
+                            <constraint firstItem="vuf-Nl-wal" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gEw-sx-cza"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="switchButtonView" destination="vuf-Nl-wal" id="BHe-Td-rx7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
