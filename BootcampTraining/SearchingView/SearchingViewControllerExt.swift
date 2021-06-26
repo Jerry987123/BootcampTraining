@@ -26,6 +26,8 @@ extension SearchingViewController {
         guard let tableView = _tableView else {
             return print("tableView failed to init.")
         }
+        tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)

@@ -8,8 +8,8 @@
 #import <JSONModel/JSONModel.h>
 
 @interface iTunesSearchAPIResponseResult : JSONModel
-@property (nonatomic) NSString *trackName;
-@property (nonatomic) NSString *artistName;
+@property (nonatomic) NSString <Optional> *trackName;
+@property (nonatomic) NSString <Optional> *artistName;
 @property (nonatomic) NSString <Optional> *collectionName;
 @property (nonatomic) NSNumber <Optional> *trackTimeMillis;
 @property (nonatomic) NSString <Optional> *longDescription;
