@@ -14,6 +14,6 @@
     void (^_completionHandler)(NSMutableArray<iTunesSearchAPIResponseResult*> *someParameter);
 }
 
-- (void) callITunesAPI: (NSString*) url:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*))handler;
+-(void) callITunesAPI:(NSString *)apiUrl handler:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*)) handler;
 
 @end

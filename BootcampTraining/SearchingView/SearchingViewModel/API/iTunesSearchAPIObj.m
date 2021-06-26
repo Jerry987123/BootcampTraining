@@ -9,9 +9,9 @@
 
 @implementation iTunesSearchAPIObj
 
-- (void) callITunesAPI: (NSString*) url:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*))handler {
+- (void) callITunesAPI: (NSString*) apiUrl handler:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*))handler {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:url
+    [manager GET:apiUrl
       parameters:nil
          headers:nil
         progress:nil
