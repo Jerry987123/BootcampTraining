@@ -13,7 +13,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="141" id="MVS-jh-aAY" customClass="MusicCell" customModule="BootcampTraining" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="562" height="141"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVS-jh-aAY" id="hes-ju-Dmn">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVS-jh-aAY" id="hes-ju-Dmn">
                 <rect key="frame" x="0.0" y="0.0" width="562" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -37,13 +37,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKk-N0-t38">
-                        <rect key="frame" x="120" y="74.5" width="333" height="21.5"/>
+                        <rect key="frame" x="120" y="74.5" width="333" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="歌曲長度" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7V-YU-WNd">
-                        <rect key="frame" x="120" y="104" width="70" height="21"/>
+                        <rect key="frame" x="120" y="103" width="70" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -70,9 +70,9 @@
                     <constraint firstAttribute="trailing" secondItem="Exu-73-st3" secondAttribute="trailing" constant="30" id="MZC-Qx-DFF"/>
                     <constraint firstItem="G7V-YU-WNd" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="Oxl-Qi-vn8"/>
                     <constraint firstAttribute="trailing" secondItem="3cq-BM-8yj" secondAttribute="trailing" constant="30" id="RLJ-4I-P2m"/>
+                    <constraint firstAttribute="bottom" secondItem="2De-je-Du4" secondAttribute="bottom" constant="10" id="ZiX-fh-9Wa"/>
                     <constraint firstItem="Exu-73-st3" firstAttribute="leading" secondItem="SpK-He-ojx" secondAttribute="trailing" constant="10" id="czX-Lu-AM8"/>
                     <constraint firstItem="2De-je-Du4" firstAttribute="leading" secondItem="hes-ju-Dmn" secondAttribute="leading" constant="10" id="dtV-hk-Zya"/>
-                    <constraint firstAttribute="bottom" secondItem="G7V-YU-WNd" secondAttribute="bottom" constant="16" id="jHQ-P0-WiA"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="top" secondItem="SpK-He-ojx" secondAttribute="bottom" constant="5" id="pTd-OZ-6Qi"/>
                     <constraint firstItem="G7V-YU-WNd" firstAttribute="top" secondItem="sKk-N0-t38" secondAttribute="bottom" constant="8" id="pdG-dp-zda"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="reD-bi-mOE"/>

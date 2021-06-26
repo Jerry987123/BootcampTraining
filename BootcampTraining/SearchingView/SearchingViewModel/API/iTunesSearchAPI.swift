@@ -14,9 +14,8 @@ enum SearchingMediaType: String {
 }
 class iTunesSearchAPI {
     func callAPI(term:String, mediaType:SearchingMediaType, handle:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->()){
-        let api = iTunesSearchAPIObj()
         let url = "https://itunes.apple.com/search?term=\(term)&media=\(mediaType.rawValue)"
-        api.callITunesAPI(url) { results in
+        iTunesSearchAPIObj().callITunesAPI(url) { results in
             if let datas = results as? [iTunesSearchAPIResponseResult] {
                 handle(datas)
             } else {

@@ -43,6 +43,8 @@ class MovieCell:UITableViewCell {
         longDescriptionLabel.text = model.longDescription
         if let artworkUrl100 = model.artworkUrl100, let url = URL(string: artworkUrl100) {
             photoImageView.sd_setImage(with: url)
+        } else {
+            photoImageView.image = UIImage.init(systemName: "tv")
         }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {

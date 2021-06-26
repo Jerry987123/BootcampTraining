@@ -69,11 +69,8 @@ extension SearchingViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text,
            searchText.trimmingCharacters(in: .whitespaces).count > 0 {
-            guard let urlEncodedString = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-                return print("searchbarText failed to urlencode.")
-            }
             _loadingIndicator?.startAnimating()
-            viewModel.updatedByAPI(term: urlEncodedString) { state in
+            viewModel.updatedByAPI(term: searchText) { state in
                 if state {
                     self._loadingIndicator?.stopAnimating()
                 }

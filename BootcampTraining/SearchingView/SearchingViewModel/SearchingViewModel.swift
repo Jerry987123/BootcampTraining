@@ -14,14 +14,19 @@ class SearchingViewModel {
     func updatedByAPI(term:String, callback:@escaping (_ state:Bool)->Void){
         var movieState = false
         var musicState = false
-        updatedByAPI(term: term, mediaType: .movie) { state in
+        guard let urlEncodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            print("searchbarText failed to urlencode.")
+            callback(true)
+            return
+        }
+        updatedByAPI(term: urlEncodedTerm, mediaType: .movie) { state in
             if musicState {
                 callback(true)
             } else {
                 movieState = true
             }
         }
-        updatedByAPI(term: term, mediaType: .music) { state in
+        updatedByAPI(term: urlEncodedTerm, mediaType: .music) { state in
             if movieState {
                 callback(true)
             } else {
