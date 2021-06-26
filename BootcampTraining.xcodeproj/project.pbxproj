@@ -29,7 +29,6 @@
 		A126109426807D8A008BF566 /* BootcampTrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */; };
 		A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */; };
 		A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1325A268307D5004D34E5 /* iTunesSearchAPIObj.m */; };
-		A1D1325F268312A5004D34E5 /* iTunesSearchAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1325E268312A5004D34E5 /* iTunesSearchAPIResponse.m */; };
 		A1D1326226831C47004D34E5 /* iTunesSearchAPIResponseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1326126831C47004D34E5 /* iTunesSearchAPIResponseResult.m */; };
 		A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */; };
 		A1DF1C3C268189B40043FCBA /* SearchingViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C3B268189B40043FCBA /* SearchingViewControllerDelegate.swift */; };
@@ -39,8 +38,6 @@
 		A1DF1C442681A6DF0043FCBA /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C432681A6DF0043FCBA /* MusicCell.swift */; };
 		A1DF1C462681A6F50043FCBA /* MusicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1DF1C452681A6F50043FCBA /* MusicCell.xib */; };
 		A1DF1C482681BDF60043FCBA /* SearchingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C472681BDF60043FCBA /* SearchingViewModel.swift */; };
-		A1DF1C4A2681BE250043FCBA /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C492681BE250043FCBA /* MovieModel.swift */; };
-		A1DF1C4C2681BE6E0043FCBA /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C4B2681BE6E0043FCBA /* MusicModel.swift */; };
 		A1DF1C502681D5620043FCBA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C4F2681D5620043FCBA /* Tools.swift */; };
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
@@ -101,8 +98,6 @@
 		A1D13255268305F1004D34E5 /* BootcampTraining-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BootcampTraining-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1D132592683079F004D34E5 /* iTunesSearchAPIObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTunesSearchAPIObj.h; sourceTree = "<group>"; };
 		A1D1325A268307D5004D34E5 /* iTunesSearchAPIObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesSearchAPIObj.m; sourceTree = "<group>"; };
-		A1D1325C26830F2E004D34E5 /* iTunesSearchAPIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTunesSearchAPIResponse.h; sourceTree = "<group>"; };
-		A1D1325E268312A5004D34E5 /* iTunesSearchAPIResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesSearchAPIResponse.m; sourceTree = "<group>"; };
 		A1D1326026831BF0004D34E5 /* iTunesSearchAPIResponseResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTunesSearchAPIResponseResult.h; sourceTree = "<group>"; };
 		A1D1326126831C47004D34E5 /* iTunesSearchAPIResponseResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesSearchAPIResponseResult.m; sourceTree = "<group>"; };
 		A1DF1C39268178D80043FCBA /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
@@ -113,8 +108,6 @@
 		A1DF1C432681A6DF0043FCBA /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
 		A1DF1C452681A6F50043FCBA /* MusicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicCell.xib; sourceTree = "<group>"; };
 		A1DF1C472681BDF60043FCBA /* SearchingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingViewModel.swift; sourceTree = "<group>"; };
-		A1DF1C492681BE250043FCBA /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
-		A1DF1C4B2681BE6E0043FCBA /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		A1DF1C4F2681D5620043FCBA /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		A1EEDB36268088610024272C /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
 		A1EEDB382680888C0024272C /* PersonalView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalView.storyboard; sourceTree = "<group>"; };
@@ -277,8 +270,6 @@
 				A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */,
 				A1D132592683079F004D34E5 /* iTunesSearchAPIObj.h */,
 				A1D1325A268307D5004D34E5 /* iTunesSearchAPIObj.m */,
-				A1D1325C26830F2E004D34E5 /* iTunesSearchAPIResponse.h */,
-				A1D1325E268312A5004D34E5 /* iTunesSearchAPIResponse.m */,
 				A1D1326026831BF0004D34E5 /* iTunesSearchAPIResponseResult.h */,
 				A1D1326126831C47004D34E5 /* iTunesSearchAPIResponseResult.m */,
 			);
@@ -297,8 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				A1DF1C472681BDF60043FCBA /* SearchingViewModel.swift */,
-				A1DF1C492681BE250043FCBA /* MovieModel.swift */,
-				A1DF1C4B2681BE6E0043FCBA /* MusicModel.swift */,
 				A1D13254268305A8004D34E5 /* API */,
 			);
 			path = SearchingViewModel;
@@ -607,7 +596,6 @@
 				A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */,
 				A10909F82684650700D826A3 /* TopicInteractor.swift in Sources */,
 				A1DF1C502681D5620043FCBA /* Tools.swift in Sources */,
-				A1DF1C4A2681BE250043FCBA /* MovieModel.swift in Sources */,
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A10909FF2684812100D826A3 /* AboutiTunesViewController.swift in Sources */,
 				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,
@@ -615,9 +603,7 @@
 				A10909F1268457B000D826A3 /* TopicCell.swift in Sources */,
 				A1DF1C422681941A0043FCBA /* MovieCell.swift in Sources */,
 				E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */,
-				A1D1325F268312A5004D34E5 /* iTunesSearchAPIResponse.m in Sources */,
 				A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */,
-				A1DF1C4C2681BE6E0043FCBA /* MusicModel.swift in Sources */,
 				A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */,
 				A10909FA2684653700D826A3 /* TopicColorFileModel.swift in Sources */,
 				A10909F326845B4700D826A3 /* TopicViewModel.swift in Sources */,

@@ -13,19 +13,6 @@ enum SearchingMediaType: String {
     case music = "music"
 }
 class iTunesSearchAPI {
-//    func callAPI(){
-//        let url = "https://itunes.apple.com/search?term=iron+man&media=movie"
-//        
-//        let manager = AFHTTPSessionManager()
-//        manager.get(url, parameters: nil, headers: nil, progress: nil) { task, response in
-//            print("API success")
-//            print(response)
-//        } failure: { task, error in
-//            print("API error")
-//            print(error)
-//        }
-//
-//    }
     func callAPI(term:String, mediaType:SearchingMediaType, handle:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->()){
         let api = iTunesSearchAPIObj()
         let url = "https://itunes.apple.com/search?term=\(term)&media=\(mediaType.rawValue)"
