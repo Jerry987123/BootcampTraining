@@ -11,32 +11,32 @@ class SearchingViewModel {
     var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     
-    func updatedByAPI(term:String, callback:@escaping (_ state:Bool)->Void){
+    func updatedByAPI(term:String, APIDone:@escaping ()->Void){
         var movieState = false
         var musicState = false
         guard let urlEncodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             print("searchbarText failed to urlencode.")
-            callback(true)
+            APIDone()
             return
         }
-        updatedByAPI(term: urlEncodedTerm, mediaType: .movie) { state in
+        updatedByAPI(term: urlEncodedTerm, mediaType: .movie) {
             if musicState {
-                callback(true)
+                APIDone()
             } else {
                 movieState = true
             }
         }
-        updatedByAPI(term: urlEncodedTerm, mediaType: .music) { state in
+        updatedByAPI(term: urlEncodedTerm, mediaType: .music) {
             if movieState {
-                callback(true)
+                APIDone()
             } else {
                 musicState = true
             }
         }
     }
-    private func updatedByAPI(term:String, mediaType:SearchingMediaType, callback:@escaping (_ state:Bool)->Void){
+    private func updatedByAPI(term:String, mediaType:SearchingMediaType, APIDone:@escaping ()->Void){
         iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { datas in
-            callback(true)
+            APIDone()
             if let datas = datas {
                 switch mediaType {
                 case .movie:

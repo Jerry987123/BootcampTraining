@@ -13,13 +13,13 @@ enum SearchingMediaType: String {
     case music = "music"
 }
 class iTunesSearchAPI {
-    func callAPI(term:String, mediaType:SearchingMediaType, handle:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->()){
+    func callAPI(term:String, mediaType:SearchingMediaType, callback:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->()){
         let url = "https://itunes.apple.com/search?term=\(term)&media=\(mediaType.rawValue)"
         iTunesSearchAPIObj().callITunesAPI(url) { results in
             if let datas = results as? [iTunesSearchAPIResponseResult] {
-                handle(datas)
+                callback(datas)
             } else {
-                handle(nil)
+                callback(nil)
             }
         }
     }

@@ -70,10 +70,8 @@ extension SearchingViewController: UISearchBarDelegate {
         if let searchText = searchBar.text,
            searchText.trimmingCharacters(in: .whitespaces).count > 0 {
             _loadingIndicator?.startAnimating()
-            viewModel.updatedByAPI(term: searchText) { state in
-                if state {
-                    self._loadingIndicator?.stopAnimating()
-                }
+            viewModel.updatedByAPI(term: searchText) {
+                self._loadingIndicator?.stopAnimating()
             }
         }
     }
