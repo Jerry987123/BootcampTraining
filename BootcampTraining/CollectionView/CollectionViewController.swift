@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CollectionViewController: UIViewController {
     
@@ -14,19 +15,34 @@ class CollectionViewController: UIViewController {
     var _tableView:UITableView?
     
     let viewModel = CollectionViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        viewModel.loadCollectionFromDB(mediaType: .movie)
+        viewModel.musicDatas.asObservable().subscribe { _ in
+            self._tableView?.reloadData()
+        }.disposed(by: disposeBag)
+        viewModel.movieDatas.asObservable().subscribe { _ in
+            self._tableView?.reloadData()
+        }.disposed(by: disposeBag)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        switch switchButtonView.selectedSegmentIndex {
+        case 0:
+            viewModel.loadCollectionFromDB(mediaType: .movie)
+        case 1:
+            viewModel.loadCollectionFromDB(mediaType: .music)
+        default:
+            break
+        }
     }
     @IBAction func switchButtonAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            print("電影")
             viewModel.loadCollectionFromDB(mediaType: .movie)
         case 1:
-            print("音樂")
             viewModel.loadCollectionFromDB(mediaType: .music)
         default:
             break
