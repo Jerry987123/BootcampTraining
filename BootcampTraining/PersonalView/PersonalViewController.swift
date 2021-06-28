@@ -16,7 +16,10 @@ class PersonalViewController:UIViewController {
         super.viewDidLoad()
         setUI()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setCollectionCount()
+    }
     @IBAction func topicButtonAction(_ sender: UIButton) {
         let vc = UIStoryboard(name: "TopicView", bundle: nil).instantiateViewController(withIdentifier: "TopicViewController")
         navigationController?.pushViewController(vc, animated: true)
@@ -45,6 +48,9 @@ class PersonalViewController:UIViewController {
         case .lightColor:
             topicLabel.text = viewModel.datas[1]
         }
-        
+    }
+    private func setCollectionCount() {
+        let datas = DBDao.shared.queryData(condition: nil)
+        collectionNumberLabel.text = "共有 \(datas.count) 項收藏"
     }
 }
