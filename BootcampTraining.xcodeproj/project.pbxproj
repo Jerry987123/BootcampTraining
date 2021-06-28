@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		414F49EB62F4FD6118C099A4 /* Pods_BootcampTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */; };
 		4B5DF1DEABE0E468B27231C8 /* Pods_BootcampTrainingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6F04A6E6A6D652A32F34D5E /* Pods_BootcampTrainingTests.framework */; };
-		5A295C158054B2E78F65D32F /* Pods_BootcampTraining_BootcampTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B8C58A076953EBDAEC8D853 /* Pods_BootcampTraining_BootcampTrainingUITests.framework */; };
 		A10909EB2684565300D826A3 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10909EA2684565300D826A3 /* TopicViewController.swift */; };
 		A10909ED268456A200D826A3 /* TopicView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A10909EC268456A200D826A3 /* TopicView.storyboard */; };
 		A10909EF2684574F00D826A3 /* TopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10909EE2684574F00D826A3 /* TopicCell.xib */; };
@@ -26,7 +25,6 @@
 		A126107B26807D89008BF566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A126107A26807D89008BF566 /* Assets.xcassets */; };
 		A126107E26807D89008BF566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107C26807D89008BF566 /* LaunchScreen.storyboard */; };
 		A126108926807D8A008BF566 /* BootcampTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126108826807D8A008BF566 /* BootcampTrainingTests.swift */; };
-		A126109426807D8A008BF566 /* BootcampTrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */; };
 		A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */; };
 		A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1325A268307D5004D34E5 /* iTunesSearchAPIObj.m */; };
 		A1D1326226831C47004D34E5 /* iTunesSearchAPIResponseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1326126831C47004D34E5 /* iTunesSearchAPIResponseResult.m */; };
@@ -44,17 +42,13 @@
 		E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */; };
 		E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58DEBB42684D681002C1CEE /* CollectionViewController.swift */; };
 		E58DEBB72684D6AF002C1CEE /* CollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */; };
+		E5D92D442689636F006A358B /* CollectionDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D432689636F006A358B /* CollectionDBModel.swift */; };
+		E5D92D4626896819006A358B /* DBDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D4526896819006A358B /* DBDao.swift */; };
+		E5D92D482689CECE006A358B /* DBDaoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D472689CECE006A358B /* DBDaoTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		A126108526807D8A008BF566 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A126106626807D7F008BF566 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A126106D26807D7F008BF566;
-			remoteInfo = BootcampTraining;
-		};
-		A126109026807D8A008BF566 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A126106626807D7F008BF566 /* Project object */;
 			proxyType = 1;
@@ -91,9 +85,6 @@
 		A126108426807D8A008BF566 /* BootcampTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootcampTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A126108826807D8A008BF566 /* BootcampTrainingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootcampTrainingTests.swift; sourceTree = "<group>"; };
 		A126108A26807D8A008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A126108F26807D8A008BF566 /* BootcampTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootcampTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootcampTrainingUITests.swift; sourceTree = "<group>"; };
-		A126109526807D8A008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
 		A1D13255268305F1004D34E5 /* BootcampTraining-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BootcampTraining-Bridging-Header.h"; sourceTree = "<group>"; };
 		A1D132592683079F004D34E5 /* iTunesSearchAPIObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTunesSearchAPIObj.h; sourceTree = "<group>"; };
@@ -116,6 +107,9 @@
 		E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		E58DEBB42684D681002C1CEE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectionView.storyboard; sourceTree = "<group>"; };
+		E5D92D432689636F006A358B /* CollectionDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDBModel.swift; sourceTree = "<group>"; };
+		E5D92D4526896819006A358B /* DBDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDao.swift; sourceTree = "<group>"; };
+		E5D92D472689CECE006A358B /* DBDaoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDaoTest.swift; sourceTree = "<group>"; };
 		E9BBED79CF8B72125D0847F1 /* Pods-BootcampTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTraining.debug.xcconfig"; path = "Target Support Files/Pods-BootcampTraining/Pods-BootcampTraining.debug.xcconfig"; sourceTree = "<group>"; };
 		F6F04A6E6A6D652A32F34D5E /* Pods_BootcampTrainingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTrainingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,14 +128,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B5DF1DEABE0E468B27231C8 /* Pods_BootcampTrainingTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A126108C26807D8A008BF566 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5A295C158054B2E78F65D32F /* Pods_BootcampTraining_BootcampTrainingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +196,6 @@
 			children = (
 				A126107026807D7F008BF566 /* BootcampTraining */,
 				A126108726807D8A008BF566 /* BootcampTrainingTests */,
-				A126109226807D8A008BF566 /* BootcampTrainingUITests */,
 				A126106F26807D7F008BF566 /* Products */,
 				6E9EB12D77A76CEB74EE2BD1 /* Pods */,
 				0ABFB63EE485CF8AA27E80C5 /* Frameworks */,
@@ -222,7 +207,6 @@
 			children = (
 				A126106E26807D7F008BF566 /* BootcampTraining.app */,
 				A126108426807D8A008BF566 /* BootcampTrainingTests.xctest */,
-				A126108F26807D8A008BF566 /* BootcampTrainingUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +221,7 @@
 				A10909E92684563A00D826A3 /* TopicView */,
 				E58DEBB32684D639002C1CEE /* CollectionView */,
 				A10909FD268480EC00D826A3 /* AboutiTunes */,
+				E5D92D422689634B006A358B /* DBTools */,
 				A1DF1C4E2681D54F0043FCBA /* Tools */,
 				A126107A26807D89008BF566 /* Assets.xcassets */,
 				A126107C26807D89008BF566 /* LaunchScreen.storyboard */,
@@ -253,15 +238,6 @@
 				A126108A26807D8A008BF566 /* Info.plist */,
 			);
 			path = BootcampTrainingTests;
-			sourceTree = "<group>";
-		};
-		A126109226807D8A008BF566 /* BootcampTrainingUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A126109326807D8A008BF566 /* BootcampTrainingUITests.swift */,
-				A126109526807D8A008BF566 /* Info.plist */,
-			);
-			path = BootcampTrainingUITests;
 			sourceTree = "<group>";
 		};
 		A1D13254268305A8004D34E5 /* API */ = {
@@ -344,6 +320,16 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		E5D92D422689634B006A358B /* DBTools */ = {
+			isa = PBXGroup;
+			children = (
+				E5D92D432689636F006A358B /* CollectionDBModel.swift */,
+				E5D92D4526896819006A358B /* DBDao.swift */,
+				E5D92D472689CECE006A358B /* DBDaoTest.swift */,
+			);
+			path = DBTools;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,26 +371,6 @@
 			productReference = A126108426807D8A008BF566 /* BootcampTrainingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A126108E26807D8A008BF566 /* BootcampTrainingUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A126109E26807D8A008BF566 /* Build configuration list for PBXNativeTarget "BootcampTrainingUITests" */;
-			buildPhases = (
-				E72ACD47D639C6CED94408AE /* [CP] Check Pods Manifest.lock */,
-				A126108B26807D8A008BF566 /* Sources */,
-				A126108C26807D8A008BF566 /* Frameworks */,
-				A126108D26807D8A008BF566 /* Resources */,
-				951FF092A9FE18135AC78FAB /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A126109126807D8A008BF566 /* PBXTargetDependency */,
-			);
-			name = BootcampTrainingUITests;
-			productName = BootcampTrainingUITests;
-			productReference = A126108F26807D8A008BF566 /* BootcampTrainingUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -419,10 +385,6 @@
 						LastSwiftMigration = 1250;
 					};
 					A126108326807D8A008BF566 = {
-						CreatedOnToolsVersion = 12.5;
-						TestTargetID = A126106D26807D7F008BF566;
-					};
-					A126108E26807D8A008BF566 = {
 						CreatedOnToolsVersion = 12.5;
 						TestTargetID = A126106D26807D7F008BF566;
 					};
@@ -443,7 +405,6 @@
 			targets = (
 				A126106D26807D7F008BF566 /* BootcampTraining */,
 				A126108326807D8A008BF566 /* BootcampTrainingTests */,
-				A126108E26807D8A008BF566 /* BootcampTrainingUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -474,13 +435,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A126108D26807D8A008BF566 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -501,23 +455,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BootcampTraining/Pods-BootcampTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		951FF092A9FE18135AC78FAB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BootcampTraining-BootcampTrainingUITests/Pods-BootcampTraining-BootcampTrainingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BootcampTraining-BootcampTrainingUITests/Pods-BootcampTraining-BootcampTrainingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BootcampTraining-BootcampTrainingUITests/Pods-BootcampTraining-BootcampTrainingUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D21F17BC94F395B24F6A7A32 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -534,28 +471,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-BootcampTrainingTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E72ACD47D639C6CED94408AE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BootcampTraining-BootcampTrainingUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -595,9 +510,11 @@
 				A1D1326226831C47004D34E5 /* iTunesSearchAPIResponseResult.m in Sources */,
 				A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */,
 				A10909F82684650700D826A3 /* TopicInteractor.swift in Sources */,
+				E5D92D482689CECE006A358B /* DBDaoTest.swift in Sources */,
 				A1DF1C502681D5620043FCBA /* Tools.swift in Sources */,
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A10909FF2684812100D826A3 /* AboutiTunesViewController.swift in Sources */,
+				E5D92D442689636F006A358B /* CollectionDBModel.swift in Sources */,
 				A126107626807D7F008BF566 /* SearchingViewController.swift in Sources */,
 				A1DF1C442681A6DF0043FCBA /* MusicCell.swift in Sources */,
 				A10909F1268457B000D826A3 /* TopicCell.swift in Sources */,
@@ -605,6 +522,7 @@
 				E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */,
 				A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */,
 				A1DF1C3E26818AA70043FCBA /* SearchingViewControllerExt.swift in Sources */,
+				E5D92D4626896819006A358B /* DBDao.swift in Sources */,
 				A10909FA2684653700D826A3 /* TopicColorFileModel.swift in Sources */,
 				A10909F326845B4700D826A3 /* TopicViewModel.swift in Sources */,
 				A126107226807D7F008BF566 /* AppDelegate.swift in Sources */,
@@ -623,14 +541,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A126108B26807D8A008BF566 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A126109426807D8A008BF566 /* BootcampTrainingUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -638,11 +548,6 @@
 			isa = PBXTargetDependency;
 			target = A126106D26807D7F008BF566 /* BootcampTraining */;
 			targetProxy = A126108526807D8A008BF566 /* PBXContainerItemProxy */;
-		};
-		A126109126807D8A008BF566 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A126106D26807D7F008BF566 /* BootcampTraining */;
-			targetProxy = A126109026807D8A008BF566 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -875,50 +780,6 @@
 			};
 			name = Release;
 		};
-		A126109F26807D8A008BF566 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27A534F54B739FCE1235F019 /* Pods-BootcampTraining-BootcampTrainingUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K645724F98;
-				INFOPLIST_FILE = BootcampTrainingUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.testesunbank.BootcampTrainingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BootcampTraining;
-			};
-			name = Debug;
-		};
-		A12610A026807D8A008BF566 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E14B098640ED04E69F6B4A3 /* Pods-BootcampTraining-BootcampTrainingUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K645724F98;
-				INFOPLIST_FILE = BootcampTrainingUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.testesunbank.BootcampTrainingUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BootcampTraining;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -945,15 +806,6 @@
 			buildConfigurations = (
 				A126109C26807D8A008BF566 /* Debug */,
 				A126109D26807D8A008BF566 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A126109E26807D8A008BF566 /* Build configuration list for PBXNativeTarget "BootcampTrainingUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A126109F26807D8A008BF566 /* Debug */,
-				A12610A026807D8A008BF566 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

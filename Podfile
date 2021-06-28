@@ -11,6 +11,7 @@ target 'BootcampTraining' do
   pod 'SDWebImage', '~> 5.0'
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
+  pod 'FMDB'
   target 'BootcampTrainingTests' do
     inherit! :search_paths
     # Pods for testing

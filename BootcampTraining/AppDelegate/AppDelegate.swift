@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = MainTabBarViewController()
         window?.makeKeyAndVisible()
         
-        // 測試用 DB路徑
-        print(NSHomeDirectory())
+        // 建立DB
+        DBDao.shared.createTable()
         return true
     }
 }
