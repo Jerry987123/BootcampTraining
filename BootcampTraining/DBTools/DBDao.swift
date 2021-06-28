@@ -79,28 +79,23 @@ class DBDao: NSObject {
         
         return isOpen
     }
-    
-    func insertData(mediaType: SearchingMediaType, models: [iTunesSearchAPIResponseResult]) {
-        
+    func insertData(mediaType: SearchingMediaType, model: iTunesSearchAPIResponseResult) {
         if self.openConnection() {
-            var insertSQL: String =
+            let insertSQL: String =
                 "INSERT INTO \(tableName) "
                 + "(mediaType, trackName, artistName, collectionName, trackTimeMillis, longDescription, artworkUrl100, trackViewUrl) "
-                + "VALUES"
-            var argumentsIn:[Any] = [Any]()
-            for model in models {
-                insertSQL += "(?, ?, ?, ?, ?, ?, ?, ?),"
-                argumentsIn.append(mediaType.rawValue)
-                argumentsIn.append(model.trackName ?? NSNull())
-                argumentsIn.append(model.artistName ?? NSNull())
-                argumentsIn.append(model.collectionName ?? NSNull())
-                argumentsIn.append(model.trackTimeMillis ?? NSNull())
-                argumentsIn.append(model.longDescription ?? NSNull())
-                argumentsIn.append(model.artworkUrl100 ?? NSNull())
-                argumentsIn.append(model.trackViewUrl ?? NSNull())
-            }
-            insertSQL.removeLast()
-            if !self.database.executeUpdate(insertSQL, withArgumentsIn: argumentsIn) {
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
+            
+            if !self.database.executeUpdate(insertSQL,
+                                            withArgumentsIn:
+                                                [mediaType.rawValue,
+                                                 model.trackName ?? NSNull(),
+                                                 model.artistName ?? NSNull(),
+                                                 model.collectionName ?? NSNull(),
+                                                 model.trackTimeMillis ?? NSNull(),
+                                                 model.longDescription ?? NSNull(),
+                                                 model.artworkUrl100 ?? NSNull(),
+                                                 model.trackViewUrl ?? NSNull()]) {
                 print("Failed to insert initial data into the database.")
                 print(database.lastError(), database.lastErrorMessage())
             }
@@ -108,29 +103,6 @@ class DBDao: NSObject {
             self.database.close()
         }
     }
-    
-    func updateData(model: CollectionDBModel) {
-        if self.openConnection() {
-            let updateSQL: String = "UPDATE \(tableName) SET mediaType = ?, trackName = ?, artistName = ?, collectionName = ?, trackTimeMillis = ?, longDescription = ?, artworkUrl100 = ?, trackViewUrl = ? WHERE ID = ?"
-            
-            do {
-                try self.database.executeUpdate(updateSQL, values: [model.mediaType,
-                                                                    model.trackName ?? NSNull(),
-                                                                    model.artistName ?? NSNull(),
-                                                                    model.collectionName ?? NSNull(),
-                                                                    model.trackTimeMillis ?? NSNull(),
-                                                                    model.longDescription ?? NSNull(),
-                                                                    model.artworkUrl100 ?? NSNull(),
-                                                                    model.trackViewUrl ?? NSNull(),
-                                                                    model.id])
-            } catch {
-                print(error.localizedDescription)
-            }
-            
-            self.database.close()
-        }
-    }
-    
     func queryData(condition:String?) -> [CollectionDBModel] {
         var models: [CollectionDBModel] = [CollectionDBModel]()
         
@@ -163,7 +135,6 @@ class DBDao: NSObject {
         
         return models
     }
-    
     func deleteData(model: CollectionDBModel) {
         if self.openConnection() {
             let deleteSQL: String = "DELETE FROM \(tableName) WHERE ID = ?"

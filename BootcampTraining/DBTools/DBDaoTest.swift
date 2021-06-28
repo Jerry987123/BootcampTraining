@@ -7,25 +7,21 @@
 
 class DBDaoTest {
     func test(){
-//        insert()
+        insert()
 //        update()
-        query()
+//        query()
 //        delete()
     }
     private func insert(){
-        var models = [iTunesSearchAPIResponseResult]()
-        for _ in 1...3 {
-            let model = iTunesSearchAPIResponseResult()
-            model.trackName = "trackName"
-            model.artistName = "artName"
-            model.collectionName = "collectionName"
-            model.trackTimeMillis = NSNumber(100)
-            model.longDescription = "longdescription"
-            model.artworkUrl100 = "artworkurl100"
-            model.trackViewUrl = "trackviewurl"
-            models.append(model)
-        }
-        DBDao.shared.insertData(mediaType: .music, models: models)
+        let model = iTunesSearchAPIResponseResult()
+        model.trackName = "trackName"
+        model.artistName = "artName"
+        model.collectionName = "collectionName"
+        model.trackTimeMillis = NSNumber(300)
+        model.longDescription = "longdescription"
+        model.artworkUrl100 = "artworkurl100"
+        model.trackViewUrl = "trackviewurl"
+        DBDao.shared.insertData(mediaType: .music, model: model)
     }
     private func update(){
         let model = CollectionDBModel()
