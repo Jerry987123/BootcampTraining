@@ -58,6 +58,9 @@
                         <state key="normal" title="收藏">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="collectionButtonAction:" destination="MVS-jh-aAY" eventType="touchUpInside" id="arx-SZ-EL0"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

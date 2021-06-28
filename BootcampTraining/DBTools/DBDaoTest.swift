@@ -8,8 +8,7 @@
 class DBDaoTest {
     func test(){
         insert()
-//        update()
-//        query()
+        query()
 //        delete()
     }
     private func insert(){
@@ -21,16 +20,16 @@ class DBDaoTest {
         model.longDescription = "longdescription"
         model.artworkUrl100 = "artworkurl100"
         model.trackViewUrl = "trackviewurl"
+        model.trackId = NSNumber(123)
         DBDao.shared.insertData(mediaType: .music, model: model)
     }
     private func query(){
-        let condition = "id = 6"
+        let condition = "id = 1"
         let results = DBDao.shared.queryData(condition: condition)
         print(results)
     }
     private func delete(){
-        let model = CollectionDBModel()
-        model.id = 7
-        DBDao.shared.deleteData(model: model)
+        let trackId = 123
+        DBDao.shared.deleteData(trackId: trackId)
     }
 }

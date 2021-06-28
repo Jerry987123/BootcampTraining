@@ -15,5 +15,6 @@
 @property (nonatomic) NSString <Optional> *longDescription;
 @property (nonatomic) NSString <Optional> *artworkUrl100;
 @property (nonatomic) NSString <Optional> *trackViewUrl;
+@property (nonatomic) NSNumber <Optional> *trackId;
 @end
 

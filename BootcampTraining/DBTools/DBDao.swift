@@ -51,7 +51,8 @@ class DBDao: NSObject {
                     TrackTimeMillis Integer,
                     LongDescription Text,
                     ArtworkUrl100 Text,
-                    TrackViewUrl Text)
+                    TrackViewUrl Text,
+                    TrackId Integer)
                 """
                 self.database.executeStatements(createTableSQL)
                 print("file copy to: \(self.filePath)")
@@ -83,9 +84,8 @@ class DBDao: NSObject {
         if self.openConnection() {
             let insertSQL: String =
                 "INSERT INTO \(tableName) "
-                + "(mediaType, trackName, artistName, collectionName, trackTimeMillis, longDescription, artworkUrl100, trackViewUrl) "
-                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)"
-            
+                + "(mediaType, trackName, artistName, collectionName, trackTimeMillis, longDescription, artworkUrl100, trackViewUrl, trackId) "
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
             if !self.database.executeUpdate(insertSQL,
                                             withArgumentsIn:
                                                 [mediaType.rawValue,
@@ -95,7 +95,8 @@ class DBDao: NSObject {
                                                  model.trackTimeMillis ?? NSNull(),
                                                  model.longDescription ?? NSNull(),
                                                  model.artworkUrl100 ?? NSNull(),
-                                                 model.trackViewUrl ?? NSNull()]) {
+                                                 model.trackViewUrl ?? NSNull(),
+                                                 model.trackId ?? NSNull()]) {
                 print("Failed to insert initial data into the database.")
                 print(database.lastError(), database.lastErrorMessage())
             }
@@ -126,6 +127,7 @@ class DBDao: NSObject {
                     model.longDescription = dataLists.string(forColumn: "longDescription")
                     model.artworkUrl100 = dataLists.string(forColumn: "artworkUrl100")
                     model.trackViewUrl = dataLists.string(forColumn: "trackViewUrl")
+                    model.trackId = NSNumber(value: dataLists.int(forColumn: "trackId"))
                     models.append(model)
                 }
             } catch {
@@ -135,12 +137,12 @@ class DBDao: NSObject {
         
         return models
     }
-    func deleteData(model: CollectionDBModel) {
+    func deleteData(trackId: Int) {
         if self.openConnection() {
-            let deleteSQL: String = "DELETE FROM \(tableName) WHERE ID = ?"
+            let deleteSQL: String = "DELETE FROM \(tableName) WHERE trackId = ?"
             
             do {
-                try self.database.executeUpdate(deleteSQL, values: [model.id])
+                try self.database.executeUpdate(deleteSQL, values: [trackId])
             } catch {
                 print(error.localizedDescription)
             }

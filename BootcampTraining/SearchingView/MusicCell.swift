@@ -16,11 +16,30 @@ class MusicCell:UITableViewCell {
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var musicTimeLabel: UILabel!
     
+    var musicModel:iTunesSearchAPIResponseResult?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
     }
+    @IBAction func collectionButtonAction(_ sender: UIButton) {
+        switch sender.titleLabel?.text {
+        case "收藏":
+        if let model = musicModel {
+            DBDao.shared.insertData(mediaType: .music, model: model)
+            sender.setTitle("取消收藏", for: .normal)
+        }
+        case "取消收藏":
+            if let model = musicModel {
+                DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
+                sender.setTitle("收藏", for: .normal)
+            }
+        default:
+            break
+        }
+    }
     func setCell(model: iTunesSearchAPIResponseResult){
+        musicModel = model
         trackNameLabel.text = model.trackName
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName

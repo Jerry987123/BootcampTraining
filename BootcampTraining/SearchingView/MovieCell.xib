@@ -72,6 +72,9 @@
                         <state key="normal" title="收藏">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="collectionButtonAction:" destination="2oh-Gl-ChW" eventType="touchUpInside" id="N6a-ip-Chb"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
