@@ -79,23 +79,26 @@ class DBDao: NSObject {
         return isOpen
     }
     
-    func insertData(model: CollectionDBModel) {
+    func insertData(models: [CollectionDBModel]) {
         
         if self.openConnection() {
-            let insertSQL: String =
+            var insertSQL: String =
                 "INSERT INTO \(tableName) "
                 + "(trackName, artistName, collectionName, trackTimeMillis, longDescription, artworkUrl100, trackViewUrl) "
-                + "VALUES(?, ?, ?, ?, ?, ?, ?)"
-            
-            if !self.database.executeUpdate(insertSQL,
-                                            withArgumentsIn:
-                                                [model.trackName ?? NSNull(),
-                                                 model.artistName ?? NSNull(),
-                                                 model.collectionName ?? NSNull(),
-                                                 model.trackTimeMillis ?? NSNull(),
-                                                 model.longDescription ?? NSNull(),
-                                                 model.artworkUrl100 ?? NSNull(),
-                                                 model.trackViewUrl ?? NSNull()]) {
+                + "VALUES"
+            var argumentsIn:[Any] = [Any]()
+            for model in models {
+                insertSQL += "(?, ?, ?, ?, ?, ?, ?),"
+                argumentsIn.append(model.trackName ?? NSNull())
+                argumentsIn.append(model.artistName ?? NSNull())
+                argumentsIn.append(model.collectionName ?? NSNull())
+                argumentsIn.append(model.trackTimeMillis ?? NSNull())
+                argumentsIn.append(model.longDescription ?? NSNull())
+                argumentsIn.append(model.artworkUrl100 ?? NSNull())
+                argumentsIn.append(model.trackViewUrl ?? NSNull())
+            }
+            insertSQL.removeLast()
+            if !self.database.executeUpdate(insertSQL, withArgumentsIn: argumentsIn) {
                 print("Failed to insert initial data into the database.")
                 print(database.lastError(), database.lastErrorMessage())
             }

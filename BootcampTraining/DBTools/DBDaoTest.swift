@@ -8,20 +8,24 @@
 class DBDaoTest {
     func test(){
         insert()
-        update()
-        query()
+//        update()
+//        query()
 //        delete()
     }
     private func insert(){
-        let model = CollectionDBModel()
-        model.trackName = "trackName"
-        model.artistName = "artName"
-        model.collectionName = "collectionName"
-        model.trackTimeMillis = NSNumber(100)
-        model.longDescription = "longdescription"
-        model.artworkUrl100 = "artworkurl100"
-        model.trackViewUrl = "trackviewurl"
-        DBDao.shared.insertData(model: model)
+        var models = [CollectionDBModel]()
+        for _ in 1...3 {
+            let model = CollectionDBModel()
+            model.trackName = "trackName"
+            model.artistName = "artName"
+            model.collectionName = "collectionName"
+            model.trackTimeMillis = NSNumber(100)
+            model.longDescription = "longdescription"
+            model.artworkUrl100 = "artworkurl100"
+            model.trackViewUrl = "trackviewurl"
+            models.append(model)
+        }
+        DBDao.shared.insertData(models: models)
     }
     private func update(){
         let model = CollectionDBModel()
