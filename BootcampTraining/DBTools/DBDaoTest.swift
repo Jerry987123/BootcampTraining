@@ -24,7 +24,7 @@ class DBDaoTest {
         DBDao.shared.insertData(mediaType: .music, model: model)
     }
     private func query(){
-        let condition = "id = 1"
+        let condition = "trackId = 123"
         let results = DBDao.shared.queryData(condition: condition)
         print(results)
     }

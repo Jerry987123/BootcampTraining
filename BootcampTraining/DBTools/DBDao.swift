@@ -43,7 +43,7 @@ class DBDao: NSObject {
             if self.openConnection() {
                 let createTableSQL = """
                     CREATE TABLE \(tableName) (
-                    ID integer  NOT NULL  PRIMARY KEY autoincrement,
+                    TrackId integer  NOT NULL  PRIMARY KEY,
                     MediaType Text,
                     TrackName Text,
                     ArtistName Text,
@@ -51,8 +51,7 @@ class DBDao: NSObject {
                     TrackTimeMillis Integer,
                     LongDescription Text,
                     ArtworkUrl100 Text,
-                    TrackViewUrl Text,
-                    TrackId Integer)
+                    TrackViewUrl Text)
                 """
                 self.database.executeStatements(createTableSQL)
                 print("file copy to: \(self.filePath)")
@@ -118,7 +117,6 @@ class DBDao: NSObject {
                 
                 while dataLists.next() {
                     let model = CollectionDBModel()
-                    model.id = Int(dataLists.int(forColumn: "ID"))
                     model.mediaType = dataLists.string(forColumn: "mediaType") ?? ""
                     model.trackName = dataLists.string(forColumn: "trackName")
                     model.artistName = dataLists.string(forColumn: "artistName")
