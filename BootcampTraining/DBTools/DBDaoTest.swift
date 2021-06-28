@@ -23,19 +23,6 @@ class DBDaoTest {
         model.trackViewUrl = "trackviewurl"
         DBDao.shared.insertData(mediaType: .music, model: model)
     }
-    private func update(){
-        let model = CollectionDBModel()
-        model.id = 6
-        model.mediaType = "music"
-        model.trackName = "BtrackName"
-        model.artistName = "BartName"
-        model.collectionName = "BcollectionName"
-        model.trackTimeMillis = NSNumber(200)
-        model.longDescription = "Blongdescription"
-        model.artworkUrl100 = "Bartworkurl100"
-        model.trackViewUrl = "Btrackviewurl"
-        DBDao.shared.updateData(model: model)
-    }
     private func query(){
         let condition = "id = 6"
         let results = DBDao.shared.queryData(condition: condition)
