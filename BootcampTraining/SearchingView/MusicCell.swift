@@ -25,7 +25,7 @@ class MusicCell:UITableViewCell {
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
         musicTimeLabel.text = timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
-        if let artworkUrl100 = model.artworkUrl100, let url = URL(string: artworkUrl100) {
+        if let artworkUrl100 = model.artworkUrl100, let url = URL(string: artworkUrl100), UIApplication.shared.canOpenURL(url) {
             photoImageView.sd_setImage(with: url)
         } else {
             photoImageView.image = UIImage.init(systemName: "music.note")

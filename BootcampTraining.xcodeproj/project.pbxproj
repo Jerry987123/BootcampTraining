@@ -313,8 +313,8 @@
 		E58DEBB32684D639002C1CEE /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				E58DEBB42684D681002C1CEE /* CollectionViewController.swift */,
 				E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */,
+				E58DEBB42684D681002C1CEE /* CollectionViewController.swift */,
 				E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */,
 			);
 			path = CollectionView;

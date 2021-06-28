@@ -13,7 +13,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="141" id="MVS-jh-aAY" customClass="MusicCell" customModule="BootcampTraining" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="562" height="141"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVS-jh-aAY" id="hes-ju-Dmn">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MVS-jh-aAY" id="hes-ju-Dmn">
                 <rect key="frame" x="0.0" y="0.0" width="562" height="141"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -70,9 +70,9 @@
                     <constraint firstAttribute="trailing" secondItem="Exu-73-st3" secondAttribute="trailing" constant="30" id="MZC-Qx-DFF"/>
                     <constraint firstItem="G7V-YU-WNd" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="Oxl-Qi-vn8"/>
                     <constraint firstAttribute="trailing" secondItem="3cq-BM-8yj" secondAttribute="trailing" constant="30" id="RLJ-4I-P2m"/>
-                    <constraint firstAttribute="bottom" secondItem="2De-je-Du4" secondAttribute="bottom" constant="10" id="ZiX-fh-9Wa"/>
                     <constraint firstItem="Exu-73-st3" firstAttribute="leading" secondItem="SpK-He-ojx" secondAttribute="trailing" constant="10" id="czX-Lu-AM8"/>
                     <constraint firstItem="2De-je-Du4" firstAttribute="leading" secondItem="hes-ju-Dmn" secondAttribute="leading" constant="10" id="dtV-hk-Zya"/>
+                    <constraint firstAttribute="bottom" secondItem="Exu-73-st3" secondAttribute="bottom" constant="48" id="eO5-ut-WMK"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="top" secondItem="SpK-He-ojx" secondAttribute="bottom" constant="5" id="pTd-OZ-6Qi"/>
                     <constraint firstItem="G7V-YU-WNd" firstAttribute="top" secondItem="sKk-N0-t38" secondAttribute="bottom" constant="8" id="pdG-dp-zda"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="reD-bi-mOE"/>

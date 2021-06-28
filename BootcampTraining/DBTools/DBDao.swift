@@ -44,6 +44,7 @@ class DBDao: NSObject {
                 let createTableSQL = """
                     CREATE TABLE \(tableName) (
                     ID integer  NOT NULL  PRIMARY KEY autoincrement,
+                    MediaType Text,
                     TrackName Text,
                     ArtistName Text,
                     CollectionName Text,
@@ -79,16 +80,17 @@ class DBDao: NSObject {
         return isOpen
     }
     
-    func insertData(models: [CollectionDBModel]) {
+    func insertData(mediaType: SearchingMediaType, models: [iTunesSearchAPIResponseResult]) {
         
         if self.openConnection() {
             var insertSQL: String =
                 "INSERT INTO \(tableName) "
-                + "(trackName, artistName, collectionName, trackTimeMillis, longDescription, artworkUrl100, trackViewUrl) "
+                + "(mediaType, trackName, artistName, collectionName, trackTimeMillis, longDescription, artworkUrl100, trackViewUrl) "
                 + "VALUES"
             var argumentsIn:[Any] = [Any]()
             for model in models {
-                insertSQL += "(?, ?, ?, ?, ?, ?, ?),"
+                insertSQL += "(?, ?, ?, ?, ?, ?, ?, ?),"
+                argumentsIn.append(mediaType.rawValue)
                 argumentsIn.append(model.trackName ?? NSNull())
                 argumentsIn.append(model.artistName ?? NSNull())
                 argumentsIn.append(model.collectionName ?? NSNull())
@@ -109,10 +111,11 @@ class DBDao: NSObject {
     
     func updateData(model: CollectionDBModel) {
         if self.openConnection() {
-            let updateSQL: String = "UPDATE \(tableName) SET trackName = ?, artistName = ?, collectionName = ?, trackTimeMillis = ?, longDescription = ?, artworkUrl100 = ?, trackViewUrl = ? WHERE ID = ?"
+            let updateSQL: String = "UPDATE \(tableName) SET mediaType = ?, trackName = ?, artistName = ?, collectionName = ?, trackTimeMillis = ?, longDescription = ?, artworkUrl100 = ?, trackViewUrl = ? WHERE ID = ?"
             
             do {
-                try self.database.executeUpdate(updateSQL, values: [model.trackName ?? NSNull(),
+                try self.database.executeUpdate(updateSQL, values: [model.mediaType,
+                                                                    model.trackName ?? NSNull(),
                                                                     model.artistName ?? NSNull(),
                                                                     model.collectionName ?? NSNull(),
                                                                     model.trackTimeMillis ?? NSNull(),
@@ -143,6 +146,7 @@ class DBDao: NSObject {
                 while dataLists.next() {
                     let model = CollectionDBModel()
                     model.id = Int(dataLists.int(forColumn: "ID"))
+                    model.mediaType = dataLists.string(forColumn: "mediaType") ?? ""
                     model.trackName = dataLists.string(forColumn: "trackName")
                     model.artistName = dataLists.string(forColumn: "artistName")
                     model.collectionName = dataLists.string(forColumn: "collectionName")

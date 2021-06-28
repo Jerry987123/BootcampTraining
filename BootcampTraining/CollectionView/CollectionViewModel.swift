@@ -14,10 +14,10 @@ class CollectionViewModel {
     func loadCollectionFromDB(mediaType:SearchingMediaType){
         switch mediaType {
         case .movie:
-            let datas = DBDao.shared.queryData(condition: nil)
+            let datas = DBDao.shared.queryData(condition: "mediaType = 'movie'")
             self.movieDatas.accept(datas)
         case .music:
-            let datas = DBDao.shared.queryData(condition: nil)
+            let datas = DBDao.shared.queryData(condition: "mediaType = 'music'")
             self.musicDatas.accept(datas)
         }
     }
