@@ -18,13 +18,16 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        viewModel.loadCollectionFromDB(mediaType: .movie)
     }
     @IBAction func switchButtonAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             print("電影")
+            viewModel.loadCollectionFromDB(mediaType: .movie)
         case 1:
             print("音樂")
+            viewModel.loadCollectionFromDB(mediaType: .music)
         default:
             break
         }

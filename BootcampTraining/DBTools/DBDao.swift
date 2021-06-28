@@ -138,15 +138,15 @@ class DBDao: NSObject {
                 let dataLists: FMResultSet = try database.executeQuery(querySQL, values: nil)
                 
                 while dataLists.next() {
-                    let model:CollectionDBModel = CollectionDBModel(
-                        id: Int(dataLists.int(forColumn: "ID")),
-                        trackName: dataLists.string(forColumn: "trackName") ?? "",
-                        artistName: dataLists.string(forColumn: "artistName") ?? "",
-                        collectionName: dataLists.string(forColumn: "collectionName") ?? "",
-                        trackTimeMillis: Int(dataLists.int(forColumn: "trackTimeMillis")),
-                        longDescription: dataLists.string(forColumn: "longDescription") ?? "",
-                        artworkUrl100: dataLists.string(forColumn: "artworkUrl100") ?? "",
-                        trackViewUrl: dataLists.string(forColumn: "trackViewUrl") ?? "")
+                    let model = CollectionDBModel()
+                    model.id = Int(dataLists.int(forColumn: "ID"))
+                    model.trackName = dataLists.string(forColumn: "trackName")
+                    model.artistName = dataLists.string(forColumn: "artistName")
+                    model.collectionName = dataLists.string(forColumn: "collectionName")
+                    model.trackTimeMillis = NSNumber(value: dataLists.int(forColumn: "trackTimeMillis"))
+                    model.longDescription = dataLists.string(forColumn: "longDescription")
+                    model.artworkUrl100 = dataLists.string(forColumn: "artworkUrl100")
+                    model.trackViewUrl = dataLists.string(forColumn: "trackViewUrl")
                     models.append(model)
                 }
             } catch {
