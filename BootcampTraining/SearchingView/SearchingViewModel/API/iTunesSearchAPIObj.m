@@ -34,7 +34,6 @@
         // Clean up.
         self->_completionHandler = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
         errorHandler(error);
     }];
 }
