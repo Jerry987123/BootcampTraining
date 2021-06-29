@@ -51,6 +51,6 @@ class PersonalViewController:UIViewController {
     }
     private func setCollectionCount() {
         let datas = DBDao.shared.queryData(condition: nil)
-        collectionNumberLabel.text = "共有 \(datas.count) 項收藏"
+        collectionNumberLabel.text = "共有 \(Tools().numberCurrency(count: datas.count)) 項收藏"
     }
 }

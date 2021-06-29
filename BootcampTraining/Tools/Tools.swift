@@ -16,4 +16,12 @@ class Tools {
             return numberString
         }
     }
+    func numberCurrency(count:Int) -> String {
+        let number = NSNumber(value: count)
+        let nf = NumberFormatter()
+        nf.numberStyle = .currency
+        nf.currencySymbol = ""
+        nf.maximumFractionDigits = 0
+        return nf.string(from: number) ?? String(describing: count)
+    }
 }
