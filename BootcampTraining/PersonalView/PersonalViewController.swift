@@ -15,6 +15,7 @@ class PersonalViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        loadTopicSetting()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,14 +33,14 @@ class PersonalViewController:UIViewController {
         let vc = UIStoryboard(name: "AboutiTunes", bundle: nil).instantiateViewController(withIdentifier: "AboutiTunesViewController")
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    private func setUI(){
+    func setUI(){
         navigationController?.navigationBar.topItem?.title = "個人資料"
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = .black
-        
+    }
+    private func loadTopicSetting(){
         let viewModel = TopicViewModel()
         let topicType = viewModel.getSelectedTopic()
         switch topicType {

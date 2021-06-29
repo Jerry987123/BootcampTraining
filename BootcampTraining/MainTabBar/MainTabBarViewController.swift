@@ -16,6 +16,18 @@ class MainTabBarViewController: UITabBarController {
         viewControllers?.removeAll()
         setUI()
         selectedIndex = 1
+        guard let topicView = UIStoryboard(name: "TopicView", bundle: nil).instantiateViewController(withIdentifier: "TopicViewController") as? TopicViewController else {
+            return print("topicViewController failed to init")
+        }
+        topicView.setUI()
+        guard let navigationController = selectedViewController as? UINavigationController else {
+            return print("navigationController failed to init")
+        }
+        guard let personalView = navigationController.topViewController as? PersonalViewController else {
+            return print("PersonalViewController failed to init")
+        }
+        personalView.setUI()
+        navigationController.pushViewController(topicView, animated: false)
     }
     private func setUI(){
         let searchingView = UIStoryboard(name: "SearchingView", bundle: nil).instantiateViewController(withIdentifier: "SearchingViewController")

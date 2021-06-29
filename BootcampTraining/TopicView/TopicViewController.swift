@@ -18,8 +18,12 @@ class TopicViewController: UIViewController {
         setUI()
         setTableView()
     }
-    private func setUI(){
+    func setUI(){
         title = "主題顏色"
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+//        navigationItem.backBarButtonItem?.tintColor = .black
     }
     private func setTableView(){
         if _tableView == nil {
