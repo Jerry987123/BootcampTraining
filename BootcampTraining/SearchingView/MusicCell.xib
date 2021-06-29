@@ -75,11 +75,12 @@
                     <constraint firstAttribute="trailing" secondItem="3cq-BM-8yj" secondAttribute="trailing" constant="30" id="RLJ-4I-P2m"/>
                     <constraint firstItem="Exu-73-st3" firstAttribute="leading" secondItem="SpK-He-ojx" secondAttribute="trailing" constant="10" id="czX-Lu-AM8"/>
                     <constraint firstItem="2De-je-Du4" firstAttribute="leading" secondItem="hes-ju-Dmn" secondAttribute="leading" constant="10" id="dtV-hk-Zya"/>
-                    <constraint firstAttribute="bottom" secondItem="Exu-73-st3" secondAttribute="bottom" constant="48" id="eO5-ut-WMK"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Exu-73-st3" secondAttribute="bottom" constant="48" id="eO5-ut-WMK"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="top" secondItem="SpK-He-ojx" secondAttribute="bottom" constant="5" id="pTd-OZ-6Qi"/>
                     <constraint firstItem="G7V-YU-WNd" firstAttribute="top" secondItem="sKk-N0-t38" secondAttribute="bottom" constant="8" id="pdG-dp-zda"/>
                     <constraint firstItem="sKk-N0-t38" firstAttribute="leading" secondItem="3cq-BM-8yj" secondAttribute="leading" id="reD-bi-mOE"/>
                     <constraint firstItem="Exu-73-st3" firstAttribute="leading" secondItem="sKk-N0-t38" secondAttribute="trailing" constant="10" id="x6l-SP-dkk"/>
+                    <constraint firstAttribute="bottom" secondItem="G7V-YU-WNd" secondAttribute="bottom" constant="17" id="xdY-Z5-wbz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
