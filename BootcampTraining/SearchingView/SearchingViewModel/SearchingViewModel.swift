@@ -13,27 +13,29 @@ class SearchingViewModel {
     var movicExpandCellIndex:[Int] = []
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
-        var movieState = false
-        var musicState = false
         movicExpandCellIndex = []
         guard let urlEncodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             print("searchbarText failed to urlencode.")
             APIDone()
             return
         }
-        updatedByAPI(term: urlEncodedTerm, mediaType: .movie) {
-            if musicState {
-                APIDone()
-            } else {
-                movieState = true
+        let taskMovie = DispatchQueue(label: "taskMovie")
+        let taskMusic = DispatchQueue(label: "taskMusic")
+        let taskGroup = DispatchGroup()
+        taskGroup.enter()
+        taskMovie.async(group: taskGroup) {
+            self.updatedByAPI(term: urlEncodedTerm, mediaType: .movie) {
+                taskGroup.leave()
             }
         }
-        updatedByAPI(term: urlEncodedTerm, mediaType: .music) {
-            if movieState {
-                APIDone()
-            } else {
-                musicState = true
+        taskGroup.enter()
+        taskMusic.async(group: taskGroup) {
+            self.updatedByAPI(term: urlEncodedTerm, mediaType: .music) {
+                taskGroup.leave()
             }
+        }
+        taskGroup.notify(queue: .main) {
+            APIDone()
         }
     }
     func appendExpandCellIndex(index:Int){
