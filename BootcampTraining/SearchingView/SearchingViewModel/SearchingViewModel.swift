@@ -5,11 +5,11 @@
 //  Created by ESB21852 on 2021/6/22.
 //
 
-import RxCocoa
+import RxSwift
 
 class SearchingViewModel {
-    var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
-    var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
+    var movieDatas = BehaviorSubject(value: [iTunesSearchAPIResponseResult]())
+    var musicDatas = BehaviorSubject(value: [iTunesSearchAPIResponseResult]())
     var movicExpandCellIndex:[Int] = []
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
@@ -54,13 +54,23 @@ class SearchingViewModel {
             if let datas = datas {
                 switch mediaType {
                 case .movie:
-                    self.movieDatas.accept(datas)
+                    self.movieDatas.onNext(datas)
                 case .music:
-                    self.musicDatas.accept(datas)
+                    self.musicDatas.onNext(datas)
                 }
             }
         } errorHandler: { error in
             APIDone()
+            var msg = "發生不明問題"
+            if let error = error {
+                msg = error.localizedDescription
+            }
+            switch mediaType {
+            case .movie:
+                self.movieDatas.onError(CustomError(msg))
+            case .music:
+                self.musicDatas.onError(CustomError(msg))
+            }
         }
     }
 }

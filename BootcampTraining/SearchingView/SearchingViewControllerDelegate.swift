@@ -26,9 +26,11 @@ extension SearchingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return viewModel.movieDatas.value.count
+            let datas = try? viewModel.movieDatas.value()
+            return datas?.count ?? 0
         case 1:
-            return viewModel.musicDatas.value.count
+            let datas = try? viewModel.musicDatas.value()
+            return datas?.count ?? 0
         default:
             return 0
         }
@@ -37,7 +39,9 @@ extension SearchingViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-            cell.setCell(model: viewModel.movieDatas.value[indexPath.row])
+            if let datas = try? viewModel.movieDatas.value(){
+                cell.setCell(model: datas[indexPath.row])
+            }
             cell.expandCell = { sender in
                 self.viewModel.appendExpandCellIndex(index: indexPath.row)
                 tableView.beginUpdates()
@@ -60,7 +64,9 @@ extension SearchingViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
-            cell.setCell(model: viewModel.musicDatas.value[indexPath.row])
+            if let datas = try? viewModel.musicDatas.value(){
+                cell.setCell(model: datas[indexPath.row])
+            }
             return cell
         default:
             return UITableViewCell()
@@ -72,9 +78,13 @@ extension SearchingViewController: UITableViewDelegate {
         var trackViewUrl = ""
         switch indexPath.section {
         case 0:
-            trackViewUrl = viewModel.movieDatas.value[indexPath.row].trackViewUrl
+            if let datas = try? viewModel.movieDatas.value(){
+                trackViewUrl = datas[indexPath.row].trackViewUrl
+            }
         case 1:
-            trackViewUrl = viewModel.musicDatas.value[indexPath.row].trackViewUrl
+            if let datas = try? viewModel.musicDatas.value(){
+                trackViewUrl = datas[indexPath.row].trackViewUrl
+            }
         default:
             return
         }

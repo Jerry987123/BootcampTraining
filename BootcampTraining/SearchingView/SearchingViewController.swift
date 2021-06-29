@@ -22,11 +22,19 @@ class SearchingViewController: UIViewController {
         setTableView()
         setSearchController()
         setLoadingIndicator()
-        viewModel.musicDatas.asObservable().subscribe { _ in
+        viewModel.movieDatas.subscribe { _ in
             self._tableView?.reloadData()
+        } onError: { error in
+            if let error = error as? CustomError {
+                print(error.localizedDescription)
+            }
         }.disposed(by: disposeBag)
-        viewModel.movieDatas.asObservable().subscribe { _ in
+        viewModel.musicDatas.subscribe { _ in
             self._tableView?.reloadData()
+        } onError: { error in
+            if let error = error as? CustomError {
+                print(error.localizedDescription)
+            }
         }.disposed(by: disposeBag)
     }
     override func viewWillDisappear(_ animated: Bool) {

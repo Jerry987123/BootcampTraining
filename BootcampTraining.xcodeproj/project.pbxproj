@@ -40,6 +40,7 @@
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
 		E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */; };
+		E5560FFE268B804600CC7C71 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5560FFD268B804600CC7C71 /* CustomError.swift */; };
 		E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58DEBB42684D681002C1CEE /* CollectionViewController.swift */; };
 		E58DEBB72684D6AF002C1CEE /* CollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */; };
 		E5D92D442689636F006A358B /* CollectionDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D432689636F006A358B /* CollectionDBModel.swift */; };
@@ -105,6 +106,7 @@
 		A31ABA1D93027518FC3740DF /* Pods-BootcampTrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTrainingUITests.release.xcconfig"; path = "Target Support Files/Pods-BootcampTrainingUITests/Pods-BootcampTrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		E5560FFD268B804600CC7C71 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		E58DEBB42684D681002C1CEE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectionView.storyboard; sourceTree = "<group>"; };
 		E5D92D432689636F006A358B /* CollectionDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDBModel.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				A1DF1C4F2681D5620043FCBA /* Tools.swift */,
+				E5560FFD268B804600CC7C71 /* CustomError.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5560FFE268B804600CC7C71 /* CustomError.swift in Sources */,
 				E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */,
 				A1D1326226831C47004D34E5 /* iTunesSearchAPIResponseResult.m in Sources */,
 				A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */,
