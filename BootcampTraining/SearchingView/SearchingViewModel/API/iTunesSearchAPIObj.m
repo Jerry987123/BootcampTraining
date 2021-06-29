@@ -9,7 +9,7 @@
 
 @implementation iTunesSearchAPIObj
 
-- (void) callITunesAPI: (NSString*) apiUrl handler:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*))handler {
+- (void) callITunesAPI: (NSString*) apiUrl handler:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*))handler errorHandler:(void(^)(NSError *)) errorHandler {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:apiUrl
       parameters:nil
@@ -35,6 +35,7 @@
         self->_completionHandler = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
+        errorHandler(error);
     }];
 }
 @end

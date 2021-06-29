@@ -59,6 +59,8 @@ class SearchingViewModel {
                     self.musicDatas.accept(datas)
                 }
             }
+        } errorHandler: { error in
+            APIDone()
         }
     }
 }
