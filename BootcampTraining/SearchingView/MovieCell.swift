@@ -19,6 +19,8 @@ class MovieCell:UITableViewCell {
     
     weak var _tableView:UITableView?
     var movieModel:iTunesSearchAPIResponseResult?
+    var expandCell: ((UIButton, Int) -> Void)?
+    var narrowCell: ((UIButton, Int) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,15 +43,17 @@ class MovieCell:UITableViewCell {
         }
     }
     @IBAction func readMoreButtonAction(_ sender: UIButton) {
-        _tableView?.beginUpdates()
-        if longDescriptionLabel.numberOfLines == 2 {
-            longDescriptionLabel.numberOfLines = 0
-            sender.setTitle("...read less", for: .normal)
-        } else {
-            longDescriptionLabel.numberOfLines = 2
-            sender.setTitle("...read more", for: .normal)
+        guard let cell = sender.superview?.superview as? MovieCell else {
+            return print("sender failed to get cell")
         }
-        _tableView?.endUpdates()
+        guard let indexRow = _tableView?.indexPath(for: cell) else {
+            return print("cell failed to get indexRow")
+        }
+        if longDescriptionLabel.numberOfLines == 2 {
+            expandCell?(sender, indexRow.row)
+        } else {
+            narrowCell?(sender, indexRow.row)
+        }
     }
     func setCell(model: iTunesSearchAPIResponseResult){
         movieModel = model

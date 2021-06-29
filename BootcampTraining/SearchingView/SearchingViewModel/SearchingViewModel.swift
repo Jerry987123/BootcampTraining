@@ -10,10 +10,14 @@ import RxCocoa
 class SearchingViewModel {
     var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
+    var movicExpandCellIndex:[Int] = []
+    var musicExpandCellIndex:[Int] = []
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
         var movieState = false
         var musicState = false
+        movicExpandCellIndex = []
+        musicExpandCellIndex = []
         guard let urlEncodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             print("searchbarText failed to urlencode.")
             APIDone()
