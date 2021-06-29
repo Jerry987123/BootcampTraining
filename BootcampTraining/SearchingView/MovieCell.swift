@@ -17,10 +17,9 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var movieTimeLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
     
-    weak var _tableView:UITableView?
     var movieModel:iTunesSearchAPIResponseResult?
-    var expandCell: ((UIButton, Int) -> Void)?
-    var narrowCell: ((UIButton, Int) -> Void)?
+    var expandCell: ((UIButton) -> Void)?
+    var narrowCell: ((UIButton) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,16 +42,10 @@ class MovieCell:UITableViewCell {
         }
     }
     @IBAction func readMoreButtonAction(_ sender: UIButton) {
-        guard let cell = sender.superview?.superview as? MovieCell else {
-            return print("sender failed to get cell")
-        }
-        guard let indexRow = _tableView?.indexPath(for: cell) else {
-            return print("cell failed to get indexRow")
-        }
         if longDescriptionLabel.numberOfLines == 2 {
-            expandCell?(sender, indexRow.row)
+            expandCell?(sender)
         } else {
-            narrowCell?(sender, indexRow.row)
+            narrowCell?(sender)
         }
     }
     func setCell(model: iTunesSearchAPIResponseResult){

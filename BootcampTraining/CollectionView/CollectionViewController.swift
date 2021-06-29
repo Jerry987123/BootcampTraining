@@ -87,7 +87,6 @@ extension CollectionViewController:UITableViewDataSource {
         case 0:
             let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
             cell.setCell(model: viewModel.movieDatas.value[indexPath.row])
-            cell._tableView = tableView
             return cell
         case 1:
             let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell

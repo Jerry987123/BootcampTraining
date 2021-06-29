@@ -38,20 +38,15 @@ extension SearchingViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
             cell.setCell(model: viewModel.movieDatas.value[indexPath.row])
-            cell._tableView = tableView
-            cell.expandCell = { sender, cellRow in
-                if !self.viewModel.movicExpandCellIndex.contains(cellRow){
-                    self.viewModel.movicExpandCellIndex.append(cellRow)
-                }
+            cell.expandCell = { sender in
+                self.viewModel.appendExpandCellIndex(index: indexPath.row)
                 tableView.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 0
                 sender.setTitle("...read less", for: .normal)
                 tableView.endUpdates()
             }
-            cell.narrowCell = { sender, cellRow in
-                if let movicExpandCellIndexInRecord = self.viewModel.movicExpandCellIndex.firstIndex(of: cellRow){
-                    self.viewModel.movicExpandCellIndex.remove(at: movicExpandCellIndexInRecord)                    
-                }
+            cell.narrowCell = { sender in
+                self.viewModel.removeExpandCellIndex(index: indexPath.row)
                 tableView.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 2
                 sender.setTitle("...read more", for: .normal)

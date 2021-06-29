@@ -11,13 +11,11 @@ class SearchingViewModel {
     var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     var movicExpandCellIndex:[Int] = []
-    var musicExpandCellIndex:[Int] = []
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
         var movieState = false
         var musicState = false
         movicExpandCellIndex = []
-        musicExpandCellIndex = []
         guard let urlEncodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             print("searchbarText failed to urlencode.")
             APIDone()
@@ -36,6 +34,16 @@ class SearchingViewModel {
             } else {
                 musicState = true
             }
+        }
+    }
+    func appendExpandCellIndex(index:Int){
+        if !movicExpandCellIndex.contains(index){
+            movicExpandCellIndex.append(index)
+        }
+    }
+    func removeExpandCellIndex(index:Int){
+        if let expandCellIndexInRecord = movicExpandCellIndex.firstIndex(of: index){
+            movicExpandCellIndex.remove(at: expandCellIndexInRecord)
         }
     }
     private func updatedByAPI(term:String, mediaType:SearchingMediaType, APIDone:@escaping ()->Void){
