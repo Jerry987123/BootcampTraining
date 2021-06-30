@@ -31,13 +31,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="artiestName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLe-Rw-eZy">
-                        <rect key="frame" x="120" y="49" width="332" height="20.5"/>
+                        <rect key="frame" x="120" y="49" width="371" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collection Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rz4-ch-NcK">
-                        <rect key="frame" x="120" y="74.5" width="332" height="20.5"/>
+                        <rect key="frame" x="120" y="74.5" width="371" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -63,11 +63,11 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0D-hW-9Q7">
-                        <rect key="frame" x="462" y="48" width="69" height="45"/>
+                        <rect key="frame" x="501" y="48" width="50" height="30"/>
                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="69" id="QCX-qY-9xs"/>
-                            <constraint firstAttribute="height" constant="45" id="Z8k-qY-btS"/>
+                            <constraint firstAttribute="width" constant="50" id="QCX-qY-9xs"/>
+                            <constraint firstAttribute="height" constant="30" id="Z8k-qY-btS"/>
                         </constraints>
                         <state key="normal" title="收藏">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,7 +94,7 @@
                     <constraint firstItem="uLe-Rw-eZy" firstAttribute="top" secondItem="qbJ-OH-v1V" secondAttribute="bottom" constant="10" id="iG5-aP-Het"/>
                     <constraint firstItem="VVI-HT-KFz" firstAttribute="leading" secondItem="qbJ-OH-v1V" secondAttribute="leading" id="ibh-KS-3Gi"/>
                     <constraint firstItem="rz4-ch-NcK" firstAttribute="top" secondItem="uLe-Rw-eZy" secondAttribute="bottom" constant="5" id="jX8-ru-rEC"/>
-                    <constraint firstAttribute="trailing" secondItem="Y0D-hW-9Q7" secondAttribute="trailing" constant="30" id="jdA-OB-Dk4"/>
+                    <constraint firstAttribute="trailing" secondItem="Y0D-hW-9Q7" secondAttribute="trailing" constant="10" id="jdA-OB-Dk4"/>
                     <constraint firstItem="rz4-ch-NcK" firstAttribute="leading" secondItem="qbJ-OH-v1V" secondAttribute="leading" id="lgC-cJ-7lI"/>
                     <constraint firstItem="uLe-Rw-eZy" firstAttribute="leading" secondItem="qbJ-OH-v1V" secondAttribute="leading" id="nfU-BI-t1O"/>
                     <constraint firstItem="Et2-og-Z9m" firstAttribute="leading" secondItem="qbJ-OH-v1V" secondAttribute="leading" id="sdK-4n-gQE"/>
@@ -104,6 +104,7 @@
             <connections>
                 <outlet property="artiestNameLabel" destination="uLe-Rw-eZy" id="e8m-W8-z7B"/>
                 <outlet property="collectionButtonLabel" destination="Y0D-hW-9Q7" id="qCK-m9-bG1"/>
+                <outlet property="collectionButtonWidthConstraint" destination="QCX-qY-9xs" id="XbN-SR-DiN"/>
                 <outlet property="collectionNameLabel" destination="rz4-ch-NcK" id="gTX-3U-Gto"/>
                 <outlet property="longDescriptionLabel" destination="VVI-HT-KFz" id="vAj-W6-86n"/>
                 <outlet property="movieTimeLabel" destination="Et2-og-Z9m" id="59L-rl-lcV"/>

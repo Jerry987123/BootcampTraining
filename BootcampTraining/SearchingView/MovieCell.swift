@@ -17,6 +17,7 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var movieTimeLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
     @IBOutlet weak var collectionButtonLabel: UIButton!
+    @IBOutlet weak var collectionButtonWidthConstraint: NSLayoutConstraint!
     
     var movieModel:iTunesSearchAPIResponseResult?
     var expandCell: ((UIButton) -> Void)?
@@ -33,11 +34,13 @@ class MovieCell:UITableViewCell {
         if let model = movieModel {
             DBDao.shared.insertData(mediaType: .movie, model: model)
             sender.setTitle("取消收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 80
         }
         case "取消收藏":
             if let model = movieModel {
                 DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
                 sender.setTitle("收藏", for: .normal)
+                collectionButtonWidthConstraint.constant = 50
             }
         default:
             break
@@ -71,8 +74,10 @@ class MovieCell:UITableViewCell {
     private func adjustCollectionButtonName(alreadyAdded:Bool){
         if alreadyAdded {
             collectionButtonLabel.setTitle("取消收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 80
         } else {
             collectionButtonLabel.setTitle("收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 50
         }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {

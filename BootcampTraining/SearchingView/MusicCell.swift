@@ -16,6 +16,7 @@ class MusicCell:UITableViewCell {
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var musicTimeLabel: UILabel!
     @IBOutlet weak var collectionButtonLabel: UIButton!
+    @IBOutlet weak var collectionButtonWidthConstraint: NSLayoutConstraint!
     
     var musicModel:iTunesSearchAPIResponseResult?
     var updateCell: ((UIButton) -> Void)?
@@ -30,11 +31,13 @@ class MusicCell:UITableViewCell {
         if let model = musicModel {
             DBDao.shared.insertData(mediaType: .music, model: model)
             sender.setTitle("取消收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 80
         }
         case "取消收藏":
             if let model = musicModel {
                 DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
                 sender.setTitle("收藏", for: .normal)
+                collectionButtonWidthConstraint.constant = 50
             }
         default:
             break
@@ -65,8 +68,10 @@ class MusicCell:UITableViewCell {
     private func adjustCollectionButtonName(alreadyAdded:Bool){
         if alreadyAdded {
             collectionButtonLabel.setTitle("取消收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 80
         } else {
             collectionButtonLabel.setTitle("收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 50
         }
     }
 }
