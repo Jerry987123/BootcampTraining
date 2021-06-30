@@ -18,6 +18,7 @@ class MusicCell:UITableViewCell {
     @IBOutlet weak var collectionButtonLabel: UIButton!
     
     var musicModel:iTunesSearchAPIResponseResult?
+    var updateCell: ((UIButton) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +39,7 @@ class MusicCell:UITableViewCell {
         default:
             break
         }
+        updateCell?(sender)
     }
     func setCell(model: iTunesSearchAPIResponseResult){
         musicModel = model

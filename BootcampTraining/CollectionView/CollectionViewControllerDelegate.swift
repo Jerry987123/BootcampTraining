@@ -51,6 +51,12 @@ extension CollectionViewController:UITableViewDataSource {
         case 1:
             let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
             cell.setCell(model: musicTableDatas[indexPath.row])
+            cell.updateCell = { sender in
+                self.musicTableDatas.remove(at: indexPath.row)
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+            }
             return cell
         default:
             return UITableViewCell()
