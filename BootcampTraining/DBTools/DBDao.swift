@@ -135,6 +135,23 @@ class DBDao: NSObject {
         
         return models
     }
+    func queryDataCount() -> Int {
+        var count = 0
+        if self.openConnection() {
+            let querySQL: String = "SELECT Count(*) FROM \(tableName)"
+            do {
+                let dataLists: FMResultSet = try database.executeQuery(querySQL, values: nil)
+                
+                while dataLists.next() {
+                    count = Int(dataLists.int(forColumn: "Count(*)"))
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        return count
+    }
     func deleteData(trackId: Int) {
         if self.openConnection() {
             let deleteSQL: String = "DELETE FROM \(tableName) WHERE trackId = ?"
