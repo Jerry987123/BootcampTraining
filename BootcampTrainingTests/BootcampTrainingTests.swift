@@ -19,6 +19,7 @@ class BootcampTrainingTests: XCTestCase {
     }
 
     func testExample() throws {
+        // test
         DBDaoTest().test()
     }
 
