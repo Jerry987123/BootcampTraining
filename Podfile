@@ -16,9 +16,4 @@ target 'BootcampTraining' do
     inherit! :search_paths
     # Pods for testing
   end
-
-  target 'BootcampTrainingUITests' do
-    # Pods for testing
-  end
-
 end
