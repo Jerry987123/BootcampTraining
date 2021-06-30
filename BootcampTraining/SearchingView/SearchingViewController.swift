@@ -37,6 +37,10 @@ class SearchingViewController: UIViewController {
             }
         }.disposed(by: disposeBag)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        _tableView?.reloadData()
+    }
     override func viewWillDisappear(_ animated: Bool) {
         if _searchController?.isActive ?? false {
             _searchController?.isActive = false
