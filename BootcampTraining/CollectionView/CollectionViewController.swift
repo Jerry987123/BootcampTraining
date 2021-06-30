@@ -13,6 +13,8 @@ class CollectionViewController: UIViewController {
     @IBOutlet weak var switchButtonView: UISegmentedControl!
     
     var _tableView:UITableView?
+    var movieTableDatas = [iTunesSearchAPIResponseResult]()
+    var musicTableDatas = [iTunesSearchAPIResponseResult]()
     
     let viewModel = CollectionViewModel()
     let disposeBag = DisposeBag()
@@ -20,10 +22,16 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        viewModel.musicDatas.asObservable().subscribe { _ in
+        viewModel.movieDatas.asObservable().subscribe { event in
+            if let datas = event.element {
+                self.movieTableDatas = datas
+            }
             self._tableView?.reloadData()
         }.disposed(by: disposeBag)
-        viewModel.movieDatas.asObservable().subscribe { _ in
+        viewModel.musicDatas.asObservable().subscribe { event in
+            if let datas = event.element {
+                self.musicTableDatas = datas
+            }
             self._tableView?.reloadData()
         }.disposed(by: disposeBag)
     }

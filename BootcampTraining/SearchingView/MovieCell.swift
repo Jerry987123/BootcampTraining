@@ -21,6 +21,7 @@ class MovieCell:UITableViewCell {
     var movieModel:iTunesSearchAPIResponseResult?
     var expandCell: ((UIButton) -> Void)?
     var narrowCell: ((UIButton) -> Void)?
+    var updateCell: ((UIButton) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +42,7 @@ class MovieCell:UITableViewCell {
         default:
             break
         }
+        updateCell?(sender)
     }
     @IBAction func readMoreButtonAction(_ sender: UIButton) {
         if longDescriptionLabel.numberOfLines == 2 {

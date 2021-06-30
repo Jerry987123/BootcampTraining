@@ -9,9 +9,9 @@ extension CollectionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch switchButtonView.selectedSegmentIndex {
         case 0:
-            return viewModel.movieDatas.value.count
+            return movieTableDatas.count
         case 1:
-            return viewModel.musicDatas.value.count
+            return musicTableDatas.count
         default:
             return 0
         }
@@ -21,7 +21,7 @@ extension CollectionViewController:UITableViewDataSource {
         switch switchButtonView.selectedSegmentIndex {
         case 0:
             let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
-            cell.setCell(model: viewModel.movieDatas.value[indexPath.row])
+            cell.setCell(model: movieTableDatas[indexPath.row])
             cell.expandCell = { sender in
                 self.viewModel.appendExpandCellIndex(index: indexPath.row)
                 tableView.beginUpdates()
@@ -36,6 +36,12 @@ extension CollectionViewController:UITableViewDataSource {
                 sender.setTitle("...read more", for: .normal)
                 tableView.endUpdates()
             }
+            cell.updateCell = { sender in
+                self.movieTableDatas.remove(at: indexPath.row)
+                tableView.beginUpdates()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+            }
             if viewModel.movicExpandCellIndex.contains(indexPath.row){
                 cell.longDescriptionLabel.numberOfLines = 0
             } else {
@@ -44,7 +50,7 @@ extension CollectionViewController:UITableViewDataSource {
             return cell
         case 1:
             let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
-            cell.setCell(model: viewModel.musicDatas.value[indexPath.row])
+            cell.setCell(model: musicTableDatas[indexPath.row])
             return cell
         default:
             return UITableViewCell()
@@ -56,9 +62,9 @@ extension CollectionViewController: UITableViewDelegate {
         var trackViewUrl = ""
         switch indexPath.section {
         case 0:
-            trackViewUrl = viewModel.movieDatas.value[indexPath.row].trackViewUrl
+            trackViewUrl = movieTableDatas[indexPath.row].trackViewUrl
         case 1:
-            trackViewUrl = viewModel.musicDatas.value[indexPath.row].trackViewUrl
+            trackViewUrl = musicTableDatas[indexPath.row].trackViewUrl
         default:
             return
         }
