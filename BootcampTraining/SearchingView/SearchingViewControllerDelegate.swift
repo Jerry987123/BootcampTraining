@@ -41,6 +41,8 @@ extension SearchingViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
             if let datas = try? viewModel.movieDatas.value(){
                 cell.setCell(model: datas[indexPath.row])
+            } else {
+                cell.setCell(model: iTunesSearchAPIResponseResult())
             }
             cell.expandCell = { sender in
                 self.viewModel.appendExpandCellIndex(index: indexPath.row)

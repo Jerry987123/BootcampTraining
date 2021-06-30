@@ -16,6 +16,7 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var movieTimeLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
+    @IBOutlet weak var CollectionButtonLabel: UIButton!
     
     var movieModel:iTunesSearchAPIResponseResult?
     var expandCell: ((UIButton) -> Void)?
@@ -59,6 +60,17 @@ class MovieCell:UITableViewCell {
             photoImageView.sd_setImage(with: url)
         } else {
             photoImageView.image = UIImage.init(systemName: "tv")
+        }
+        if let trackId = model.trackId {
+            let alreadyAdded = CollectionInteractor().alreadyAdded(trackId: Int(truncating: trackId))
+            adjustCollectionButtonName(alreadyAdded: alreadyAdded)
+        }
+    }
+    private func adjustCollectionButtonName(alreadyAdded:Bool){
+        if alreadyAdded {
+            CollectionButtonLabel.setTitle("取消收藏", for: .normal)
+        } else {
+            CollectionButtonLabel.setTitle("收藏", for: .normal)
         }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
