@@ -102,8 +102,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="CollectionButtonLabel" destination="Y0D-hW-9Q7" id="qCK-m9-bG1"/>
                 <outlet property="artiestNameLabel" destination="uLe-Rw-eZy" id="e8m-W8-z7B"/>
+                <outlet property="collectionButtonLabel" destination="Y0D-hW-9Q7" id="qCK-m9-bG1"/>
                 <outlet property="collectionNameLabel" destination="rz4-ch-NcK" id="gTX-3U-Gto"/>
                 <outlet property="longDescriptionLabel" destination="VVI-HT-KFz" id="vAj-W6-86n"/>
                 <outlet property="movieTimeLabel" destination="Et2-og-Z9m" id="59L-rl-lcV"/>

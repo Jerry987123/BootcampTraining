@@ -16,7 +16,7 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var movieTimeLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
-    @IBOutlet weak var CollectionButtonLabel: UIButton!
+    @IBOutlet weak var collectionButtonLabel: UIButton!
     
     var movieModel:iTunesSearchAPIResponseResult?
     var expandCell: ((UIButton) -> Void)?
@@ -68,9 +68,9 @@ class MovieCell:UITableViewCell {
     }
     private func adjustCollectionButtonName(alreadyAdded:Bool){
         if alreadyAdded {
-            CollectionButtonLabel.setTitle("取消收藏", for: .normal)
+            collectionButtonLabel.setTitle("取消收藏", for: .normal)
         } else {
-            CollectionButtonLabel.setTitle("收藏", for: .normal)
+            collectionButtonLabel.setTitle("收藏", for: .normal)
         }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {

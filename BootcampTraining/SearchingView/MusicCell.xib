@@ -85,6 +85,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="artiestNameLabel" destination="SpK-He-ojx" id="ECY-XW-ZOW"/>
+                <outlet property="collectionButtonLabel" destination="Exu-73-st3" id="tha-Kx-GkZ"/>
                 <outlet property="collectionNameLabel" destination="sKk-N0-t38" id="0OK-Kg-0xj"/>
                 <outlet property="musicTimeLabel" destination="G7V-YU-WNd" id="kWG-LC-6kD"/>
                 <outlet property="photoImageView" destination="2De-je-Du4" id="OFX-Is-6Rt"/>

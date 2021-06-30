@@ -15,6 +15,7 @@ class MusicCell:UITableViewCell {
     @IBOutlet weak var artiestNameLabel: UILabel!
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var musicTimeLabel: UILabel!
+    @IBOutlet weak var collectionButtonLabel: UIButton!
     
     var musicModel:iTunesSearchAPIResponseResult?
     
@@ -49,10 +50,21 @@ class MusicCell:UITableViewCell {
         } else {
             photoImageView.image = UIImage.init(systemName: "music.note")
         }
+        if let trackId = model.trackId {
+            let alreadyAdded = CollectionInteractor().alreadyAdded(trackId: Int(truncating: trackId))
+            adjustCollectionButtonName(alreadyAdded: alreadyAdded)
+        }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
         let min = time/1000/60
         let sec = time/1000%60
         return "\(min):\(Tools().make0To00(number: sec))"
+    }
+    private func adjustCollectionButtonName(alreadyAdded:Bool){
+        if alreadyAdded {
+            collectionButtonLabel.setTitle("取消收藏", for: .normal)
+        } else {
+            collectionButtonLabel.setTitle("收藏", for: .normal)
+        }
     }
 }
