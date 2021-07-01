@@ -22,17 +22,19 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        viewModel.movieDatas.asObservable().subscribe { event in
+        viewModel.movieDatas.asObservable().subscribe { [weak self] event in
             if let datas = event.element {
-                self.movieTableDatas = datas
+                // weak
+                self?.movieTableDatas = datas
             }
-            self._tableView?.reloadData()
+            // weak
+            self?._tableView?.reloadData()
         }.disposed(by: disposeBag)
-        viewModel.musicDatas.asObservable().subscribe { event in
+        viewModel.musicDatas.asObservable().subscribe { [weak self] event in
             if let datas = event.element {
-                self.musicTableDatas = datas
+                self?.musicTableDatas = datas
             }
-            self._tableView?.reloadData()
+            self?._tableView?.reloadData()
         }.disposed(by: disposeBag)
     }
     override func viewWillAppear(_ animated: Bool) {

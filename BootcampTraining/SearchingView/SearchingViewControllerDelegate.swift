@@ -38,19 +38,19 @@ extension SearchingViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
             cell.setCell(model: movieDatas[indexPath.row])
-            cell.expandCell = { sender in
-                self.viewModel.appendExpandCellIndex(index: indexPath.row)
-                tableView.beginUpdates()
+            cell.expandCell = { [weak self] sender in
+                self?.viewModel.appendExpandCellIndex(index: indexPath.row)
+                self?._tableView?.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 0
                 sender.setTitle("...read less", for: .normal)
-                tableView.endUpdates()
+                self?._tableView?.endUpdates()
             }
-            cell.narrowCell = { sender in
-                self.viewModel.removeExpandCellIndex(index: indexPath.row)
-                tableView.beginUpdates()
+            cell.narrowCell = { [weak self] sender in
+                self?.viewModel.removeExpandCellIndex(index: indexPath.row)
+                self?._tableView?.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 2
                 sender.setTitle("...read more", for: .normal)
-                tableView.endUpdates()
+                self?._tableView?.endUpdates()
             }
             if viewModel.movicExpandCellIndex.contains(indexPath.row){
                 cell.longDescriptionLabel.numberOfLines = 0
@@ -88,8 +88,8 @@ extension SearchingViewController: UISearchBarDelegate {
         if let searchText = searchBar.text,
            searchText.trimmingCharacters(in: .whitespaces).count > 0 {
             _loadingIndicator?.startAnimating()
-            viewModel.updatedByAPI(term: searchText) {
-                self._loadingIndicator?.stopAnimating()
+            viewModel.updatedByAPI(term: searchText) { [weak self] in
+                self?._loadingIndicator?.stopAnimating()
             }
         }
     }

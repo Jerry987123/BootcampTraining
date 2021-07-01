@@ -22,43 +22,43 @@ extension CollectionViewController:UITableViewDataSource {
         case 0:
             let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
             cell.setCell(model: movieTableDatas[indexPath.row])
-            cell.expandCell = { sender in
+            cell.expandCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MovieCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self.viewModel.appendExpandCellIndex(index: Int(truncating: self.movieTableDatas[cellIndexPath.row].trackId ?? 0))
-                tableView.beginUpdates()
+                self?.viewModel.appendExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
+                self?._tableView?.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 0
                 sender.setTitle("...read less", for: .normal)
-                tableView.endUpdates()
+                self?._tableView?.endUpdates()
             }
-            cell.narrowCell = { sender in
+            cell.narrowCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MovieCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self.viewModel.removeExpandCellIndex(index: Int(truncating: self.movieTableDatas[cellIndexPath.row].trackId ?? 0))
-                tableView.beginUpdates()
+                self?.viewModel.removeExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
+                self?._tableView?.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 2
                 sender.setTitle("...read more", for: .normal)
-                tableView.endUpdates()
+                self?._tableView?.endUpdates()
             }
-            cell.updateCellWhenRemoveFromCollectionView = { sender in
+            cell.updateCellWhenRemoveFromCollectionView = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MovieCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self.movieTableDatas.remove(at: cellIndexPath.row)
-                tableView.deleteRows(at: [cellIndexPath], with: .automatic)
+                self?.movieTableDatas.remove(at: cellIndexPath.row)
+                self?._tableView?.deleteRows(at: [cellIndexPath], with: .automatic)
             }
-            if viewModel.movicExpandCellIndex.contains(Int(truncating: self.movieTableDatas[indexPath.row].trackId ?? 0)){
+            if viewModel.movicExpandCellIndex.contains(Int(truncating: movieTableDatas[indexPath.row].trackId ?? 0)){
                 cell.longDescriptionLabel.numberOfLines = 0
             } else {
                 cell.longDescriptionLabel.numberOfLines = 2
@@ -67,17 +67,17 @@ extension CollectionViewController:UITableViewDataSource {
         case 1:
             let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
             cell.setCell(model: musicTableDatas[indexPath.row])
-            cell.updateCell = { sender in
+            cell.updateCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MusicCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self.musicTableDatas.remove(at: cellIndexPath.row)
-                tableView.beginUpdates()
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                tableView.endUpdates()
+                self?.musicTableDatas.remove(at: cellIndexPath.row)
+                self?._tableView?.beginUpdates()
+                self?._tableView?.deleteRows(at: [indexPath], with: .automatic)
+                self?._tableView?.endUpdates()
             }
             return cell
         default:

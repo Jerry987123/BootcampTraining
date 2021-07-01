@@ -18,7 +18,7 @@ class MusicCell:UITableViewCell {
     @IBOutlet weak var collectionButtonLabel: UIButton!
     @IBOutlet weak var collectionButtonWidthConstraint: NSLayoutConstraint!
     
-    var musicModel:iTunesSearchAPIResponseResult?
+    weak var musicModel:iTunesSearchAPIResponseResult?
     var updateCell: ((UIButton) -> Void)?
     
     override func awakeFromNib() {

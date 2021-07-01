@@ -24,29 +24,29 @@ class SearchingViewController: UIViewController {
         setTableView()
         setSearchController()
         setLoadingIndicator()
-        viewModel.movieObservable.subscribe { event in
+        viewModel.movieObservable.subscribe { [weak self] event in
             if let result = event.element {
                 switch result {
                 case .success(let datas):
                     if let datas = datas as? [iTunesSearchAPIResponseResult] {
-                        self.movieDatas = datas
-                        self._tableView?.reloadData()
+                        self?.movieDatas = datas
+                        self?._tableView?.reloadData()
                     }
                 case .failure(let error):
-                    self.alertWhenAPIError(msg: error.localizedDescription)
+                    self?.alertWhenAPIError(msg: error.localizedDescription)
                 }
             }
         }.disposed(by: disposeBag)
-        viewModel.musicObservable.subscribe { event in
+        viewModel.musicObservable.subscribe { [weak self] event in
             if let result = event.element {
                 switch result {
                 case .success(let datas):
                     if let datas = datas as? [iTunesSearchAPIResponseResult] {
-                        self.musicDatas = datas
-                        self._tableView?.reloadData()
+                        self?.musicDatas = datas
+                        self?._tableView?.reloadData()
                     }
                 case .failure(let error):
-                    self.alertWhenAPIError(msg: error.localizedDescription)
+                    self?.alertWhenAPIError(msg: error.localizedDescription)
                 }
             }
         }.disposed(by: disposeBag)

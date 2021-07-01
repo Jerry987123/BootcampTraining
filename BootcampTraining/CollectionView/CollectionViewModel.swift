@@ -16,10 +16,10 @@ class CollectionViewModel {
         switch mediaType {
         case .movie:
             let datas = DBDao.shared.queryData(condition: "mediaType = 'movie'")
-            self.movieDatas.accept(datas)
+            movieDatas.accept(datas)
         case .music:
             let datas = DBDao.shared.queryData(condition: "mediaType = 'music'")
-            self.musicDatas.accept(datas)
+            musicDatas.accept(datas)
         }
     }
     func appendExpandCellIndex(index:Int){
