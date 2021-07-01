@@ -15,10 +15,10 @@ class PersonalViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        loadTopicSetting()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadTopicSetting()
         setCollectionCount()
     }
     @IBAction func topicButtonAction(_ sender: UIButton) {

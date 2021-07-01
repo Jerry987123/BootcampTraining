@@ -20,10 +20,10 @@ class TopicViewController: UIViewController {
     }
     func setUI(){
         title = "主題顏色"
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
-//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        navigationItem.backBarButtonItem?.tintColor = .black
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .black
     }
     private func setTableView(){
         if _tableView == nil {
@@ -68,7 +68,8 @@ extension TopicViewController:UITableViewDelegate {
         tableView.reloadData()
         if let tabBar = tabBarController as? MainTabBarViewController {
             TopicInteractor.readTopicListFile()
-            tabBar.switchTopic()
+            tabBar.tabbarTopicColorSet()
         }
+        setUI()
     }
 }
