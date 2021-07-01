@@ -8,8 +8,8 @@
 import RxSwift
 
 class SearchingViewModel {
-    var movieDatas = BehaviorSubject(value: [iTunesSearchAPIResponseResult]())
-    var musicDatas = BehaviorSubject(value: [iTunesSearchAPIResponseResult]())
+    var movieObservable = BehaviorSubject(value: Result<Any, Error>(catching: {}))
+    var musicObservable = BehaviorSubject(value: Result<Any, Error>(catching: {}))
     var movicExpandCellIndex:[Int] = []
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
@@ -54,22 +54,20 @@ class SearchingViewModel {
             if let datas = datas {
                 switch mediaType {
                 case .movie:
-                    self.movieDatas.onNext(datas)
+                    self.movieObservable.onNext(.success(datas))
                 case .music:
-                    self.musicDatas.onNext(datas)
+                    self.musicObservable.onNext(.success(datas))
                 }
             }
         } errorHandler: { error in
             APIDone()
-            var msg = "發生不明問題"
             if let error = error {
-                msg = error.localizedDescription
-            }
-            switch mediaType {
-            case .movie:
-                self.movieDatas.onError(CustomError(msg))
-            case .music:
-                self.musicDatas.onError(CustomError(msg))
+                switch mediaType {
+                case .movie:
+                    self.movieObservable.onNext(.failure(error))
+                case .music:
+                    self.musicObservable.onNext(.failure(error))
+                }
             }
         }
     }

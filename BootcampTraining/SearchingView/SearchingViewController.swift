@@ -13,7 +13,9 @@ class SearchingViewController: UIViewController {
     var _tableView:UITableView?
     var _searchController:UISearchController?
     var _loadingIndicator:UIActivityIndicatorView?
-
+    var movieDatas = [iTunesSearchAPIResponseResult]()
+    var musicDatas = [iTunesSearchAPIResponseResult]()
+    
     let viewModel = SearchingViewModel()
     let disposeBag = DisposeBag()
     
@@ -22,18 +24,30 @@ class SearchingViewController: UIViewController {
         setTableView()
         setSearchController()
         setLoadingIndicator()
-        viewModel.movieDatas.subscribe { _ in
-            self._tableView?.reloadData()
-        } onError: { error in
-            if let error = error as? CustomError {
-                self.alertWhenAPIError(msg: error.localizedDescription)
+        viewModel.movieObservable.subscribe { event in
+            if let result = event.element {
+                switch result {
+                case .success(let datas):
+                    if let datas = datas as? [iTunesSearchAPIResponseResult] {
+                        self.movieDatas = datas
+                        self._tableView?.reloadData()
+                    }
+                case .failure(let error):
+                    self.alertWhenAPIError(msg: error.localizedDescription)
+                }
             }
         }.disposed(by: disposeBag)
-        viewModel.musicDatas.subscribe { _ in
-            self._tableView?.reloadData()
-        } onError: { error in
-            if let error = error as? CustomError {
-                self.alertWhenAPIError(msg: error.localizedDescription)
+        viewModel.musicObservable.subscribe { event in
+            if let result = event.element {
+                switch result {
+                case .success(let datas):
+                    if let datas = datas as? [iTunesSearchAPIResponseResult] {
+                        self.musicDatas = datas
+                        self._tableView?.reloadData()
+                    }
+                case .failure(let error):
+                    self.alertWhenAPIError(msg: error.localizedDescription)
+                }
             }
         }.disposed(by: disposeBag)
     }
