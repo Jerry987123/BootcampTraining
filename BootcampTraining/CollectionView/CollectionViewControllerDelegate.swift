@@ -23,26 +23,42 @@ extension CollectionViewController:UITableViewDataSource {
             let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
             cell.setCell(model: movieTableDatas[indexPath.row])
             cell.expandCell = { sender in
-                self.viewModel.appendExpandCellIndex(index: indexPath.row)
+                guard let cell = sender.superview?.superview as? MovieCell else {
+                    return print("cell error")
+                }
+                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                    return print("cellIndexPath error")
+                }
+                self.viewModel.appendExpandCellIndex(index: Int(truncating: self.movieTableDatas[cellIndexPath.row].trackId ?? 0))
                 tableView.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 0
                 sender.setTitle("...read less", for: .normal)
                 tableView.endUpdates()
             }
             cell.narrowCell = { sender in
-                self.viewModel.removeExpandCellIndex(index: indexPath.row)
+                guard let cell = sender.superview?.superview as? MovieCell else {
+                    return print("cell error")
+                }
+                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                    return print("cellIndexPath error")
+                }
+                self.viewModel.removeExpandCellIndex(index: Int(truncating: self.movieTableDatas[cellIndexPath.row].trackId ?? 0))
                 tableView.beginUpdates()
                 cell.longDescriptionLabel.numberOfLines = 2
                 sender.setTitle("...read more", for: .normal)
                 tableView.endUpdates()
             }
-            cell.updateCell = { sender in
-                self.movieTableDatas.remove(at: indexPath.row)
-                tableView.beginUpdates()
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-                tableView.endUpdates()
+            cell.updateCellWhenRemoveFromCollectionView = { sender in
+                guard let cell = sender.superview?.superview as? MovieCell else {
+                    return print("cell error")
+                }
+                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                    return print("cellIndexPath error")
+                }
+                self.movieTableDatas.remove(at: cellIndexPath.row)
+                tableView.deleteRows(at: [cellIndexPath], with: .automatic)
             }
-            if viewModel.movicExpandCellIndex.contains(indexPath.row){
+            if viewModel.movicExpandCellIndex.contains(Int(truncating: self.movieTableDatas[indexPath.row].trackId ?? 0)){
                 cell.longDescriptionLabel.numberOfLines = 0
             } else {
                 cell.longDescriptionLabel.numberOfLines = 2
@@ -52,7 +68,13 @@ extension CollectionViewController:UITableViewDataSource {
             let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
             cell.setCell(model: musicTableDatas[indexPath.row])
             cell.updateCell = { sender in
-                self.musicTableDatas.remove(at: indexPath.row)
+                guard let cell = sender.superview?.superview as? MusicCell else {
+                    return print("cell error")
+                }
+                guard let cellIndexPath = tableView.indexPath(for: cell) else {
+                    return print("cellIndexPath error")
+                }
+                self.musicTableDatas.remove(at: cellIndexPath.row)
                 tableView.beginUpdates()
                 tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.endUpdates()

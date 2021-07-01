@@ -22,7 +22,7 @@ class MovieCell:UITableViewCell {
     var movieModel:iTunesSearchAPIResponseResult?
     var expandCell: ((UIButton) -> Void)?
     var narrowCell: ((UIButton) -> Void)?
-    var updateCell: ((UIButton) -> Void)?
+    var updateCellWhenRemoveFromCollectionView: ((UIButton) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,11 +41,11 @@ class MovieCell:UITableViewCell {
                 DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
                 sender.setTitle("收藏", for: .normal)
                 collectionButtonWidthConstraint.constant = 50
+                updateCellWhenRemoveFromCollectionView?(sender)
             }
         default:
             break
         }
-        updateCell?(sender)
     }
     @IBAction func readMoreButtonAction(_ sender: UIButton) {
         if longDescriptionLabel.numberOfLines == 2 {
