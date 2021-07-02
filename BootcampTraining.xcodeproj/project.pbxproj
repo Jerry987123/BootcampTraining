@@ -40,7 +40,6 @@
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
 		E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */; };
-		E5560FFE268B804600CC7C71 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5560FFD268B804600CC7C71 /* CustomError.swift */; };
 		E571A9ED268C024D0082A000 /* CollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571A9EC268C024D0082A000 /* CollectionInteractor.swift */; };
 		E571A9EF268C0A220082A000 /* CollectionViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571A9EE268C0A210082A000 /* CollectionViewControllerDelegate.swift */; };
 		E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58DEBB42684D681002C1CEE /* CollectionViewController.swift */; };
@@ -108,7 +107,6 @@
 		A31ABA1D93027518FC3740DF /* Pods-BootcampTrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTrainingUITests.release.xcconfig"; path = "Target Support Files/Pods-BootcampTrainingUITests/Pods-BootcampTrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
-		E5560FFD268B804600CC7C71 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		E571A9EC268C024D0082A000 /* CollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInteractor.swift; sourceTree = "<group>"; };
 		E571A9EE268C0A210082A000 /* CollectionViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E58DEBB42684D681002C1CEE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				A1DF1C4F2681D5620043FCBA /* Tools.swift */,
-				E5560FFD268B804600CC7C71 /* CustomError.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5560FFE268B804600CC7C71 /* CustomError.swift in Sources */,
 				E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */,
 				A1D1326226831C47004D34E5 /* iTunesSearchAPIResponseResult.m in Sources */,
 				A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */,

@@ -22,10 +22,10 @@ class DBDao: NSObject {
         super.init()
         
         // 取得sqlite在documents下的路徑(開啟連線用)
-        self.filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
-            + "/" + self.fileName
+        filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+            + "/" + fileName
         
-        print("filePath: \(self.filePath)")
+        print("filePath: \(filePath)")
     }
     
     deinit {
@@ -37,10 +37,10 @@ class DBDao: NSObject {
         let fileManager: FileManager = FileManager.default
         
         // 判斷documents是否已存在該檔案
-        if !fileManager.fileExists(atPath: self.filePath) {
+        if !fileManager.fileExists(atPath: filePath) {
             
             // 開啟連線
-            if self.openConnection() {
+            if openConnection() {
                 let createTableSQL = """
                     CREATE TABLE \(tableName) (
                     TrackId integer  NOT NULL  PRIMARY KEY,
@@ -53,11 +53,11 @@ class DBDao: NSObject {
                     ArtworkUrl100 Text,
                     TrackViewUrl Text)
                 """
-                self.database.executeStatements(createTableSQL)
-                print("file copy to: \(self.filePath)")
+                database.executeStatements(createTableSQL)
+                print("file copy to: \(filePath)")
             }
         } else {
-            print("DID-NOT copy db file, file allready exists at path:\(self.filePath)")
+            print("DID-NOT copy db file, file allready exists at path:\(filePath)")
         }
     }
     
@@ -67,10 +67,10 @@ class DBDao: NSObject {
     func openConnection() -> Bool {
         var isOpen: Bool = false
         
-        self.database = FMDatabase(path: self.filePath)
+        database = FMDatabase(path: filePath)
         
-        if self.database != nil {
-            if self.database.open() {
+        if database != nil {
+            if database.open() {
                 isOpen = true
             } else {
                 print("Could not get the connection.")
@@ -80,12 +80,12 @@ class DBDao: NSObject {
         return isOpen
     }
     func insertData(mediaType: SearchingMediaType, model: iTunesSearchAPIResponseResult) {
-        if self.openConnection() {
+        if openConnection() {
             let insertSQL: String =
                 "INSERT INTO \(tableName) "
                 + "(mediaType, trackName, artistName, collectionName, trackTimeMillis, longDescription, artworkUrl100, trackViewUrl, trackId) "
                 + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            if !self.database.executeUpdate(insertSQL,
+            if !database.executeUpdate(insertSQL,
                                             withArgumentsIn:
                                                 [mediaType.rawValue,
                                                  model.trackName ?? NSNull(),
@@ -100,13 +100,13 @@ class DBDao: NSObject {
                 print(database.lastError(), database.lastErrorMessage())
             }
             
-            self.database.close()
+            database.close()
         }
     }
     func queryData(condition:String?) -> [CollectionDBModel] {
         var models: [CollectionDBModel] = [CollectionDBModel]()
         
-        if self.openConnection() {
+        if openConnection() {
             var querySQL: String = "SELECT * FROM \(tableName)"
             if let condition = condition {
                 querySQL += " where \(condition)"
@@ -137,7 +137,7 @@ class DBDao: NSObject {
     }
     func queryDataCount() -> Int {
         var count = 0
-        if self.openConnection() {
+        if openConnection() {
             let querySQL: String = "SELECT Count(*) FROM \(tableName)"
             do {
                 let dataLists: FMResultSet = try database.executeQuery(querySQL, values: nil)
@@ -153,16 +153,16 @@ class DBDao: NSObject {
         return count
     }
     func deleteData(trackId: Int) {
-        if self.openConnection() {
+        if openConnection() {
             let deleteSQL: String = "DELETE FROM \(tableName) WHERE trackId = ?"
             
             do {
-                try self.database.executeUpdate(deleteSQL, values: [trackId])
+                try database.executeUpdate(deleteSQL, values: [trackId])
             } catch {
                 print(error.localizedDescription)
             }
             
-            self.database.close()
+            database.close()
         }
     }
 }
