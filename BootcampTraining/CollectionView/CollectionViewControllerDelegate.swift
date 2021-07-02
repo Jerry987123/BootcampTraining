@@ -88,7 +88,7 @@ extension CollectionViewController:UITableViewDataSource {
 extension CollectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var trackViewUrl = ""
-        switch indexPath.section {
+        switch switchButtonView.selectedSegmentIndex {
         case 0:
             trackViewUrl = movieTableDatas[indexPath.row].trackViewUrl
         case 1:
