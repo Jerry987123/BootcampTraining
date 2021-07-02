@@ -29,7 +29,7 @@ class MusicCell:UITableViewCell {
         switch sender.titleLabel?.text {
         case "收藏":
         if let model = musicModel {
-            DBDao.shared.insertData(mediaType: .music, model: model)
+            _ = DBDao.shared.insertData(mediaType: .music, model: model)
             sender.setTitle("取消收藏", for: .normal)
             collectionButtonWidthConstraint.constant = 80
         }

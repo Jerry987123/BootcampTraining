@@ -32,7 +32,7 @@ class MovieCell:UITableViewCell {
         switch sender.titleLabel?.text {
         case "收藏":
         if let model = movieModel {
-            DBDao.shared.insertData(mediaType: .movie, model: model)
+            _ = DBDao.shared.insertData(mediaType: .movie, model: model)
             sender.setTitle("取消收藏", for: .normal)
             collectionButtonWidthConstraint.constant = 80
         }

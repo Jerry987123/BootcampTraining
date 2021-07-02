@@ -21,7 +21,13 @@ class DBDaoTest {
         model.artworkUrl100 = "artworkurl100"
         model.trackViewUrl = "trackviewurl"
         model.trackId = NSNumber(123)
-        DBDao.shared.insertData(mediaType: .music, model: model)
+        let result = DBDao.shared.insertData(mediaType: .music, model: model)
+        switch result {
+        case .success(_):
+            assert(true, "success")
+        case .failure(let error):
+            assert(false, error.localizedDescription)
+        }
     }
     private func query(){
         let condition = "trackId = 123"

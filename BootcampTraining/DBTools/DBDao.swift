@@ -79,7 +79,8 @@ class DBDao: NSObject {
         
         return isOpen
     }
-    func insertData(mediaType: SearchingMediaType, model: iTunesSearchAPIResponseResult) {
+    func insertData(mediaType: SearchingMediaType, model: iTunesSearchAPIResponseResult) -> Result<Bool, CustomError> {
+        var result = Result<Bool, CustomError>.success(true)
         if openConnection() {
             let insertSQL: String =
                 "INSERT INTO \(tableName) "
@@ -96,12 +97,12 @@ class DBDao: NSObject {
                                                  model.artworkUrl100 ?? NSNull(),
                                                  model.trackViewUrl ?? NSNull(),
                                                  model.trackId ?? NSNull()]) {
-                print("Failed to insert initial data into the database.")
-                print(database.lastError(), database.lastErrorMessage())
+                let msg = database.lastErrorMessage()
+                result = .failure(CustomError(msg))
             }
-            
             database.close()
         }
+        return result
     }
     func queryData(condition:String?) -> [CollectionDBModel] {
         var models: [CollectionDBModel] = [CollectionDBModel]()
