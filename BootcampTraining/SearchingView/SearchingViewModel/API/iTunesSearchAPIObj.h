@@ -10,10 +10,6 @@
 
 @interface iTunesSearchAPIObj : NSObject
 
-{
-    void (^_completionHandler)(NSMutableArray<iTunesSearchAPIResponseResult*> *someParameter);
-}
-
 -(void) callITunesAPI:(NSString *)apiUrl handler:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*)) handler errorHandler:(void(^)(NSError *)) errorHandler;
 
 @end

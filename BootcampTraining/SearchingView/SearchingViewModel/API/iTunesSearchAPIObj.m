@@ -24,15 +24,7 @@
                 [results addObject:jsonResponseResult];
             }
         }
-        // NOTE: copying is very important if you'll call the callback asynchronously,
-        // even with garbage collection!
-        self->_completionHandler = [handler copy];
-
-        // Call completion handler.
-        self->_completionHandler(results);
-
-        // Clean up.
-        self->_completionHandler = nil;
+        handler(results);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         errorHandler(error);
     }];
