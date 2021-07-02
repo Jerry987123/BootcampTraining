@@ -7,7 +7,7 @@
 
 class DBDaoTest {
     func test(){
-        insert()
+//        insert()
         query()
 //        delete()
     }
@@ -30,8 +30,15 @@ class DBDaoTest {
         }
     }
     private func query(){
-        let condition = "trackId = 123"
+        let condition = "trackId = 6"
         let results = DBDao.shared.queryData(condition: condition)
+        if results.count == 1 {
+            assert(true)
+        } else if results.count > 1 {
+            assert(false, "以唯一值做query，查出二筆以上資料")
+        } else {
+            assert(false, "query未找到資料")
+        }
         print(results)
     }
     private func delete(){
