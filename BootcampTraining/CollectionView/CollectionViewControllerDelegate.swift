@@ -31,8 +31,7 @@ extension CollectionViewController:UITableViewDataSource {
                 }
                 self?.viewModel.appendExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
                 self?._tableView?.beginUpdates()
-                cell.longDescriptionLabel.numberOfLines = 0
-                sender.setTitle("...read less", for: .normal)
+                cell.setExpandCell()
                 self?._tableView?.endUpdates()
             }
             cell.narrowCell = { [weak self] sender in
@@ -44,8 +43,7 @@ extension CollectionViewController:UITableViewDataSource {
                 }
                 self?.viewModel.removeExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
                 self?._tableView?.beginUpdates()
-                cell.longDescriptionLabel.numberOfLines = 2
-                sender.setTitle("...read more", for: .normal)
+                cell.setNarrowCell()
                 self?._tableView?.endUpdates()
             }
             cell.updateCellWhenRemoveFromCollectionView = { [weak self] sender in
@@ -59,9 +57,9 @@ extension CollectionViewController:UITableViewDataSource {
                 self?._tableView?.deleteRows(at: [cellIndexPath], with: .automatic)
             }
             if viewModel.movicExpandCellIndex.contains(Int(truncating: movieTableDatas[indexPath.row].trackId ?? 0)){
-                cell.longDescriptionLabel.numberOfLines = 0
+                cell.setExpandCell()
             } else {
-                cell.longDescriptionLabel.numberOfLines = 2
+                cell.setNarrowCell()
             }
             return cell
         case 1:

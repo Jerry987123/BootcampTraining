@@ -16,6 +16,7 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var collectionNameLabel: UILabel!
     @IBOutlet weak var movieTimeLabel: UILabel!
     @IBOutlet weak var longDescriptionLabel: UILabel!
+    @IBOutlet weak var readMoreButtonLabel: UIButton!
     @IBOutlet weak var collectionButtonLabel: UIButton!
     @IBOutlet weak var collectionButtonWidthConstraint: NSLayoutConstraint!
     
@@ -70,6 +71,14 @@ class MovieCell:UITableViewCell {
             let alreadyAdded = CollectionInteractor().alreadyAdded(trackId: Int(truncating: trackId))
             adjustCollectionButtonName(alreadyAdded: alreadyAdded)
         }
+    }
+    func setExpandCell(){
+        longDescriptionLabel.numberOfLines = 0
+        readMoreButtonLabel.setTitle("...read less", for: .normal)
+    }
+    func setNarrowCell(){
+        longDescriptionLabel.numberOfLines = 2
+        readMoreButtonLabel.setTitle("...read more", for: .normal)
     }
     private func adjustCollectionButtonName(alreadyAdded:Bool){
         if alreadyAdded {

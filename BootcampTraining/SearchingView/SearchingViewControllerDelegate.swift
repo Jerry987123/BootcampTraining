@@ -41,21 +41,19 @@ extension SearchingViewController: UITableViewDataSource {
             cell.expandCell = { [weak self] sender in
                 self?.viewModel.appendExpandCellIndex(index: indexPath.row)
                 self?._tableView?.beginUpdates()
-                cell.longDescriptionLabel.numberOfLines = 0
-                sender.setTitle("...read less", for: .normal)
+                cell.setExpandCell()
                 self?._tableView?.endUpdates()
             }
             cell.narrowCell = { [weak self] sender in
                 self?.viewModel.removeExpandCellIndex(index: indexPath.row)
                 self?._tableView?.beginUpdates()
-                cell.longDescriptionLabel.numberOfLines = 2
-                sender.setTitle("...read more", for: .normal)
+                cell.setNarrowCell()
                 self?._tableView?.endUpdates()
             }
             if viewModel.movicExpandCellIndex.contains(indexPath.row){
-                cell.longDescriptionLabel.numberOfLines = 0
+                cell.setExpandCell()
             } else {
-                cell.longDescriptionLabel.numberOfLines = 2
+                cell.setNarrowCell()
             }
             return cell
         case 1:

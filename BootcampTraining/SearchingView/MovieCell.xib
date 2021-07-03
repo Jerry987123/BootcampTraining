@@ -109,13 +109,14 @@
                 <outlet property="longDescriptionLabel" destination="VVI-HT-KFz" id="vAj-W6-86n"/>
                 <outlet property="movieTimeLabel" destination="Et2-og-Z9m" id="59L-rl-lcV"/>
                 <outlet property="photoImageView" destination="AGc-o5-x5q" id="2Gc-P5-qIB"/>
+                <outlet property="readMoreButtonLabel" destination="34l-tB-fKy" id="g3W-xO-VwU"/>
                 <outlet property="trackNameLabel" destination="qbJ-OH-v1V" id="bU5-OA-lkE"/>
             </connections>
             <point key="canvasLocation" x="35.507246376811594" y="122.20982142857142"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="tv" catalog="system" width="128" height="97"/>
+        <image name="tv" catalog="system" width="32" height="32"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
