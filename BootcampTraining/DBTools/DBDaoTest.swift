@@ -7,9 +7,9 @@
 
 class DBDaoTest {
     func test(){
-//        insert()
+        insert()
         query()
-//        delete()
+        delete()
     }
     private func insert(){
         let model = iTunesSearchAPIResponseResult()
@@ -20,7 +20,7 @@ class DBDaoTest {
         model.longDescription = "longdescription"
         model.artworkUrl100 = "artworkurl100"
         model.trackViewUrl = "trackviewurl"
-        model.trackId = NSNumber(123)
+        model.trackId = NSNumber(1)
         let result = DBDao.shared.insertData(mediaType: .music, model: model)
         switch result {
         case .success(_):
@@ -30,7 +30,7 @@ class DBDaoTest {
         }
     }
     private func query(){
-        let condition = "trackId = 6"
+        let condition = "trackId = 1"
         let results = DBDao.shared.queryData(condition: condition)
         if results.count == 1 {
             assert(true)
@@ -42,7 +42,14 @@ class DBDaoTest {
         print(results)
     }
     private func delete(){
-        let trackId = 123
+        let trackId = 1
         DBDao.shared.deleteData(trackId: trackId)
+        let condition = "trackId = \(trackId)"
+        let results = DBDao.shared.queryData(condition: condition)
+        if results.count == 0 {
+            assert(true)
+        } else {
+            assert(false, "delete未成功")
+        }
     }
 }
