@@ -74,7 +74,7 @@ extension CollectionViewController:UITableViewDataSource {
                 }
                 self?.musicTableDatas.remove(at: cellIndexPath.row)
                 self?.tableView.beginUpdates()
-                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
                 self?.tableView.endUpdates()
             }
             return cell
