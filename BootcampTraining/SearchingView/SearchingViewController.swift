@@ -10,7 +10,7 @@ import RxSwift
 
 class SearchingViewController: UIViewController {
 
-    var _tableView:UITableView?
+    lazy var tableView = UITableView()
     var _searchController:UISearchController?
     var _loadingIndicator:UIActivityIndicatorView?
     var movieDatas = [iTunesSearchAPIResponseResult]()
@@ -30,7 +30,7 @@ class SearchingViewController: UIViewController {
                 case .success(let datas):
                     if let datas = datas as? [iTunesSearchAPIResponseResult] {
                         self?.movieDatas = datas
-                        self?._tableView?.reloadData()
+                        self?.tableView.reloadData()
                     }
                 case .failure(let error):
                     self?.alertWhenAPIError(msg: error.localizedDescription)
@@ -43,7 +43,7 @@ class SearchingViewController: UIViewController {
                 case .success(let datas):
                     if let datas = datas as? [iTunesSearchAPIResponseResult] {
                         self?.musicDatas = datas
-                        self?._tableView?.reloadData()
+                        self?.tableView.reloadData()
                     }
                 case .failure(let error):
                     self?.alertWhenAPIError(msg: error.localizedDescription)
@@ -53,7 +53,7 @@ class SearchingViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        _tableView?.reloadData()
+        tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
         if _searchController?.isActive ?? false {

@@ -20,12 +20,6 @@ extension SearchingViewController {
         }
     }
     func setTableView(){
-        if _tableView == nil {
-            _tableView = UITableView()
-        }
-        guard let tableView = _tableView else {
-            return print("tableView failed to init.")
-        }
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
         tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
         tableView.delegate = self
@@ -46,10 +40,7 @@ extension SearchingViewController {
             searchController.searchBar.delegate = self
             searchController.searchBar.placeholder = "搜尋"
             searchController.obscuresBackgroundDuringPresentation = false
-            if let tableView = _tableView {
-                tableView.tableHeaderView = searchController.searchBar
-            }
-            
+            tableView.tableHeaderView = searchController.searchBar
         }
     }
 }

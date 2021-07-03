@@ -40,15 +40,15 @@ extension SearchingViewController: UITableViewDataSource {
             cell.setCell(model: movieDatas[indexPath.row])
             cell.expandCell = { [weak self] sender in
                 self?.viewModel.appendExpandCellIndex(index: indexPath.row)
-                self?._tableView?.beginUpdates()
+                self?.tableView.beginUpdates()
                 cell.setExpandCell()
-                self?._tableView?.endUpdates()
+                self?.tableView.endUpdates()
             }
             cell.narrowCell = { [weak self] sender in
                 self?.viewModel.removeExpandCellIndex(index: indexPath.row)
-                self?._tableView?.beginUpdates()
+                self?.tableView.beginUpdates()
                 cell.setNarrowCell()
-                self?._tableView?.endUpdates()
+                self?.tableView.endUpdates()
             }
             if viewModel.movicExpandCellIndex.contains(indexPath.row){
                 cell.setExpandCell()

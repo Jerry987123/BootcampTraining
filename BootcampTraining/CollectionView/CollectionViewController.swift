@@ -12,7 +12,7 @@ class CollectionViewController: UIViewController {
     
     @IBOutlet weak var switchButtonView: UISegmentedControl!
     
-    var _tableView:UITableView?
+    lazy var tableView = UITableView()
     var movieTableDatas = [iTunesSearchAPIResponseResult]()
     var musicTableDatas = [iTunesSearchAPIResponseResult]()
     
@@ -28,13 +28,13 @@ class CollectionViewController: UIViewController {
                 self?.movieTableDatas = datas
             }
             // weak
-            self?._tableView?.reloadData()
+            self?.tableView.reloadData()
         }.disposed(by: disposeBag)
         viewModel.musicDatas.asObservable().subscribe { [weak self] event in
             if let datas = event.element {
                 self?.musicTableDatas = datas
             }
-            self?._tableView?.reloadData()
+            self?.tableView.reloadData()
         }.disposed(by: disposeBag)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -57,19 +57,13 @@ class CollectionViewController: UIViewController {
         default:
             break
         }
-        _tableView?.reloadData()
+        tableView.reloadData()
     }
     private func setUI(){
         title = "收藏項目"
         setTableView()
     }
     private func setTableView(){
-        if _tableView == nil {
-            _tableView = UITableView()
-        }
-        guard let tableView = _tableView else {
-            return print("tableView failed to init.")
-        }
         tableView.dataSource = self
         tableView.delegate = self
         view.addSubview(tableView)

@@ -26,35 +26,35 @@ extension CollectionViewController:UITableViewDataSource {
                 guard let cell = sender.superview?.superview as? MovieCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
+                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
                 self?.viewModel.appendExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
-                self?._tableView?.beginUpdates()
+                self?.tableView.beginUpdates()
                 cell.setExpandCell()
-                self?._tableView?.endUpdates()
+                self?.tableView.endUpdates()
             }
             cell.narrowCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MovieCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
+                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
                 self?.viewModel.removeExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
-                self?._tableView?.beginUpdates()
+                self?.tableView.beginUpdates()
                 cell.setNarrowCell()
-                self?._tableView?.endUpdates()
+                self?.tableView.endUpdates()
             }
             cell.updateCellWhenRemoveFromCollectionView = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MovieCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
+                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
                 self?.movieTableDatas.remove(at: cellIndexPath.row)
-                self?._tableView?.deleteRows(at: [cellIndexPath], with: .automatic)
+                self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
             }
             if viewModel.movicExpandCellIndex.contains(Int(truncating: movieTableDatas[indexPath.row].trackId ?? 0)){
                 cell.setExpandCell()
@@ -69,13 +69,13 @@ extension CollectionViewController:UITableViewDataSource {
                 guard let cell = sender.superview?.superview as? MusicCell else {
                     return print("cell error")
                 }
-                guard let cellIndexPath = self?._tableView?.indexPath(for: cell) else {
+                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
                 self?.musicTableDatas.remove(at: cellIndexPath.row)
-                self?._tableView?.beginUpdates()
-                self?._tableView?.deleteRows(at: [indexPath], with: .automatic)
-                self?._tableView?.endUpdates()
+                self?.tableView.beginUpdates()
+                self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self?.tableView.endUpdates()
             }
             return cell
         default:

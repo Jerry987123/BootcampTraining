@@ -9,7 +9,7 @@ import UIKit
 
 class TopicViewController: UIViewController {
     
-    var _tableView:UITableView?
+    lazy var tableView = UITableView()
     
     let viewModel = TopicViewModel()
     
@@ -26,12 +26,6 @@ class TopicViewController: UIViewController {
         navigationItem.backBarButtonItem?.tintColor = .black
     }
     private func setTableView(){
-        if _tableView == nil {
-            _tableView = UITableView()
-        }
-        guard let tableView = _tableView else {
-            return print("tableView failed to init.")
-        }
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
