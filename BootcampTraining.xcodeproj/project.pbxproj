@@ -39,6 +39,7 @@
 		A1DF1C502681D5620043FCBA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF1C4F2681D5620043FCBA /* Tools.swift */; };
 		A1EEDB37268088610024272C /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EEDB36268088610024272C /* PersonalViewController.swift */; };
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
+		E518E0AA2690149D0030E5B0 /* iTunesSearchAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E518E0A92690149D0030E5B0 /* iTunesSearchAPIResponse.m */; };
 		E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */; };
 		E571A9ED268C024D0082A000 /* CollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571A9EC268C024D0082A000 /* CollectionInteractor.swift */; };
 		E571A9EF268C0A220082A000 /* CollectionViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571A9EE268C0A210082A000 /* CollectionViewControllerDelegate.swift */; };
@@ -107,6 +108,8 @@
 		A1EEDB382680888C0024272C /* PersonalView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalView.storyboard; sourceTree = "<group>"; };
 		A31ABA1D93027518FC3740DF /* Pods-BootcampTrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BootcampTrainingUITests.release.xcconfig"; path = "Target Support Files/Pods-BootcampTrainingUITests/Pods-BootcampTrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA3B2993CDB209A87F5AF3F7 /* Pods_BootcampTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BootcampTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E518E0A8269014370030E5B0 /* iTunesSearchAPIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTunesSearchAPIResponse.h; sourceTree = "<group>"; };
+		E518E0A92690149D0030E5B0 /* iTunesSearchAPIResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTunesSearchAPIResponse.m; sourceTree = "<group>"; };
 		E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		E571A9EC268C024D0082A000 /* CollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionInteractor.swift; sourceTree = "<group>"; };
 		E571A9EE268C0A210082A000 /* CollectionViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */,
 				A1D132592683079F004D34E5 /* iTunesSearchAPIObj.h */,
 				A1D1325A268307D5004D34E5 /* iTunesSearchAPIObj.m */,
+				E518E0A8269014370030E5B0 /* iTunesSearchAPIResponse.h */,
+				E518E0A92690149D0030E5B0 /* iTunesSearchAPIResponse.m */,
 				A1D1326026831BF0004D34E5 /* iTunesSearchAPIResponseResult.h */,
 				A1D1326126831C47004D34E5 /* iTunesSearchAPIResponseResult.m */,
 			);
@@ -530,6 +535,7 @@
 				A1DF1C442681A6DF0043FCBA /* MusicCell.swift in Sources */,
 				A10909F1268457B000D826A3 /* TopicCell.swift in Sources */,
 				E5CE32F8268EF0B800073045 /* CustomError.swift in Sources */,
+				E518E0AA2690149D0030E5B0 /* iTunesSearchAPIResponse.m in Sources */,
 				A1DF1C422681941A0043FCBA /* MovieCell.swift in Sources */,
 				E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */,
 				A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */,

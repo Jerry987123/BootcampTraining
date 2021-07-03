@@ -6,10 +6,11 @@
 //
 
 #import <AFNetworking/AFNetworking.h>
+#import "iTunesSearchAPIResponse.h"
 #import "iTunesSearchAPIResponseResult.h"
 
 @interface iTunesSearchAPIObj : NSObject
 
--(void) callITunesAPI:(NSString *)apiUrl handler:(void(^)(NSMutableArray<iTunesSearchAPIResponseResult*>*)) handler errorHandler:(void(^)(NSError *)) errorHandler;
+-(void) callITunesAPI:(NSString *)apiUrl handler:(void(^)(iTunesSearchAPIResponse*)) handler errorHandler:(void(^)(NSError *)) errorHandler;
 
 @end

@@ -7,6 +7,7 @@
 
 #import <JSONModel/JSONModel.h>
 
+@protocol iTunesSearchAPIResponseResult;
 @interface iTunesSearchAPIResponseResult : JSONModel
 @property (nonatomic) NSString <Optional> *trackName;
 @property (nonatomic) NSString <Optional> *artistName;
