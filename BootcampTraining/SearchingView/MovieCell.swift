@@ -21,6 +21,7 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var collectionButtonWidthConstraint: NSLayoutConstraint!
     
     weak var movieModel:iTunesSearchAPIResponseResult?
+    var collectingActionDelegate: CollectingActionDelegateInCell?
     var expandCell: ((UIButton) -> Void)?
     var narrowCell: ((UIButton) -> Void)?
     var updateCellWhenRemoveFromCollectionView: ((UIButton) -> Void)?
@@ -33,13 +34,13 @@ class MovieCell:UITableViewCell {
         switch sender.titleLabel?.text {
         case "收藏":
         if let model = movieModel {
-            _ = DBDao.shared.insertData(mediaType: .movie, model: model)
+            collectingActionDelegate?.collectionDBInsertOrDelete(model: model, collectingAction: .collect, mediaType: .movie)
             sender.setTitle("取消收藏", for: .normal)
             collectionButtonWidthConstraint.constant = 80
         }
         case "取消收藏":
             if let model = movieModel {
-                DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
+                collectingActionDelegate?.collectionDBInsertOrDelete(model: model, collectingAction: .cancelCollet, mediaType: .movie)
                 sender.setTitle("收藏", for: .normal)
                 collectionButtonWidthConstraint.constant = 50
                 updateCellWhenRemoveFromCollectionView?(sender)

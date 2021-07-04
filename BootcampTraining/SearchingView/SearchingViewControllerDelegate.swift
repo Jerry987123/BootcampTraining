@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension SearchingViewController: CollectingActionDelegateInCell {
+    func collectionDBInsertOrDelete(model: iTunesSearchAPIResponseResult, collectingAction: CollectingActionIndex, mediaType:SearchingMediaType) {
+        collectionViewModel.collectionDBInsertOrDelete(model: model, collectingAction: collectingAction, mediaType: mediaType)
+    }
+}
 extension SearchingViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -50,6 +55,7 @@ extension SearchingViewController: UITableViewDataSource {
                 cell.setNarrowCell()
                 self?.tableView.endUpdates()
             }
+            cell.collectingActionDelegate = self
             if viewModel.movicExpandCellIndex.contains(indexPath.row){
                 cell.setExpandCell()
             } else {
@@ -59,6 +65,7 @@ extension SearchingViewController: UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
             cell.setCell(model: musicDatas[indexPath.row])
+            cell.collectingActionDelegate = self
             return cell
         default:
             return UITableViewCell()

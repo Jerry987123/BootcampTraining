@@ -7,6 +7,10 @@
 
 import RxCocoa
 
+enum CollectingActionIndex {
+    case collect
+    case cancelCollet
+}
 class CollectionViewModel {
     var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
@@ -30,6 +34,14 @@ class CollectionViewModel {
     func removeExpandCellIndex(index:Int){
         if let expandCellIndexInRecord = movicExpandCellIndex.firstIndex(of: index){
             movicExpandCellIndex.remove(at: expandCellIndexInRecord)
+        }
+    }
+    func collectionDBInsertOrDelete(model:iTunesSearchAPIResponseResult, collectingAction:CollectingActionIndex, mediaType:SearchingMediaType){
+        switch collectingAction {
+        case .collect:
+            _ = DBDao.shared.insertData(mediaType: mediaType, model: model)
+        case .cancelCollet:
+            DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
         }
     }
 }

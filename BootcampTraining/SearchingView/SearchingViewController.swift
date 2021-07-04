@@ -17,6 +17,7 @@ class SearchingViewController: UIViewController {
     var musicDatas = [iTunesSearchAPIResponseResult]()
     
     let viewModel = SearchingViewModel()
+    let collectionViewModel = CollectionViewModel()
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {

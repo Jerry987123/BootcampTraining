@@ -5,6 +5,14 @@
 //  Created by Jayyi on 2021/6/30.
 //
 
+protocol CollectingActionDelegateInCell {
+    func collectionDBInsertOrDelete(model:iTunesSearchAPIResponseResult, collectingAction:CollectingActionIndex, mediaType:SearchingMediaType)
+}
+extension CollectionViewController: CollectingActionDelegateInCell {
+    func collectionDBInsertOrDelete(model: iTunesSearchAPIResponseResult, collectingAction: CollectingActionIndex, mediaType:SearchingMediaType) {
+        viewModel.collectionDBInsertOrDelete(model: model, collectingAction: collectingAction, mediaType: mediaType)
+    }
+}
 extension CollectionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch switchButtonView.selectedSegmentIndex {
@@ -56,6 +64,7 @@ extension CollectionViewController:UITableViewDataSource {
                 self?.movieTableDatas.remove(at: cellIndexPath.row)
                 self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
             }
+            cell.collectingActionDelegate = self
             if viewModel.movicExpandCellIndex.contains(Int(truncating: movieTableDatas[indexPath.row].trackId ?? 0)){
                 cell.setExpandCell()
             } else {
@@ -77,6 +86,7 @@ extension CollectionViewController:UITableViewDataSource {
                 self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
                 self?.tableView.endUpdates()
             }
+            cell.collectingActionDelegate = self
             return cell
         default:
             return UITableViewCell()
