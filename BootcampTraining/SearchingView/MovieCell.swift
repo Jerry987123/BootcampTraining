@@ -21,7 +21,7 @@ class MovieCell:UITableViewCell {
     @IBOutlet weak var collectionButtonWidthConstraint: NSLayoutConstraint!
     
     weak var movieModel:iTunesSearchAPIResponseResult?
-    var collectingActionDelegate: CollectingActionDelegateInCell?
+    weak var collectingActionDelegate: CollectingActionDelegateInCell?
     var expandCell: ((UIButton) -> Void)?
     var narrowCell: ((UIButton) -> Void)?
     var updateCellWhenRemoveFromCollectionView: ((UIButton) -> Void)?

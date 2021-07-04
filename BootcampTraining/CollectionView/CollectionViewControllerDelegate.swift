@@ -5,7 +5,7 @@
 //  Created by Jayyi on 2021/6/30.
 //
 
-protocol CollectingActionDelegateInCell {
+protocol CollectingActionDelegateInCell: AnyObject {
     func collectionDBInsertOrDelete(model:iTunesSearchAPIResponseResult, collectingAction:CollectingActionIndex, mediaType:SearchingMediaType)
 }
 extension CollectionViewController: CollectingActionDelegateInCell {
