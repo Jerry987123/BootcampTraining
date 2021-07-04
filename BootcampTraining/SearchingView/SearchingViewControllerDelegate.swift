@@ -88,6 +88,7 @@ extension SearchingViewController: UISearchBarDelegate {
             _loadingIndicator?.startAnimating()
             viewModel.updatedByAPI(term: searchText) { [weak self] in
                 self?._loadingIndicator?.stopAnimating()
+                self?.tableView.reloadData()
             }
         }
     }

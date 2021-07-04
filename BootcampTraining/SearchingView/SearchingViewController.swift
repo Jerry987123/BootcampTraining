@@ -30,7 +30,6 @@ class SearchingViewController: UIViewController {
                 case .success(let datas):
                     if let datas = datas as? [iTunesSearchAPIResponseResult] {
                         self?.movieDatas = datas
-                        self?.tableView.reloadData()
                     }
                 case .failure(let error):
                     self?.alertWhenAPIError(msg: error.localizedDescription)
@@ -43,7 +42,6 @@ class SearchingViewController: UIViewController {
                 case .success(let datas):
                     if let datas = datas as? [iTunesSearchAPIResponseResult] {
                         self?.musicDatas = datas
-                        self?.tableView.reloadData()
                     }
                 case .failure(let error):
                     self?.alertWhenAPIError(msg: error.localizedDescription)
