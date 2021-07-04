@@ -41,6 +41,7 @@
 		A1EEDB392680888C0024272C /* PersonalView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1EEDB382680888C0024272C /* PersonalView.storyboard */; };
 		E518E0AA2690149D0030E5B0 /* iTunesSearchAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E518E0A92690149D0030E5B0 /* iTunesSearchAPIResponse.m */; };
 		E54847EB2685D0F8007A4397 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54847EA2685D0F8007A4397 /* CollectionViewModel.swift */; };
+		E5517D6926921576003E974F /* DBDaoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D472689CECE006A358B /* DBDaoTest.swift */; };
 		E571A9ED268C024D0082A000 /* CollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571A9EC268C024D0082A000 /* CollectionInteractor.swift */; };
 		E571A9EF268C0A220082A000 /* CollectionViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571A9EE268C0A210082A000 /* CollectionViewControllerDelegate.swift */; };
 		E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58DEBB42684D681002C1CEE /* CollectionViewController.swift */; };
@@ -48,7 +49,6 @@
 		E5CE32F8268EF0B800073045 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE32F7268EF0B800073045 /* CustomError.swift */; };
 		E5D92D442689636F006A358B /* CollectionDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D432689636F006A358B /* CollectionDBModel.swift */; };
 		E5D92D4626896819006A358B /* DBDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D4526896819006A358B /* DBDao.swift */; };
-		E5D92D482689CECE006A358B /* DBDaoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D472689CECE006A358B /* DBDaoTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				A126108826807D8A008BF566 /* BootcampTrainingTests.swift */,
+				E5D92D472689CECE006A358B /* DBDaoTest.swift */,
 				A126108A26807D8A008BF566 /* Info.plist */,
 			);
 			path = BootcampTrainingTests;
@@ -339,7 +340,6 @@
 			children = (
 				E5D92D432689636F006A358B /* CollectionDBModel.swift */,
 				E5D92D4526896819006A358B /* DBDao.swift */,
-				E5D92D472689CECE006A358B /* DBDaoTest.swift */,
 			);
 			path = DBTools;
 			sourceTree = "<group>";
@@ -525,7 +525,6 @@
 				A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */,
 				E571A9ED268C024D0082A000 /* CollectionInteractor.swift in Sources */,
 				A10909F82684650700D826A3 /* TopicInteractor.swift in Sources */,
-				E5D92D482689CECE006A358B /* DBDaoTest.swift in Sources */,
 				A1DF1C502681D5620043FCBA /* Tools.swift in Sources */,
 				A1DF1C3A268178D80043FCBA /* MainTabBarViewController.swift in Sources */,
 				A10909FF2684812100D826A3 /* AboutiTunesViewController.swift in Sources */,
@@ -555,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5517D6926921576003E974F /* DBDaoTest.swift in Sources */,
 				A126108926807D8A008BF566 /* BootcampTrainingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

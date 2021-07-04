@@ -5,6 +5,8 @@
 //  Created by Jayyi on 2021/6/28.
 //
 
+@testable import BootcampTraining
+
 class DBDaoTest {
     func test(){
         insert()
