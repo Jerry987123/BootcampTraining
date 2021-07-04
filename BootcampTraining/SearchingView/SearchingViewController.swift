@@ -55,6 +55,7 @@ class SearchingViewController: UIViewController {
         tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         if _searchController?.isActive ?? false {
             _searchController?.isActive = false
         }
