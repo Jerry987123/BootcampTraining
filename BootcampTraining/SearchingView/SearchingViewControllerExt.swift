@@ -43,4 +43,11 @@ extension SearchingViewController {
             tableView.tableHeaderView = searchController.searchBar
         }
     }
+    func alertWhenError(msg:String){
+        _searchController?.isActive = false
+        let alert = UIAlertController(title: "系統異常", message: msg, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "確定", style: .default, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
 }

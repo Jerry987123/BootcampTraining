@@ -33,7 +33,7 @@ class SearchingViewController: UIViewController {
                         self?.movieDatas = datas
                     }
                 case .failure(let error):
-                    self?.alertWhenAPIError(msg: error.localizedDescription)
+                    self?.alertWhenError(msg: error.localizedDescription)
                 }
             }
         }.disposed(by: disposeBag)
@@ -45,7 +45,7 @@ class SearchingViewController: UIViewController {
                         self?.musicDatas = datas
                     }
                 case .failure(let error):
-                    self?.alertWhenAPIError(msg: error.localizedDescription)
+                    self?.alertWhenError(msg: error.localizedDescription)
                 }
             }
         }.disposed(by: disposeBag)
@@ -58,13 +58,6 @@ class SearchingViewController: UIViewController {
         if _searchController?.isActive ?? false {
             _searchController?.isActive = false
         }
-    }
-    private func alertWhenAPIError(msg:String){
-        _searchController?.isActive = false
-        let alert = UIAlertController(title: "系統異常", message: msg, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "確定", style: .default, handler: nil)
-        alert.addAction(ok)
-        present(alert, animated: true, completion: nil)
     }
 }
 

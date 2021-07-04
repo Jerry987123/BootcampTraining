@@ -153,17 +153,19 @@ class DBDao: NSObject {
         
         return count
     }
-    func deleteData(trackId: Int) {
+    func deleteData(trackId: Int) -> Result<Bool, CustomError> {
+        var result = Result<Bool, CustomError>.success(true)
         if openConnection() {
             let deleteSQL: String = "DELETE FROM \(tableName) WHERE trackId = ?"
             
             do {
                 try database.executeUpdate(deleteSQL, values: [trackId])
             } catch {
-                print(error.localizedDescription)
+                let msg = error.localizedDescription
+                result = .failure(CustomError(msg))
             }
-            
             database.close()
         }
+        return result
     }
 }

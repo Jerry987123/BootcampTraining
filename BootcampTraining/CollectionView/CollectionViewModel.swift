@@ -36,12 +36,14 @@ class CollectionViewModel {
             movicExpandCellIndex.remove(at: expandCellIndexInRecord)
         }
     }
-    func collectionDBInsertOrDelete(model:iTunesSearchAPIResponseResult, collectingAction:CollectingActionIndex, mediaType:SearchingMediaType){
+    func collectionDBInsertOrDelete(model:iTunesSearchAPIResponseResult, collectingAction:CollectingActionIndex, mediaType:SearchingMediaType) -> Result<Bool, CustomError> {
+        var result = Result<Bool, CustomError>.success(true)
         switch collectingAction {
         case .collect:
-            _ = DBDao.shared.insertData(mediaType: mediaType, model: model)
+            result = DBDao.shared.insertData(mediaType: mediaType, model: model)
         case .cancelCollet:
-            DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
+            result = DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
         }
+        return result
     }
 }

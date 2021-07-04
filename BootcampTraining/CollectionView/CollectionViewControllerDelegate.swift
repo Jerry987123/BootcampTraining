@@ -10,7 +10,13 @@ protocol CollectingActionDelegateInCell {
 }
 extension CollectionViewController: CollectingActionDelegateInCell {
     func collectionDBInsertOrDelete(model: iTunesSearchAPIResponseResult, collectingAction: CollectingActionIndex, mediaType:SearchingMediaType) {
-        viewModel.collectionDBInsertOrDelete(model: model, collectingAction: collectingAction, mediaType: mediaType)
+        let result = viewModel.collectionDBInsertOrDelete(model: model, collectingAction: collectingAction, mediaType: mediaType)
+        switch result {
+        case .success:
+            break
+        case .failure(let error):
+            alertWhenError(msg: error.localizedDescription)
+        }
     }
 }
 extension CollectionViewController:UITableViewDataSource {

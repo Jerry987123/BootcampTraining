@@ -9,7 +9,13 @@ import UIKit
 
 extension SearchingViewController: CollectingActionDelegateInCell {
     func collectionDBInsertOrDelete(model: iTunesSearchAPIResponseResult, collectingAction: CollectingActionIndex, mediaType:SearchingMediaType) {
-        collectionViewModel.collectionDBInsertOrDelete(model: model, collectingAction: collectingAction, mediaType: mediaType)
+        let result = collectionViewModel.collectionDBInsertOrDelete(model: model, collectingAction: collectingAction, mediaType: mediaType)
+        switch result {
+        case .success:
+            break
+        case .failure(let error):
+            alertWhenError(msg: error.localizedDescription)
+        }
     }
 }
 extension SearchingViewController: UITableViewDataSource {
