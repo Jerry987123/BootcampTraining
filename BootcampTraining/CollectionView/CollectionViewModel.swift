@@ -19,11 +19,21 @@ class CollectionViewModel {
     func loadCollectionFromDB(mediaType:SearchingMediaType){
         switch mediaType {
         case .movie:
-            let datas = DBDao.shared.queryData(condition: "mediaType = 'movie'")
-            movieDatas.accept(datas)
+            let result = DBDao.shared.queryData(condition: "mediaType = 'movie'")
+            switch result {
+            case .success(let datas):
+                movieDatas.accept(datas)
+            case .failure(let error):
+                print("db query error=\(error.localizedDescription)")
+            }
         case .music:
-            let datas = DBDao.shared.queryData(condition: "mediaType = 'music'")
-            musicDatas.accept(datas)
+            let result = DBDao.shared.queryData(condition: "mediaType = 'music'")
+            switch result {
+            case .success(let datas):
+                musicDatas.accept(datas)
+            case .failure(let error):
+                print("db query error=\(error.localizedDescription)")
+            }
         }
     }
     func appendExpandCellIndex(index:Int){

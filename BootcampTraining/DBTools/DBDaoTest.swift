@@ -31,25 +31,29 @@ class DBDaoTest {
     }
     private func query(){
         let condition = "trackId = 1"
-        let results = DBDao.shared.queryData(condition: condition)
-        if results.count == 1 {
-            assert(true)
-        } else if results.count > 1 {
-            assert(false, "以唯一值做query，查出二筆以上資料")
-        } else {
-            assert(false, "query未找到資料")
+        let result = DBDao.shared.queryData(condition: condition)
+        switch result {
+        case .success(let datas):
+            print(datas)
+            if datas.count == 1 {
+                assert(true)
+            } else if datas.count > 1 {
+                assert(false, "以唯一值做query，查出二筆以上資料")
+            } else {
+                assert(false, "query未找到資料")
+            }
+        case .failure(let error):
+            assert(false, error.localizedDescription)
         }
-        print(results)
     }
     private func delete(){
         let trackId = 1
-        DBDao.shared.deleteData(trackId: trackId)
-        let condition = "trackId = \(trackId)"
-        let results = DBDao.shared.queryData(condition: condition)
-        if results.count == 0 {
+        let result = DBDao.shared.deleteData(trackId: trackId)
+        switch result {
+        case .success:
             assert(true)
-        } else {
-            assert(false, "delete未成功")
+        case .failure(let error):
+            assert(false, "delete未成功, error=\(error.localizedDescription)")
         }
     }
 }

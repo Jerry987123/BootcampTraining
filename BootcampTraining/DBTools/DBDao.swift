@@ -104,7 +104,8 @@ class DBDao: NSObject {
         }
         return result
     }
-    func queryData(condition:String?) -> [CollectionDBModel] {
+    func queryData(condition:String?) -> Result<[CollectionDBModel], CustomError> {
+        var result = Result<[CollectionDBModel], CustomError>.success([])
         var models: [CollectionDBModel] = [CollectionDBModel]()
         
         if openConnection() {
@@ -129,29 +130,35 @@ class DBDao: NSObject {
                     model.trackId = NSNumber(value: dataLists.int(forColumn: "trackId"))
                     models.append(model)
                 }
+                result = .success(models)
             } catch {
-                print(error.localizedDescription)
+                let msg = error.localizedDescription
+                let error = CustomError(msg)
+                result = .failure(error)
             }
         }
         
-        return models
+        return result
     }
-    func queryDataCount() -> Int {
-        var count = 0
+    func queryDataCount() -> Result<Int, CustomError> {
+        var result = Result<Int, CustomError>.success(0)
         if openConnection() {
             let querySQL: String = "SELECT Count(*) FROM \(tableName)"
             do {
                 let dataLists: FMResultSet = try database.executeQuery(querySQL, values: nil)
                 
                 while dataLists.next() {
-                    count = Int(dataLists.int(forColumn: "Count(*)"))
+                    let count = Int(dataLists.int(forColumn: "Count(*)"))
+                    result = .success(count)
                 }
             } catch {
-                print(error.localizedDescription)
+                let msg = error.localizedDescription
+                let error = CustomError(msg)
+                result = .failure(error)
             }
         }
         
-        return count
+        return result
     }
     func deleteData(trackId: Int) -> Result<Bool, CustomError> {
         var result = Result<Bool, CustomError>.success(true)
