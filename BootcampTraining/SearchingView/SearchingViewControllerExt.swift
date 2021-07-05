@@ -9,15 +9,9 @@ import UIKit
 
 extension SearchingViewController {
     func setLoadingIndicator(){
-        if _loadingIndicator == nil {
-            _loadingIndicator = UIActivityIndicatorView()
-            guard let loadingIndicator = _loadingIndicator else {
-                return print("loadingIndicator failed to init")
-            }
-            loadingIndicator.color = .gray
-            loadingIndicator.center = view.center
-            view.addSubview(loadingIndicator)
-        }
+        loadingIndicator.color = .gray
+        loadingIndicator.center = view.center
+        view.addSubview(loadingIndicator)
     }
     func setTableView(){
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
@@ -32,19 +26,13 @@ extension SearchingViewController {
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     func setSearchController(){
-        if _searchController == nil {
-            _searchController = UISearchController()
-            guard let searchController = _searchController else {
-                return print("searchController failed to init")
-            }
-            searchController.searchBar.delegate = self
-            searchController.searchBar.placeholder = "搜尋"
-            searchController.obscuresBackgroundDuringPresentation = false
-            tableView.tableHeaderView = searchController.searchBar
-        }
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "搜尋"
+        searchController.obscuresBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
     }
     func alertWhenError(msg:String){
-        _searchController?.isActive = false
+        searchController.isActive = false
         let alert = UIAlertController(title: "系統異常", message: msg, preferredStyle: .alert)
         let ok = UIAlertAction(title: "確定", style: .default, handler: nil)
         alert.addAction(ok)

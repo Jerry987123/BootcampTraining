@@ -11,8 +11,8 @@ import RxSwift
 class SearchingViewController: UIViewController {
 
     lazy var tableView = UITableView()
-    var _searchController:UISearchController?
-    var _loadingIndicator:UIActivityIndicatorView?
+    var searchController = UISearchController()
+    var loadingIndicator = UIActivityIndicatorView()
     var movieData = [iTunesSearchAPIResponseResult]()
     var musicData = [iTunesSearchAPIResponseResult]()
     
@@ -56,8 +56,8 @@ class SearchingViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if _searchController?.isActive ?? false {
-            _searchController?.isActive = false
+        if searchController.isActive {
+            searchController.isActive = false
         }
     }
 }

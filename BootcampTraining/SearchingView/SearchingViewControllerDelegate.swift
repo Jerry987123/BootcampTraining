@@ -110,9 +110,9 @@ extension SearchingViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text,
            searchText.trimmingCharacters(in: .whitespaces).count > 0 {
-            _loadingIndicator?.startAnimating()
+            loadingIndicator.startAnimating()
             viewModel.updatedByAPI(term: searchText) { [weak self] in
-                self?._loadingIndicator?.stopAnimating()
+                self?.loadingIndicator.stopAnimating()
                 self?.tableView.reloadData()
             }
         }
