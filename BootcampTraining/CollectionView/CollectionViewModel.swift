@@ -48,6 +48,16 @@ class CollectionViewModel {
             movicExpandCellIndex.remove(at: expandCellIndexInRecord)
         }
     }
+    func getTableDataIndex(trackId:Int, data:[iTunesSearchAPIResponseResult]) -> Int? {
+        var dataIndex:Int?
+        for (i, obj) in data.enumerated() {
+            if let objTrackId = obj.trackId, Int(truncating: objTrackId) == trackId {
+                dataIndex = i
+                break
+            }
+        }
+        return dataIndex
+    }
     func collectionDBInsertOrDelete(model:iTunesSearchAPIResponseResult, collectingAction:CollectingActionIndex, mediaType:SearchingMediaType) -> Result<Bool, CustomError> {
         var result = Result<Bool, CustomError>.success(true)
         switch collectingAction {

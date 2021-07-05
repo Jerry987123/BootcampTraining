@@ -36,39 +36,22 @@ extension CollectionViewController:UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
             cell.setCell(model: movieTableData[indexPath.row])
-            cell.expandCell = { [weak self] sender in
-                guard let cell = sender.superview?.superview as? MovieCell else {
-                    return print("cell error")
-                }
-                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
-                    return print("cellIndexPath error")
-                }
-                self?.viewModel.appendExpandCellIndex(index: Int(truncating: self?.movieTableData[cellIndexPath.row].trackId ?? 0))
+            cell.expandCell = { [weak self] trackId in
+                self?.viewModel.appendExpandCellIndex(index: trackId)
                 self?.tableView.beginUpdates()
-                cell.setExpandCell()
                 self?.tableView.endUpdates()
             }
-            cell.narrowCell = { [weak self] sender in
-                guard let cell = sender.superview?.superview as? MovieCell else {
-                    return print("cell error")
-                }
-                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
-                    return print("cellIndexPath error")
-                }
-                self?.viewModel.removeExpandCellIndex(index: Int(truncating: self?.movieTableData[cellIndexPath.row].trackId ?? 0))
+            cell.narrowCell = { [weak self] trackId in
+                self?.viewModel.removeExpandCellIndex(index: trackId)
                 self?.tableView.beginUpdates()
-                cell.setNarrowCell()
                 self?.tableView.endUpdates()
             }
-            cell.updateCellWhenRemoveFromCollectionView = { [weak self] sender in
-                guard let cell = sender.superview?.superview as? MovieCell else {
-                    return print("cell error")
+            cell.updateCellWhenRemoveFromCollectionView = { [weak self] trackId in
+                guard let cellIndex = self?.viewModel.getTableDataIndex(trackId: trackId, data: self?.movieTableData ?? []) else {
+                    return print("failed to get cellIndex")
                 }
-                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
-                    return print("cellIndexPath error")
-                }
-                self?.movieTableData.remove(at: cellIndexPath.row)
-                self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
+                self?.movieTableData.remove(at: cellIndex)
+                self?.tableView.deleteRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
             }
             if let trackId = movieTableData[indexPath.row].trackId {
                 let alreadyAdded = viewModel.alreadyAddedInDB(trackId: Int(truncating: trackId))
@@ -86,16 +69,13 @@ extension CollectionViewController:UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
             cell.setCell(model: musicTableData[indexPath.row])
-            cell.updateCell = { [weak self] sender in
-                guard let cell = sender.superview?.superview as? MusicCell else {
-                    return print("cell error")
+            cell.updateCell = { [weak self] trackId in
+                guard let cellIndex = self?.viewModel.getTableDataIndex(trackId: trackId, data: self?.musicTableData ?? []) else {
+                    return print("failed to get cellIndex")
                 }
-                guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
-                    return print("cellIndexPath error")
-                }
-                self?.musicTableData.remove(at: cellIndexPath.row)
+                self?.musicTableData.remove(at: cellIndex)
                 self?.tableView.beginUpdates()
-                self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
+                self?.tableView.deleteRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
                 self?.tableView.endUpdates()
             }
             if let trackId = musicTableData[indexPath.row].trackId {

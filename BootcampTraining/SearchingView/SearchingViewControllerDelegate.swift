@@ -49,13 +49,13 @@ extension SearchingViewController: UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
             cell.setCell(model: movieData[indexPath.row])
-            cell.expandCell = { [weak self] sender in
+            cell.expandCell = { [weak self] _ in
                 self?.viewModel.appendExpandCellIndex(index: indexPath.row)
                 self?.tableView.beginUpdates()
                 cell.setExpandCell()
                 self?.tableView.endUpdates()
             }
-            cell.narrowCell = { [weak self] sender in
+            cell.narrowCell = { [weak self] _ in
                 self?.viewModel.removeExpandCellIndex(index: indexPath.row)
                 self?.tableView.beginUpdates()
                 cell.setNarrowCell()

@@ -22,9 +22,9 @@ class MovieCell:UITableViewCell {
     
     weak var movieModel:iTunesSearchAPIResponseResult?
     weak var collectingActionDelegate: CollectingActionDelegateInCell?
-    var expandCell: ((UIButton) -> Void)?
-    var narrowCell: ((UIButton) -> Void)?
-    var updateCellWhenRemoveFromCollectionView: ((UIButton) -> Void)?
+    var expandCell: ((Int) -> Void)?
+    var narrowCell: ((Int) -> Void)?
+    var updateCellWhenRemoveFromCollectionView: ((Int) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +43,7 @@ class MovieCell:UITableViewCell {
                 collectingActionDelegate?.collectionDBInsertOrDelete(model: model, collectingAction: .cancelCollet, mediaType: .movie)
                 sender.setTitle("收藏", for: .normal)
                 collectionButtonWidthConstraint.constant = 50
-                updateCellWhenRemoveFromCollectionView?(sender)
+                updateCellWhenRemoveFromCollectionView?(Int(truncating:  model.trackId ?? 0))
             }
         default:
             break
@@ -51,9 +51,11 @@ class MovieCell:UITableViewCell {
     }
     @IBAction func readMoreButtonAction(_ sender: UIButton) {
         if longDescriptionLabel.numberOfLines == 2 {
-            expandCell?(sender)
+            setExpandCell()
+            expandCell?(Int(truncating:  movieModel?.trackId ?? 0))
         } else {
-            narrowCell?(sender)
+            setNarrowCell()
+            narrowCell?(Int(truncating:  movieModel?.trackId ?? 0))
         }
     }
     func setCell(model: iTunesSearchAPIResponseResult){

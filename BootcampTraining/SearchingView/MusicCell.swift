@@ -20,7 +20,7 @@ class MusicCell:UITableViewCell {
     
     weak var musicModel:iTunesSearchAPIResponseResult?
     weak var collectingActionDelegate: CollectingActionDelegateInCell?
-    var updateCell: ((UIButton) -> Void)?
+    var updateCell: ((Int) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,11 +39,11 @@ class MusicCell:UITableViewCell {
                 collectingActionDelegate?.collectionDBInsertOrDelete(model: model, collectingAction: .cancelCollet, mediaType: .music)
                 sender.setTitle("收藏", for: .normal)
                 collectionButtonWidthConstraint.constant = 50
+                updateCell?(Int(truncating: model.trackId ?? 0))
             }
         default:
             break
         }
-        updateCell?(sender)
     }
     func setCell(model: iTunesSearchAPIResponseResult){
         musicModel = model
