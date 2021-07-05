@@ -57,6 +57,11 @@ extension TopicViewController:UITableViewDataSource {
 }
 extension TopicViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.getSelectedTopic().rawValue {
+            return
+        }
+        let deselectedCell = tableView.cellForRow(at: IndexPath(row: viewModel.getSelectedTopic().rawValue, section: 0))
+        deselectedCell?.accessoryType = .none
         switch indexPath.row {
         case 0:
             viewModel.setSelectedTopic(topicType: .deepColor)
@@ -65,7 +70,8 @@ extension TopicViewController:UITableViewDelegate {
         default:
             break
         }
-        tableView.reloadData()
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        selectedCell?.accessoryType = .checkmark
         if let tabBar = tabBarController as? MainTabBarViewController {
             TopicInteractor.readTopicListFile()
             tabBar.setTopicColor()
