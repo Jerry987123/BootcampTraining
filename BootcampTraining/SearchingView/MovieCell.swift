@@ -91,6 +91,9 @@ class MovieCell:UITableViewCell {
         }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
+        if time == 0 {
+            return ""
+        }
         let hour = time/1000/3600
         let minMinusHour = time/1000%3600
         let min = minMinusHour/60

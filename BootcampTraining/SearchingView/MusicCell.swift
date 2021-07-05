@@ -62,6 +62,9 @@ class MusicCell:UITableViewCell {
         }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
+        if time == 0 {
+            return ""
+        }
         let min = time/1000/60
         let sec = time/1000%60
         return "\(min):\(Tools().make0To00(number: sec))"
