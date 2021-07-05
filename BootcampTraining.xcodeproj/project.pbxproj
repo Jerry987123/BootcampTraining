@@ -24,7 +24,6 @@
 		A126107926807D7F008BF566 /* SearchingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107726807D7F008BF566 /* SearchingView.storyboard */; };
 		A126107B26807D89008BF566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A126107A26807D89008BF566 /* Assets.xcassets */; };
 		A126107E26807D89008BF566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A126107C26807D89008BF566 /* LaunchScreen.storyboard */; };
-		A126108926807D8A008BF566 /* BootcampTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A126108826807D8A008BF566 /* BootcampTrainingTests.swift */; };
 		A1D1324F2682D18B004D34E5 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */; };
 		A1D1325B268307D5004D34E5 /* iTunesSearchAPIObj.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1325A268307D5004D34E5 /* iTunesSearchAPIObj.m */; };
 		A1D1326226831C47004D34E5 /* iTunesSearchAPIResponseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D1326126831C47004D34E5 /* iTunesSearchAPIResponseResult.m */; };
@@ -87,7 +86,6 @@
 		A126107D26807D89008BF566 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A126107F26807D89008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A126108426807D8A008BF566 /* BootcampTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootcampTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A126108826807D8A008BF566 /* BootcampTrainingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootcampTrainingTests.swift; sourceTree = "<group>"; };
 		A126108A26807D8A008BF566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1D1324E2682D18B004D34E5 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
 		A1D13255268305F1004D34E5 /* BootcampTraining-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BootcampTraining-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 		A126108726807D8A008BF566 /* BootcampTrainingTests */ = {
 			isa = PBXGroup;
 			children = (
-				A126108826807D8A008BF566 /* BootcampTrainingTests.swift */,
 				E5D92D472689CECE006A358B /* DBDaoTest.swift */,
 				A126108A26807D8A008BF566 /* Info.plist */,
 			);
@@ -555,7 +552,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5517D6926921576003E974F /* DBDaoTest.swift in Sources */,
-				A126108926807D8A008BF566 /* BootcampTrainingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

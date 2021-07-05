@@ -5,15 +5,19 @@
 //  Created by Jayyi on 2021/6/28.
 //
 
+import XCTest
 @testable import BootcampTraining
 
-class DBDaoTest {
-    func test(){
-        insert()
-        query()
-        delete()
+class DBDaoTest:XCTestCase {
+    override func setUpWithError() throws {
+        print("--------------------")
     }
-    private func insert(){
+
+    override func tearDownWithError() throws {
+        print("--------------------")
+    }
+
+    func testDBInsert(){
         let model = iTunesSearchAPIResponseResult()
         model.trackName = "trackName"
         model.artistName = "artName"
@@ -26,36 +30,35 @@ class DBDaoTest {
         let result = DBDao.shared.insertData(mediaType: .music, model: model)
         switch result {
         case .success(_):
-            assert(true, "success")
+            XCTAssert(true, "success")
         case .failure(let error):
-            assert(false, error.localizedDescription)
+            XCTAssert(false, error.localizedDescription)
         }
     }
-    private func query(){
+    func testDBQuery(){
         let condition = "trackId = 1"
         let result = DBDao.shared.queryData(condition: condition)
         switch result {
         case .success(let data):
-            print(data)
             if data.count == 1 {
-                assert(true)
+                XCTAssert(true)
             } else if data.count > 1 {
-                assert(false, "以唯一值做query，查出二筆以上資料")
+                XCTAssert(false, "以唯一值做query，查出二筆以上資料")
             } else {
-                assert(false, "query未找到資料")
+                XCTAssert(false, "query未找到資料")
             }
         case .failure(let error):
-            assert(false, error.localizedDescription)
+            XCTAssert(false, error.localizedDescription)
         }
     }
-    private func delete(){
+    func testDBDelete() throws {
         let trackId = 1
         let result = DBDao.shared.deleteData(trackId: trackId)
         switch result {
         case .success:
-            assert(true)
+            XCTAssert(true)
         case .failure(let error):
-            assert(false, "delete未成功, error=\(error.localizedDescription)")
+            XCTAssert(false, "delete未成功, error=\(error.localizedDescription)")
         }
     }
 }
