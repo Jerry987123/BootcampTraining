@@ -12,8 +12,8 @@ enum CollectingActionIndex {
     case cancelCollet
 }
 class CollectionViewModel {
-    var movieDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
-    var musicDatas = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
+    var movieData = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
+    var musicData = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     var movicExpandCellIndex:[Int] = []
     
     func loadCollectionFromDB(mediaType:SearchingMediaType){
@@ -21,16 +21,16 @@ class CollectionViewModel {
         case .movie:
             let result = DBDao.shared.queryData(condition: "mediaType = 'movie'")
             switch result {
-            case .success(let datas):
-                movieDatas.accept(datas)
+            case .success(let data):
+                movieData.accept(data)
             case .failure(let error):
                 print("db query error=\(error.localizedDescription)")
             }
         case .music:
             let result = DBDao.shared.queryData(condition: "mediaType = 'music'")
             switch result {
-            case .success(let datas):
-                musicDatas.accept(datas)
+            case .success(let data):
+                musicData.accept(data)
             case .failure(let error):
                 print("db query error=\(error.localizedDescription)")
             }

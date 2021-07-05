@@ -35,11 +35,11 @@ class DBDaoTest {
         let condition = "trackId = 1"
         let result = DBDao.shared.queryData(condition: condition)
         switch result {
-        case .success(let datas):
-            print(datas)
-            if datas.count == 1 {
+        case .success(let data):
+            print(data)
+            if data.count == 1 {
                 assert(true)
-            } else if datas.count > 1 {
+            } else if data.count > 1 {
                 assert(false, "以唯一值做query，查出二筆以上資料")
             } else {
                 assert(false, "query未找到資料")

@@ -11,8 +11,7 @@ enum TopicType:Int {
 }
 
 class TopicViewModel {
-    var datas = ["深色主題", "淺色主題"]
-    
+    let themes = ["深色主題", "淺色主題"]
     let TOPIC_KEY = "TOPIC_KEY"
     
     func getSelectedTopic() -> TopicType {

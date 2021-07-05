@@ -13,8 +13,8 @@ class SearchingViewController: UIViewController {
     lazy var tableView = UITableView()
     var _searchController:UISearchController?
     var _loadingIndicator:UIActivityIndicatorView?
-    var movieDatas = [iTunesSearchAPIResponseResult]()
-    var musicDatas = [iTunesSearchAPIResponseResult]()
+    var movieData = [iTunesSearchAPIResponseResult]()
+    var musicData = [iTunesSearchAPIResponseResult]()
     
     let viewModel = SearchingViewModel()
     let collectionViewModel = CollectionViewModel()
@@ -28,9 +28,9 @@ class SearchingViewController: UIViewController {
         viewModel.movieObservable.subscribe { [weak self] event in
             if let result = event.element {
                 switch result {
-                case .success(let datas):
-                    if let datas = datas as? [iTunesSearchAPIResponseResult] {
-                        self?.movieDatas = datas
+                case .success(let data):
+                    if let data = data as? [iTunesSearchAPIResponseResult] {
+                        self?.movieData = data
                     }
                 case .failure(let error):
                     self?.alertWhenError(msg: error.localizedDescription)
@@ -40,9 +40,9 @@ class SearchingViewController: UIViewController {
         viewModel.musicObservable.subscribe { [weak self] event in
             if let result = event.element {
                 switch result {
-                case .success(let datas):
-                    if let datas = datas as? [iTunesSearchAPIResponseResult] {
-                        self?.musicDatas = datas
+                case .success(let data):
+                    if let data = data as? [iTunesSearchAPIResponseResult] {
+                        self?.musicData = data
                     }
                 case .failure(let error):
                     self?.alertWhenError(msg: error.localizedDescription)

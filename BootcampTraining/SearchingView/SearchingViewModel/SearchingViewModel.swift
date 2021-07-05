@@ -12,6 +12,8 @@ class SearchingViewModel {
     var musicObservable = BehaviorSubject(value: Result<Any, Error>(catching: {}))
     var movicExpandCellIndex:[Int] = []
     
+    let searchingType = ["電影", "音樂"]
+    
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
         movicExpandCellIndex = []
         guard let urlEncodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
@@ -49,14 +51,14 @@ class SearchingViewModel {
         }
     }
     private func updatedByAPI(term:String, mediaType:SearchingMediaType, APIDone:@escaping ()->Void){
-        iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { [weak self] datas in
+        iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { [weak self] data in
             APIDone()
-            if let datas = datas {
+            if let data = data {
                 switch mediaType {
                 case .movie:
-                    self?.movieObservable.onNext(.success(datas))
+                    self?.movieObservable.onNext(.success(data))
                 case .music:
-                    self?.musicObservable.onNext(.success(datas))
+                    self?.musicObservable.onNext(.success(data))
                 }
             }
         } errorHandler: { [weak self] error in

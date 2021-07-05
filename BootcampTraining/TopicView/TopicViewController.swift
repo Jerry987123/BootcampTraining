@@ -38,11 +38,11 @@ class TopicViewController: UIViewController {
 }
 extension TopicViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.themes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("TopicCell", owner: self, options: nil)?.first as! TopicCell
-        cell.titleLabel.text = viewModel.datas[indexPath.row]
+        cell.titleLabel.text = viewModel.themes[indexPath.row]
         if viewModel.getSelectedTopic().rawValue == indexPath.row {
             cell.accessoryType = .checkmark
         }

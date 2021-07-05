@@ -23,9 +23,9 @@ extension CollectionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch switchButtonView.selectedSegmentIndex {
         case 0:
-            return movieTableDatas.count
+            return movieTableData.count
         case 1:
-            return musicTableDatas.count
+            return musicTableData.count
         default:
             return 0
         }
@@ -35,7 +35,7 @@ extension CollectionViewController:UITableViewDataSource {
         switch switchButtonView.selectedSegmentIndex {
         case 0:
             let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
-            cell.setCell(model: movieTableDatas[indexPath.row])
+            cell.setCell(model: movieTableData[indexPath.row])
             cell.expandCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MovieCell else {
                     return print("cell error")
@@ -43,7 +43,7 @@ extension CollectionViewController:UITableViewDataSource {
                 guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self?.viewModel.appendExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
+                self?.viewModel.appendExpandCellIndex(index: Int(truncating: self?.movieTableData[cellIndexPath.row].trackId ?? 0))
                 self?.tableView.beginUpdates()
                 cell.setExpandCell()
                 self?.tableView.endUpdates()
@@ -55,7 +55,7 @@ extension CollectionViewController:UITableViewDataSource {
                 guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self?.viewModel.removeExpandCellIndex(index: Int(truncating: self?.movieTableDatas[cellIndexPath.row].trackId ?? 0))
+                self?.viewModel.removeExpandCellIndex(index: Int(truncating: self?.movieTableData[cellIndexPath.row].trackId ?? 0))
                 self?.tableView.beginUpdates()
                 cell.setNarrowCell()
                 self?.tableView.endUpdates()
@@ -67,11 +67,11 @@ extension CollectionViewController:UITableViewDataSource {
                 guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self?.movieTableDatas.remove(at: cellIndexPath.row)
+                self?.movieTableData.remove(at: cellIndexPath.row)
                 self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
             }
             cell.collectingActionDelegate = self
-            if viewModel.movicExpandCellIndex.contains(Int(truncating: movieTableDatas[indexPath.row].trackId ?? 0)){
+            if viewModel.movicExpandCellIndex.contains(Int(truncating: movieTableData[indexPath.row].trackId ?? 0)){
                 cell.setExpandCell()
             } else {
                 cell.setNarrowCell()
@@ -79,7 +79,7 @@ extension CollectionViewController:UITableViewDataSource {
             return cell
         case 1:
             let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
-            cell.setCell(model: musicTableDatas[indexPath.row])
+            cell.setCell(model: musicTableData[indexPath.row])
             cell.updateCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MusicCell else {
                     return print("cell error")
@@ -87,7 +87,7 @@ extension CollectionViewController:UITableViewDataSource {
                 guard let cellIndexPath = self?.tableView.indexPath(for: cell) else {
                     return print("cellIndexPath error")
                 }
-                self?.musicTableDatas.remove(at: cellIndexPath.row)
+                self?.musicTableData.remove(at: cellIndexPath.row)
                 self?.tableView.beginUpdates()
                 self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
                 self?.tableView.endUpdates()
@@ -104,9 +104,9 @@ extension CollectionViewController: UITableViewDelegate {
         var trackViewUrl = ""
         switch switchButtonView.selectedSegmentIndex {
         case 0:
-            trackViewUrl = movieTableDatas[indexPath.row].trackViewUrl
+            trackViewUrl = movieTableData[indexPath.row].trackViewUrl
         case 1:
-            trackViewUrl = musicTableDatas[indexPath.row].trackViewUrl
+            trackViewUrl = musicTableData[indexPath.row].trackViewUrl
         default:
             return
         }

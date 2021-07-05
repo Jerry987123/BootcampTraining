@@ -45,9 +45,9 @@ class PersonalViewController:UIViewController {
         let topicType = viewModel.getSelectedTopic()
         switch topicType {
         case .deepColor:
-            topicLabel.text = viewModel.datas[0]
+            topicLabel.text = viewModel.themes[0]
         case .lightColor:
-            topicLabel.text = viewModel.datas[1]
+            topicLabel.text = viewModel.themes[1]
         }
     }
     private func setCollectionCount() {

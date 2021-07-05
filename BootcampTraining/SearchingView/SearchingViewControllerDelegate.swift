@@ -20,15 +20,15 @@ extension SearchingViewController: CollectingActionDelegateInCell {
 }
 extension SearchingViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return viewModel.searchingType.count
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var result = ""
         switch section {
         case 0:
-            result = "電影"
+            result = viewModel.searchingType[0]
         case 1:
-            result = "音樂"
+            result = viewModel.searchingType[1]
         default:
             result = "其它"
         }
@@ -37,9 +37,9 @@ extension SearchingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return movieDatas.count
+            return movieData.count
         case 1:
-            return musicDatas.count
+            return musicData.count
         default:
             return 0
         }
@@ -48,7 +48,7 @@ extension SearchingViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-            cell.setCell(model: movieDatas[indexPath.row])
+            cell.setCell(model: movieData[indexPath.row])
             cell.expandCell = { [weak self] sender in
                 self?.viewModel.appendExpandCellIndex(index: indexPath.row)
                 self?.tableView.beginUpdates()
@@ -70,7 +70,7 @@ extension SearchingViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
-            cell.setCell(model: musicDatas[indexPath.row])
+            cell.setCell(model: musicData[indexPath.row])
             cell.collectingActionDelegate = self
             return cell
         default:
@@ -83,9 +83,9 @@ extension SearchingViewController: UITableViewDelegate {
         var trackViewUrl = ""
         switch indexPath.section {
         case 0:
-            trackViewUrl = movieDatas[indexPath.row].trackViewUrl
+            trackViewUrl = movieData[indexPath.row].trackViewUrl
         case 1:
-            trackViewUrl = musicDatas[indexPath.row].trackViewUrl
+            trackViewUrl = musicData[indexPath.row].trackViewUrl
         default:
             return
         }
