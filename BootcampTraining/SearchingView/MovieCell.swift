@@ -68,10 +68,6 @@ class MovieCell:UITableViewCell {
         } else {
             photoImageView.image = UIImage.init(systemName: "tv")
         }
-        if let trackId = model.trackId {
-            let alreadyAdded = CollectionInteractor().alreadyAdded(trackId: Int(truncating: trackId))
-            adjustCollectionButtonName(alreadyAdded: alreadyAdded)
-        }
     }
     func setExpandCell(){
         longDescriptionLabel.numberOfLines = 0
@@ -81,7 +77,7 @@ class MovieCell:UITableViewCell {
         longDescriptionLabel.numberOfLines = 2
         readMoreButtonLabel.setTitle("...read more", for: .normal)
     }
-    private func adjustCollectionButtonName(alreadyAdded:Bool){
+    func adjustCollectionButtonName(alreadyAdded:Bool){
         if alreadyAdded {
             collectionButtonLabel.setTitle("取消收藏", for: .normal)
             collectionButtonWidthConstraint.constant = 80

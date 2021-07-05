@@ -12,6 +12,7 @@ class SearchingViewModel {
     var musicObservable = BehaviorSubject(value: Result<Any, Error>(catching: {}))
     var movicExpandCellIndex:[Int] = []
     
+    let collectionInteractor = CollectionInteractor()
     let searchingType = ["電影", "音樂"]
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
@@ -49,6 +50,9 @@ class SearchingViewModel {
         if let expandCellIndexInRecord = movicExpandCellIndex.firstIndex(of: index){
             movicExpandCellIndex.remove(at: expandCellIndexInRecord)
         }
+    }
+    func alreadyAddedInDB(trackId:Int) -> Bool {
+        return collectionInteractor.alreadyAdded(trackId: trackId)
     }
     private func updatedByAPI(term:String, mediaType:SearchingMediaType, APIDone:@escaping ()->Void){
         iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { [weak self] data in

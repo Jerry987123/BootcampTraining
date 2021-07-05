@@ -61,6 +61,12 @@ extension SearchingViewController: UITableViewDataSource {
                 cell.setNarrowCell()
                 self?.tableView.endUpdates()
             }
+            if let trackId = movieData[indexPath.row].trackId {
+                let alreadyAdded = viewModel.alreadyAddedInDB(trackId: Int(truncating: trackId))
+                cell.adjustCollectionButtonName(alreadyAdded: alreadyAdded)
+            } else {
+                cell.adjustCollectionButtonName(alreadyAdded: false)
+            }
             cell.collectingActionDelegate = self
             if viewModel.movicExpandCellIndex.contains(indexPath.row){
                 cell.setExpandCell()
@@ -71,6 +77,12 @@ extension SearchingViewController: UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
             cell.setCell(model: musicData[indexPath.row])
+            if let trackId = musicData[indexPath.row].trackId {
+                let alreadyAdded = viewModel.alreadyAddedInDB(trackId: Int(truncating: trackId))
+                cell.adjustCollectionButtonName(alreadyAdded: alreadyAdded)
+            } else {
+                cell.adjustCollectionButtonName(alreadyAdded: false)
+            }
             cell.collectingActionDelegate = self
             return cell
         default:

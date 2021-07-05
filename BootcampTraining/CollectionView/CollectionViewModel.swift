@@ -16,6 +16,8 @@ class CollectionViewModel {
     var musicData = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
     var movicExpandCellIndex:[Int] = []
     
+    let collectionInteractor = CollectionInteractor()
+    
     func loadCollectionFromDB(mediaType:SearchingMediaType){
         switch mediaType {
         case .movie:
@@ -55,5 +57,8 @@ class CollectionViewModel {
             result = DBDao.shared.deleteData(trackId: Int(truncating: model.trackId))
         }
         return result
+    }
+    func alreadyAddedInDB(trackId:Int) -> Bool {
+        return collectionInteractor.alreadyAdded(trackId: trackId)
     }
 }

@@ -70,6 +70,12 @@ extension CollectionViewController:UITableViewDataSource {
                 self?.movieTableData.remove(at: cellIndexPath.row)
                 self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
             }
+            if let trackId = movieTableData[indexPath.row].trackId {
+                let alreadyAdded = viewModel.alreadyAddedInDB(trackId: Int(truncating: trackId))
+                cell.adjustCollectionButtonName(alreadyAdded: alreadyAdded)
+            } else {
+                cell.adjustCollectionButtonName(alreadyAdded: false)
+            }
             cell.collectingActionDelegate = self
             if viewModel.movicExpandCellIndex.contains(Int(truncating: movieTableData[indexPath.row].trackId ?? 0)){
                 cell.setExpandCell()
@@ -91,6 +97,12 @@ extension CollectionViewController:UITableViewDataSource {
                 self?.tableView.beginUpdates()
                 self?.tableView.deleteRows(at: [cellIndexPath], with: .automatic)
                 self?.tableView.endUpdates()
+            }
+            if let trackId = musicTableData[indexPath.row].trackId {
+                let alreadyAdded = viewModel.alreadyAddedInDB(trackId: Int(truncating: trackId))
+                cell.adjustCollectionButtonName(alreadyAdded: alreadyAdded)
+            } else {
+                cell.adjustCollectionButtonName(alreadyAdded: false)
             }
             cell.collectingActionDelegate = self
             return cell

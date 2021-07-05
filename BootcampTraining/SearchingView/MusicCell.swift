@@ -56,9 +56,14 @@ class MusicCell:UITableViewCell {
         } else {
             photoImageView.image = UIImage.init(systemName: "music.note")
         }
-        if let trackId = model.trackId {
-            let alreadyAdded = CollectionInteractor().alreadyAdded(trackId: Int(truncating: trackId))
-            adjustCollectionButtonName(alreadyAdded: alreadyAdded)
+    }
+    func adjustCollectionButtonName(alreadyAdded:Bool){
+        if alreadyAdded {
+            collectionButtonLabel.setTitle("取消收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 80
+        } else {
+            collectionButtonLabel.setTitle("收藏", for: .normal)
+            collectionButtonWidthConstraint.constant = 50
         }
     }
     private func timeFromMillisToHMMSS(time:Int) -> String {
@@ -68,14 +73,5 @@ class MusicCell:UITableViewCell {
         let min = time/1000/60
         let sec = time/1000%60
         return "\(min):\(Tools().make0To00(number: sec))"
-    }
-    private func adjustCollectionButtonName(alreadyAdded:Bool){
-        if alreadyAdded {
-            collectionButtonLabel.setTitle("取消收藏", for: .normal)
-            collectionButtonWidthConstraint.constant = 80
-        } else {
-            collectionButtonLabel.setTitle("收藏", for: .normal)
-            collectionButtonWidthConstraint.constant = 50
-        }
     }
 }
