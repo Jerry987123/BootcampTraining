@@ -55,10 +55,18 @@ class PersonalViewController:UIViewController {
         var count = "-"
         switch result {
         case .success(let data):
-            count = Tools().numberCurrency(count: data)
+            count = numberCurrency(count: data)
         case .failure(let error):
             print("db query count error=\(error)")
         }
         collectionNumberLabel.text = "共有 \(count) 項收藏"
+    }
+    private func numberCurrency(count:Int) -> String {
+        let number = NSNumber(value: count)
+        let nf = NumberFormatter()
+        nf.numberStyle = .currency
+        nf.currencySymbol = ""
+        nf.maximumFractionDigits = 0
+        return nf.string(from: number) ?? String(describing: count)
     }
 }
