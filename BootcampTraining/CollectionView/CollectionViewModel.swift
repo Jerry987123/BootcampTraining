@@ -12,8 +12,8 @@ enum CollectingActionIndex {
     case cancelCollet
 }
 class CollectionViewModel {
-    var movieData = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
-    var musicData = BehaviorRelay(value: [iTunesSearchAPIResponseResult]())
+    var movieData = PublishRelay<[iTunesSearchAPIResponseResult]>()
+    var musicData = PublishRelay<[iTunesSearchAPIResponseResult]>()
     var movicExpandCellIndex:[Int] = []
     
     let collectionInteractor = CollectionInteractor()

@@ -8,8 +8,8 @@
 import RxSwift
 
 class SearchingViewModel {
-    var movieObservable = BehaviorSubject(value: Result<Any, Error>(catching: {}))
-    var musicObservable = BehaviorSubject(value: Result<Any, Error>(catching: {}))
+    var movieObservable = PublishSubject<Result<Any, Error>>()
+    var musicObservable = PublishSubject<Result<Any, Error>>()
     var movicExpandCellIndex:[Int] = []
     
     let collectionInteractor = CollectionInteractor()
