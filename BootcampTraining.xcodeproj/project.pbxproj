@@ -45,6 +45,7 @@
 		E571A9EF268C0A220082A000 /* CollectionViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E571A9EE268C0A210082A000 /* CollectionViewControllerDelegate.swift */; };
 		E58DEBB52684D681002C1CEE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58DEBB42684D681002C1CEE /* CollectionViewController.swift */; };
 		E58DEBB72684D6AF002C1CEE /* CollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */; };
+		E5A155EF269366BE001AAD98 /* APITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A155EE269366BE001AAD98 /* APITest.swift */; };
 		E5CE32F8268EF0B800073045 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CE32F7268EF0B800073045 /* CustomError.swift */; };
 		E5D92D442689636F006A358B /* CollectionDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D432689636F006A358B /* CollectionDBModel.swift */; };
 		E5D92D4626896819006A358B /* DBDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D92D4526896819006A358B /* DBDao.swift */; };
@@ -113,6 +114,7 @@
 		E571A9EE268C0A210082A000 /* CollectionViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E58DEBB42684D681002C1CEE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		E58DEBB62684D6AF002C1CEE /* CollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectionView.storyboard; sourceTree = "<group>"; };
+		E5A155EE269366BE001AAD98 /* APITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITest.swift; sourceTree = "<group>"; };
 		E5CE32F7268EF0B800073045 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		E5D92D432689636F006A358B /* CollectionDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDBModel.swift; sourceTree = "<group>"; };
 		E5D92D4526896819006A358B /* DBDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDao.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D92D472689CECE006A358B /* DBDaoTest.swift */,
+				E5A155EE269366BE001AAD98 /* APITest.swift */,
 				A126108A26807D8A008BF566 /* Info.plist */,
 			);
 			path = BootcampTrainingTests;
@@ -551,6 +554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A155EF269366BE001AAD98 /* APITest.swift in Sources */,
 				E5517D6926921576003E974F /* DBDaoTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
