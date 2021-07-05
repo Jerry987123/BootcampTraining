@@ -18,12 +18,15 @@ class TopicViewController: UIViewController {
         setUI()
         setTableView()
     }
-    func setUI(){
+    private func setUI(){
         title = "主題顏色"
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = .black
+        setTopicColor()
+    }
+    private func setTopicColor(){
+        navigationController?.navigationBar.backgroundColor = TopicInteractor.topicColor.tabbar
     }
     private func setTableView(){
         tableView.delegate = self
@@ -65,8 +68,8 @@ extension TopicViewController:UITableViewDelegate {
         tableView.reloadData()
         if let tabBar = tabBarController as? MainTabBarViewController {
             TopicInteractor.readTopicListFile()
-            tabBar.tabbarTopicColorSet()
+            tabBar.setTopicColor()
         }
-        setUI()
+        setTopicColor()
     }
 }

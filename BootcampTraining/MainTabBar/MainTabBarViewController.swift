@@ -12,7 +12,7 @@ class MainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         setUI()
     }
-    func tabbarTopicColorSet(){
+    func setTopicColor(){
         tabBar.backgroundColor = TopicInteractor.topicColor.tabbar
     }
     private func setUI(){
@@ -31,7 +31,7 @@ class MainTabBarViewController: UITabBarController {
         let singleTabSize = CGSize(width:singleTabWidth , height: tabBar.frame.size.height)
         let selectedTabBackgroundImage = imageWithColor(color: .white, size: singleTabSize)
         tabBar.selectionIndicatorImage = selectedTabBackgroundImage.resizableImage(withCapInsets: UIEdgeInsets(top: .leastNonzeroMagnitude, left: 0, bottom: 0, right: 0))
-        tabbarTopicColorSet()
+        setTopicColor()
     }
     private func imageWithColor(color: UIColor, size: CGSize) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
