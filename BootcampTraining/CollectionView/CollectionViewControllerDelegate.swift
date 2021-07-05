@@ -34,7 +34,7 @@ extension CollectionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch switchButtonView.selectedSegmentIndex {
         case 0:
-            let cell = Bundle.main.loadNibNamed("MovieCell", owner: self, options: nil)?.first as! MovieCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
             cell.setCell(model: movieTableData[indexPath.row])
             cell.expandCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MovieCell else {
@@ -78,7 +78,7 @@ extension CollectionViewController:UITableViewDataSource {
             }
             return cell
         case 1:
-            let cell = Bundle.main.loadNibNamed("MusicCell", owner: self, options: nil)?.first as! MusicCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
             cell.setCell(model: musicTableData[indexPath.row])
             cell.updateCell = { [weak self] sender in
                 guard let cell = sender.superview?.superview as? MusicCell else {

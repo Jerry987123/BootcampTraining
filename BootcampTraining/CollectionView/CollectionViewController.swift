@@ -66,6 +66,8 @@ class CollectionViewController: UIViewController {
     private func setTableView(){
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: switchButtonView.bottomAnchor).isActive = true
