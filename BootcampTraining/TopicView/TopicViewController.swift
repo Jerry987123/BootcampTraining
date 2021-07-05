@@ -28,6 +28,7 @@ class TopicViewController: UIViewController {
     private func setTableView(){
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "TopicCell", bundle: nil), forCellReuseIdentifier: "TopicCell")
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -41,10 +42,12 @@ extension TopicViewController:UITableViewDataSource {
         return viewModel.themes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("TopicCell", owner: self, options: nil)?.first as! TopicCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TopicCell", for: indexPath) as! TopicCell
         cell.titleLabel.text = viewModel.themes[indexPath.row]
         if viewModel.getSelectedTopic().rawValue == indexPath.row {
             cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
         }
         return cell
     }
