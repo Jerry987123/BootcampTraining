@@ -10,7 +10,7 @@ import WebKit
 
 class AboutiTunesViewController: UIViewController {
     
-    var _webView:WKWebView?
+    lazy var webView:WKWebView = WKWebView()
     
     let urlString = "https://support.apple.com/itunes"
     
@@ -20,12 +20,6 @@ class AboutiTunesViewController: UIViewController {
         loadWebView()
     }
     private func setWebView(){
-        if _webView == nil {
-            _webView = WKWebView()
-        }
-        guard let webView = _webView else {
-            return print("webview failed to init")
-        }
         view.addSubview(webView)
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -34,9 +28,6 @@ class AboutiTunesViewController: UIViewController {
         webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     private func loadWebView(){
-        guard let webView = _webView else {
-            return print("webview failed to init")
-        }
         if let url = URL(string: urlString){
             let urlRequest = URLRequest(url: url)
             webView.load(urlRequest)
