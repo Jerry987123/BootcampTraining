@@ -69,7 +69,7 @@ extension CollectionViewController:UITableViewDataSource {
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
             cell.setCell(model: musicTableData[indexPath.row])
-            cell.updateCell = { [weak self] trackId in
+            cell.updateCellWhenRemoveFromCollectionView = { [weak self] trackId in
                 guard let cellIndex = self?.viewModel.getTableDataIndex(trackId: trackId, data: self?.musicTableData ?? []) else {
                     return print("failed to get cellIndex")
                 }

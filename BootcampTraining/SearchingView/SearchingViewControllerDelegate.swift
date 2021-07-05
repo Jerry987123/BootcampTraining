@@ -52,13 +52,11 @@ extension SearchingViewController: UITableViewDataSource {
             cell.expandCell = { [weak self] _ in
                 self?.viewModel.appendExpandCellIndex(index: indexPath.row)
                 self?.tableView.beginUpdates()
-                cell.setExpandCell()
                 self?.tableView.endUpdates()
             }
             cell.narrowCell = { [weak self] _ in
                 self?.viewModel.removeExpandCellIndex(index: indexPath.row)
                 self?.tableView.beginUpdates()
-                cell.setNarrowCell()
                 self?.tableView.endUpdates()
             }
             if let trackId = movieData[indexPath.row].trackId {

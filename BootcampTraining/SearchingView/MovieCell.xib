@@ -116,7 +116,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="tv" catalog="system" width="32" height="32"/>
+        <image name="tv" catalog="system" width="128" height="97"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
