@@ -88,5 +88,4 @@ class MovieCell:UITableViewCell {
             collectionButtonWidthConstraint.constant = 50
         }
     }
-   }
 }
