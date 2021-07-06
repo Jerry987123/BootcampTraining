@@ -50,7 +50,7 @@ class MusicCell:UITableViewCell {
         trackNameLabel.text = model.trackName
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
-        musicTimeLabel.text = timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
+        musicTimeLabel.text = Tools().timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
         if let artworkUrl100 = model.artworkUrl100, let url = URL(string: artworkUrl100), UIApplication.shared.canOpenURL(url) {
             photoImageView.sd_setImage(with: url, placeholderImage:UIImage.init(systemName: "music.note"))
         } else {
@@ -65,13 +65,5 @@ class MusicCell:UITableViewCell {
             collectionButtonLabel.setTitle("收藏", for: .normal)
             collectionButtonWidthConstraint.constant = 50
         }
-    }
-    private func timeFromMillisToHMMSS(time:Int) -> String {
-        if time == 0 {
-            return ""
-        }
-        let min = time/1000/60
-        let sec = time/1000%60
-        return "\(min):\(Tools().make0To00(number: sec))"
     }
 }

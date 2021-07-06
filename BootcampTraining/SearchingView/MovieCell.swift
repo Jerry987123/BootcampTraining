@@ -63,7 +63,7 @@ class MovieCell:UITableViewCell {
         trackNameLabel.text = model.trackName
         artiestNameLabel.text = model.artistName
         collectionNameLabel.text = model.collectionName
-        movieTimeLabel.text = timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
+        movieTimeLabel.text = Tools().timeFromMillisToHMMSS(time: Int(truncating: model.trackTimeMillis ?? 0))
         longDescriptionLabel.text = model.longDescription
         if let artworkUrl100 = model.artworkUrl100, let url = URL(string: artworkUrl100), UIApplication.shared.canOpenURL(url) {
             photoImageView.sd_setImage(with: url, placeholderImage:UIImage.init(systemName: "tv"))
@@ -88,15 +88,5 @@ class MovieCell:UITableViewCell {
             collectionButtonWidthConstraint.constant = 50
         }
     }
-    private func timeFromMillisToHMMSS(time:Int) -> String {
-        if time == 0 {
-            return ""
-        }
-        let hour = time/1000/3600
-        let minMinusHour = time/1000%3600
-        let min = minMinusHour/60
-        let sec = minMinusHour%60
-        let tools = Tools()
-        return "\(hour):\(tools.make0To00(number: min)):\(tools.make0To00(number: sec))"
-    }
+   }
 }
