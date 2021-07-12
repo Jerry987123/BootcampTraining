@@ -21,37 +21,36 @@ extension CollectionViewController: CollectingActionDelegateInCell {
 }
 extension CollectionViewController:UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch switchButtonView.selectedSegmentIndex {
-        case 0:
+        switch tableView {
+        case movieTableView:
             return movieTableData.count
-        case 1:
+        case musicTableView:
             return musicTableData.count
         default:
             return 0
         }
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch switchButtonView.selectedSegmentIndex {
-        case 0:
+        switch tableView {
+        case movieTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
             cell.setCell(model: movieTableData[indexPath.row])
             cell.expandCell = { [weak self] trackId in
                 self?.viewModel.appendExpandCellIndex(index: trackId)
-                self?.tableView.beginUpdates()
-                self?.tableView.endUpdates()
+                self?.movieTableView.beginUpdates()
+                self?.movieTableView.endUpdates()
             }
             cell.narrowCell = { [weak self] trackId in
                 self?.viewModel.removeExpandCellIndex(index: trackId)
-                self?.tableView.beginUpdates()
-                self?.tableView.endUpdates()
+                self?.movieTableView.beginUpdates()
+                self?.movieTableView.endUpdates()
             }
             cell.updateCellWhenRemoveFromCollectionView = { [weak self] trackId in
                 guard let cellIndex = self?.viewModel.getTableDataIndex(trackId: trackId, data: self?.movieTableData ?? []) else {
                     return print("failed to get cellIndex")
                 }
                 self?.movieTableData.remove(at: cellIndex)
-                self?.tableView.deleteRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
+                self?.movieTableView.deleteRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
             }
             if let trackId = movieTableData[indexPath.row].trackId {
                 let alreadyAdded = viewModel.alreadyAddedInDB(trackId: Int(truncating: trackId))
@@ -66,7 +65,7 @@ extension CollectionViewController:UITableViewDataSource {
                 cell.setNarrowCell()
             }
             return cell
-        case 1:
+        case musicTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
             cell.setCell(model: musicTableData[indexPath.row])
             cell.updateCellWhenRemoveFromCollectionView = { [weak self] trackId in
@@ -74,9 +73,9 @@ extension CollectionViewController:UITableViewDataSource {
                     return print("failed to get cellIndex")
                 }
                 self?.musicTableData.remove(at: cellIndex)
-                self?.tableView.beginUpdates()
-                self?.tableView.deleteRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
-                self?.tableView.endUpdates()
+                self?.musicTableView.beginUpdates()
+                self?.musicTableView.deleteRows(at: [IndexPath(row: cellIndex, section: 0)], with: .automatic)
+                self?.musicTableView.endUpdates()
             }
             if let trackId = musicTableData[indexPath.row].trackId {
                 let alreadyAdded = viewModel.alreadyAddedInDB(trackId: Int(truncating: trackId))
@@ -94,10 +93,10 @@ extension CollectionViewController:UITableViewDataSource {
 extension CollectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var trackViewUrl = ""
-        switch switchButtonView.selectedSegmentIndex {
-        case 0:
+        switch tableView {
+        case movieTableView:
             trackViewUrl = movieTableData[indexPath.row].trackViewUrl
-        case 1:
+        case musicTableView:
             trackViewUrl = musicTableData[indexPath.row].trackViewUrl
         default:
             return

@@ -12,7 +12,8 @@ class CollectionViewController: UIViewController {
     
     @IBOutlet weak var switchButtonView: UISegmentedControl!
     
-    lazy var tableView = UITableView()
+    lazy var movieTableView = UITableView()
+    lazy var musicTableView = UITableView()
     var movieTableData = [iTunesSearchAPIResponseResult]()
     var musicTableData = [iTunesSearchAPIResponseResult]()
     
@@ -24,17 +25,19 @@ class CollectionViewController: UIViewController {
         setUI()
         viewModel.movieData.asObservable().subscribe { [weak self] event in
             if let data = event.element {
-                // weak
                 self?.movieTableData = data
+                self?.movieTableView.reloadData()
             }
-            // weak
-            self?.tableView.reloadData()
+            self?.movieTableView.isHidden = false
+            self?.musicTableView.isHidden = true
         }.disposed(by: disposeBag)
         viewModel.musicData.asObservable().subscribe { [weak self] event in
             if let data = event.element {
                 self?.musicTableData = data
+                self?.musicTableView.reloadData()
             }
-            self?.tableView.reloadData()
+            self?.movieTableView.isHidden = true
+            self?.musicTableView.isHidden = false
         }.disposed(by: disposeBag)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -57,23 +60,35 @@ class CollectionViewController: UIViewController {
         default:
             break
         }
-        tableView.reloadData()
     }
     private func setUI(){
         title = "收藏項目"
         setTableView()
     }
     private func setTableView(){
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
-        tableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: switchButtonView.bottomAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        movieTableView.isHidden = false
+        movieTableView.dataSource = self
+        movieTableView.delegate = self
+        movieTableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        movieTableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
+        view.addSubview(movieTableView)
+        movieTableView.translatesAutoresizingMaskIntoConstraints = false
+        movieTableView.topAnchor.constraint(equalTo: switchButtonView.bottomAnchor).isActive = true
+        movieTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        movieTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        movieTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        musicTableView.isHidden = true
+        musicTableView.dataSource = self
+        musicTableView.delegate = self
+        musicTableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
+        musicTableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
+        view.addSubview(musicTableView)
+        musicTableView.translatesAutoresizingMaskIntoConstraints = false
+        musicTableView.topAnchor.constraint(equalTo: switchButtonView.bottomAnchor).isActive = true
+        musicTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        musicTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        musicTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     func alertWhenError(msg:String){
         let alert = UIAlertController(title: "系統異常", message: msg, preferredStyle: .alert)
