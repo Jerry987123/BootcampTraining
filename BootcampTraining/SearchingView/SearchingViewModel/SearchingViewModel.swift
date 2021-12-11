@@ -23,11 +23,15 @@ class SearchingViewModel {
             APIDone()
             return
         }
+        
         // RxSwift
         Single.zip(
             iTunesSearchAPI().callAPIRxSwift(term: urlEncodedTerm, mediaType: .movie),
             iTunesSearchAPI().callAPIRxSwift(term: urlEncodedTerm, mediaType: .music)
-        ).subscribe(onSuccess: { [weak self] (movies, musics) in
+        )
+        .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+        .observe(on: MainScheduler.instance)
+        .subscribe(onSuccess: { [weak self] (movies, musics) in
             self?.movieObservable.onNext(movies)
             self?.musicObservable.onNext(musics)
             APIDone()

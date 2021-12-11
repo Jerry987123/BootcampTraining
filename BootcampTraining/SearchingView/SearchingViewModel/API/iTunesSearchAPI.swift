@@ -15,10 +15,12 @@ class iTunesSearchAPI {
     func callAPI(term:String, mediaType:SearchingMediaType, callback:@escaping(_ results:[iTunesSearchAPIResponseResult]?)->(), errorHandler:@escaping(_ error:Error?)->()){
         let url = "https://itunes.apple.com/search?term=\(term)&media=\(mediaType.rawValue)&country=TW"
         iTunesSearchAPIObj().callITunesAPI(url) { results in
-            if let data = results?.results {
-                callback(data)
-            } else {
-                callback(nil)
+            DispatchQueue.global().async {
+                if let data = results?.results {
+                    callback(data)
+                } else {
+                    callback(nil)
+                }                
             }
         } errorHandler: { error in
             errorHandler(error)
