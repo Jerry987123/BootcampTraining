@@ -14,6 +14,7 @@ class SearchingViewModel {
     
     let collectionInteractor = CollectionInteractor()
     let searchingType = ["電影", "音樂"]
+    let disposeBag = DisposeBag()
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
         movicExpandCellIndex = []
@@ -22,24 +23,39 @@ class SearchingViewModel {
             APIDone()
             return
         }
-        let taskMovie = DispatchQueue(label: "taskMovie")
-        let taskMusic = DispatchQueue(label: "taskMusic")
-        let taskGroup = DispatchGroup()
-        taskGroup.enter()
-        taskMovie.async(group: taskGroup) { [weak self] in
-            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .movie) {
-                taskGroup.leave()
-            }
-        }
-        taskGroup.enter()
-        taskMusic.async(group: taskGroup) { [weak self] in
-            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .music) {
-                taskGroup.leave()
-            }
-        }
-        taskGroup.notify(queue: .main) {
+        // RxSwift
+        Single.zip(
+            iTunesSearchAPI().callAPIRxSwift(term: urlEncodedTerm, mediaType: .movie),
+            iTunesSearchAPI().callAPIRxSwift(term: urlEncodedTerm, mediaType: .music)
+        ).subscribe(onSuccess: { [weak self] (movies, musics) in
+            self?.movieObservable.onNext(movies)
+            self?.musicObservable.onNext(musics)
             APIDone()
-        }
+        }, onFailure: { error in
+            print(error)
+            APIDone()
+        })
+        .disposed(by: disposeBag)
+        
+        // taskGroup
+//        let taskMovie = DispatchQueue(label: "taskMovie")
+//        let taskMusic = DispatchQueue(label: "taskMusic")
+//        let taskGroup = DispatchGroup()
+//        taskGroup.enter()
+//        taskMovie.async(group: taskGroup) { [weak self] in
+//            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .movie) {
+//                taskGroup.leave()
+//            }
+//        }
+//        taskGroup.enter()
+//        taskMusic.async(group: taskGroup) { [weak self] in
+//            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .music) {
+//                taskGroup.leave()
+//            }
+//        }
+//        taskGroup.notify(queue: .main) {
+//            APIDone()
+//        }
     }
     func appendExpandCellIndex(index:Int){
         if !movicExpandCellIndex.contains(index){
@@ -54,27 +70,27 @@ class SearchingViewModel {
     func alreadyAddedInDB(trackId:Int) -> Bool {
         return collectionInteractor.alreadyAdded(trackId: trackId)
     }
-    private func updatedByAPI(term:String, mediaType:SearchingMediaType, APIDone:@escaping ()->Void){
-        iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { [weak self] data in
-            APIDone()
-            if let data = data {
-                switch mediaType {
-                case .movie:
-                    self?.movieObservable.onNext(.success(data))
-                case .music:
-                    self?.musicObservable.onNext(.success(data))
-                }
-            }
-        } errorHandler: { [weak self] error in
-            APIDone()
-            if let error = error {
-                switch mediaType {
-                case .movie:
-                    self?.movieObservable.onNext(.failure(error))
-                case .music:
-                    self?.musicObservable.onNext(.failure(error))
-                }
-            }
-        }
-    }
+//    private func updatedByAPI(term:String, mediaType:SearchingMediaType, APIDone:@escaping ()->Void){
+//        iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { [weak self] data in
+//            APIDone()
+//            if let data = data {
+//                switch mediaType {
+//                case .movie:
+//                    self?.movieObservable.onNext(.success(data))
+//                case .music:
+//                    self?.musicObservable.onNext(.success(data))
+//                }
+//            }
+//        } errorHandler: { [weak self] error in
+//            APIDone()
+//            if let error = error {
+//                switch mediaType {
+//                case .movie:
+//                    self?.movieObservable.onNext(.failure(error))
+//                case .music:
+//                    self?.musicObservable.onNext(.failure(error))
+//                }
+//            }
+//        }
+//    }
 }

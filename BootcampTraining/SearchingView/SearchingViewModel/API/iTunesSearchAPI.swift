@@ -5,8 +5,7 @@
 //  Created by ESB21852 on 2021/6/23.
 //
 
-//import AFNetworking
-//
+import RxSwift
 
 enum SearchingMediaType: String {
     case movie = "movie"
@@ -25,4 +24,20 @@ class iTunesSearchAPI {
             errorHandler(error)
         }
     }
+    
+    func callAPIRxSwift(term: String, mediaType: SearchingMediaType) -> Single<Result<Any, Error>> {
+        .create { (single) -> Disposable in
+            iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { data in
+                single(.success(.success(data ?? [])))
+            } errorHandler: { error in
+                single(.success(.failure(APIResponseError.unreachable)))
+            }
+            return Disposables.create()
+        }
+    }
+}
+
+enum APIResponseError: Error {
+    case JSONFormatUnexpectable
+    case unreachable
 }
