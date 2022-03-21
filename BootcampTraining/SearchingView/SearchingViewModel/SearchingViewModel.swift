@@ -20,7 +20,7 @@ class SearchingViewModel {
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
         movicExpandCellIndex = []
         guard let urlEncodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-            print("searchbarText failed to urlencode.") //
+            print("searchbarText failed to urlencode.")
             APIDone()
             return
         }
