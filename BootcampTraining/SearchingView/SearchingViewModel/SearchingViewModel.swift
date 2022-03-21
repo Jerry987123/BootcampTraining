@@ -25,36 +25,42 @@ class SearchingViewModel {
             return
         }
         
-//        Single.zip(
-//            self.updatedByAPIByZIP(term: urlEncodedTerm, mediaType: .movie),
-//            self.updatedByAPIByZIP(term: urlEncodedTerm, mediaType: .music)
-//        ).subscribe { (movie, music) in
-//            self.movieObservable.onNext(.success(movie))
-//            self.musicObservable.onNext(.success(music))
-//            APIDone()
-//        }.disposed(by: disposeBag)
-        
-        
-        let taskMovie = DispatchQueue(label: "taskMovie")
-        let taskMusic = DispatchQueue(label: "taskMusic")
-        let taskGroup = DispatchGroup()
-        taskGroup.enter()
-        taskMovie.async(group: taskGroup) { [weak self] in
-            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .movie) { model in
-                self?.movieObservable.onNext(model)
-                taskGroup.leave()
-            }
-        }
-        taskGroup.enter()
-        taskMusic.async(group: taskGroup) { [weak self] in
-            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .music) { model in
-                self?.musicObservable.onNext(model)
-                taskGroup.leave()
-            }
-        }
-        taskGroup.notify(queue: .main) {
+        // RxSwift
+        Single.zip(
+            iTunesSearchAPI().callAPIRxSwift(term: urlEncodedTerm, mediaType: .movie),
+            iTunesSearchAPI().callAPIRxSwift(term: urlEncodedTerm, mediaType: .music)
+        )
+        .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+        .observe(on: MainScheduler.instance)
+        .subscribe(onSuccess: { [weak self] (movies, musics) in
+            self?.movieObservable.onNext(movies)
+            self?.musicObservable.onNext(musics)
             APIDone()
-        }
+        }, onFailure: { error in
+            print(error)
+            APIDone()
+        })
+        .disposed(by: disposeBag)
+        
+        // taskGroup
+//        let taskMovie = DispatchQueue(label: "taskMovie")
+//        let taskMusic = DispatchQueue(label: "taskMusic")
+//        let taskGroup = DispatchGroup()
+//        taskGroup.enter()
+//        taskMovie.async(group: taskGroup) { [weak self] in
+//            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .movie) {
+//                taskGroup.leave()
+//            }
+//        }
+//        taskGroup.enter()
+//        taskMusic.async(group: taskGroup) { [weak self] in
+//            self?.updatedByAPI(term: urlEncodedTerm, mediaType: .music) {
+//                taskGroup.leave()
+//            }
+//        }
+//        taskGroup.notify(queue: .main) {
+//            APIDone()
+//        }
     }
     func appendExpandCellIndex(index:Int){
         if !movicExpandCellIndex.contains(index){
@@ -69,39 +75,29 @@ class SearchingViewModel {
     func alreadyAddedInDB(trackId:Int) -> Bool {
         return collectionInteractor.alreadyAdded(trackId: trackId)
     }
-    private func updatedByAPI(term:String, mediaType:SearchingMediaType, callback:@escaping (Result<Any, Error>)->Void){
-        iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { data in
-            if let data = data {
-                callback(.success(data))
-            } else {
-                callback(.failure(APIError.unknown))
-            }
-        } errorHandler: { error in
-            if let error = error {
-                callback(.failure(error))
-            } else {
-                callback(.failure(APIError.unknown))
-            }
-        }
-    }
-    private func updatedByAPIByZIP(term:String, mediaType:SearchingMediaType) -> Single<[iTunesSearchAPIResponseResult]> {
-        .create { (single) -> Disposable in
-            iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { data in
-                if let data = data {
-                    single(.success((data)))
-                } else {
-                    single(.failure(APIError.unknown))
-                }
-            } errorHandler: { error in
-                if let error = error {
-                    single(.failure(error))
-                } else {
-                    single(.failure(APIError.unknown))
-                }
-            }
-            return Disposables.create()
-        }
-    }
+//    private func updatedByAPI(term:String, mediaType:SearchingMediaType, APIDone:@escaping ()->Void){
+//        iTunesSearchAPI().callAPI(term: term, mediaType: mediaType) { [weak self] data in
+//            APIDone()
+//            if let data = data {
+//                switch mediaType {
+//                case .movie:
+//                    self?.movieObservable.onNext(.success(data))
+//                case .music:
+//                    self?.musicObservable.onNext(.success(data))
+//                }
+//            }
+//        } errorHandler: { [weak self] error in
+//            APIDone()
+//            if let error = error {
+//                switch mediaType {
+//                case .movie:
+//                    self?.movieObservable.onNext(.failure(error))
+//                case .music:
+//                    self?.musicObservable.onNext(.failure(error))
+//                }
+//            }
+//        }
+//    }
 }
 
 enum APIError: Error {
