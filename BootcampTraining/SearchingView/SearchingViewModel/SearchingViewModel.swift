@@ -14,7 +14,7 @@ class SearchingViewModel {
     var movicExpandCellIndex:[Int] = []
     
     let collectionInteractor = CollectionInteractor()
-    let searchingType = ["電影", "音樂"] //
+    let searchingType = ["電影", "音樂"]
     let disposeBag = DisposeBag()
     
     func updatedByAPI(term:String, APIDone:@escaping ()->Void){
